@@ -1,0 +1,137 @@
+\hypertarget{pacman_8c}{\section{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/pacman.c File Reference}
+\label{pacman_8c}\index{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/pacman.\-c@{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/pacman.\-c}}
+}
+
+
+this file is used to run all the seperate modules of this program and handle vi-\/command style  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}write\-\_\-file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}read\-\_\-file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}command.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constant.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{pacman_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}
+\item 
+char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user} \mbox{[}30\mbox{]} =\char`\"{}\char`\"{}
+\item 
+char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email} \mbox{[}50\mbox{]} =\char`\"{}\char`\"{}
+\item 
+char \hyperlink{pacman_8c_a71c433bd5b5e4c3497f13ea76ee800e9}{path} \mbox{[}100\mbox{]} = \char`\"{}\char`\"{}
+\item 
+int \hyperlink{pacman_8c_a16115f0b31db53bca020c0fe60b0633b}{is\-Enter} =0
+\item 
+char \hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author} \mbox{[}50\mbox{]} =\char`\"{}\char`\"{}
+\item 
+char \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\-\_\-name} \mbox{[}50\mbox{]} =\char`\"{}\char`\"{}
+\item 
+char \hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\-\_\-email} \mbox{[}50\mbox{]} =\char`\"{}\char`\"{}
+\item 
+int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row} =0
+\item 
+int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col} =0
+\item 
+int \hyperlink{pacman_8c_a37e6a2d9119b69f227693217a943388f}{scr\-\_\-x}
+\item 
+int \hyperlink{pacman_8c_a40a956d9f4e3727d27255d78068654ac}{scr\-\_\-y}
+\item 
+F\-I\-L\-E $\ast$ \hyperlink{pacman_8c_a3efb0e1a16208deecbd84c15401f7cf8}{f}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this file is used to run all the seperate modules of this program and handle vi-\/command style \begin{DoxyAuthor}{Author}
+Tran Nhat Quang \href{mailto:s3312399@rmit.edu.vn}{\tt s3312399@rmit.\-edu.\-vn} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{pacman_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{pacman.\-c@{pacman.\-c}!main@{main}}
+\index{main@{main}!pacman.c@{pacman.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{pacman_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\subsection{Variable Documentation}
+\hypertarget{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{\index{pacman.\-c@{pacman.\-c}!author@{author}}
+\index{author@{author}!pacman.c@{pacman.\-c}}
+\subsubsection[{author}]{\setlength{\rightskip}{0pt plus 5cm}char author\mbox{[}50\mbox{]} =\char`\"{}\char`\"{}}}\label{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}
+\hypertarget{pacman_8c_a396de8361779342a09b263537530b4c9}{\index{pacman.\-c@{pacman.\-c}!author\-\_\-email@{author\-\_\-email}}
+\index{author\-\_\-email@{author\-\_\-email}!pacman.c@{pacman.\-c}}
+\subsubsection[{author\-\_\-email}]{\setlength{\rightskip}{0pt plus 5cm}char author\-\_\-email\mbox{[}50\mbox{]} =\char`\"{}\char`\"{}}}\label{pacman_8c_a396de8361779342a09b263537530b4c9}
+\hypertarget{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{\index{pacman.\-c@{pacman.\-c}!command\-\_\-window@{command\-\_\-window}}
+\index{command\-\_\-window@{command\-\_\-window}!pacman.c@{pacman.\-c}}
+\subsubsection[{command\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W command\-\_\-window}}\label{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}
+\hypertarget{pacman_8c_a3efb0e1a16208deecbd84c15401f7cf8}{\index{pacman.\-c@{pacman.\-c}!f@{f}}
+\index{f@{f}!pacman.c@{pacman.\-c}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}F\-I\-L\-E$\ast$ f}}\label{pacman_8c_a3efb0e1a16208deecbd84c15401f7cf8}
+\hypertarget{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{\index{pacman.\-c@{pacman.\-c}!game\-\_\-window@{game\-\_\-window}}
+\index{game\-\_\-window@{game\-\_\-window}!pacman.c@{pacman.\-c}}
+\subsubsection[{game\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W game\-\_\-window}}\label{pacman_8c_ab7e8df5037eda813f482880cd772e95f}
+\hypertarget{pacman_8c_a16115f0b31db53bca020c0fe60b0633b}{\index{pacman.\-c@{pacman.\-c}!is\-Enter@{is\-Enter}}
+\index{is\-Enter@{is\-Enter}!pacman.c@{pacman.\-c}}
+\subsubsection[{is\-Enter}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Enter =0}}\label{pacman_8c_a16115f0b31db53bca020c0fe60b0633b}
+\hypertarget{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{\index{pacman.\-c@{pacman.\-c}!map\-\_\-col@{map\-\_\-col}}
+\index{map\-\_\-col@{map\-\_\-col}!pacman.c@{pacman.\-c}}
+\subsubsection[{map\-\_\-col}]{\setlength{\rightskip}{0pt plus 5cm}int map\-\_\-col =0}}\label{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}
+\hypertarget{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{\index{pacman.\-c@{pacman.\-c}!map\-\_\-name@{map\-\_\-name}}
+\index{map\-\_\-name@{map\-\_\-name}!pacman.c@{pacman.\-c}}
+\subsubsection[{map\-\_\-name}]{\setlength{\rightskip}{0pt plus 5cm}char map\-\_\-name\mbox{[}50\mbox{]} =\char`\"{}\char`\"{}}}\label{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}
+\hypertarget{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{\index{pacman.\-c@{pacman.\-c}!map\-\_\-row@{map\-\_\-row}}
+\index{map\-\_\-row@{map\-\_\-row}!pacman.c@{pacman.\-c}}
+\subsubsection[{map\-\_\-row}]{\setlength{\rightskip}{0pt plus 5cm}int map\-\_\-row =0}}\label{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}
+\hypertarget{pacman_8c_a2521ae18240b16320b0957a9425fd835}{\index{pacman.\-c@{pacman.\-c}!note\-\_\-window@{note\-\_\-window}}
+\index{note\-\_\-window@{note\-\_\-window}!pacman.c@{pacman.\-c}}
+\subsubsection[{note\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W note\-\_\-window}}\label{pacman_8c_a2521ae18240b16320b0957a9425fd835}
+\hypertarget{pacman_8c_a71c433bd5b5e4c3497f13ea76ee800e9}{\index{pacman.\-c@{pacman.\-c}!path@{path}}
+\index{path@{path}!pacman.c@{pacman.\-c}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}char path\mbox{[}100\mbox{]} = \char`\"{}\char`\"{}}}\label{pacman_8c_a71c433bd5b5e4c3497f13ea76ee800e9}
+\hypertarget{pacman_8c_a37e6a2d9119b69f227693217a943388f}{\index{pacman.\-c@{pacman.\-c}!scr\-\_\-x@{scr\-\_\-x}}
+\index{scr\-\_\-x@{scr\-\_\-x}!pacman.c@{pacman.\-c}}
+\subsubsection[{scr\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}int scr\-\_\-x}}\label{pacman_8c_a37e6a2d9119b69f227693217a943388f}
+\hypertarget{pacman_8c_a40a956d9f4e3727d27255d78068654ac}{\index{pacman.\-c@{pacman.\-c}!scr\-\_\-y@{scr\-\_\-y}}
+\index{scr\-\_\-y@{scr\-\_\-y}!pacman.c@{pacman.\-c}}
+\subsubsection[{scr\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}int scr\-\_\-y}}\label{pacman_8c_a40a956d9f4e3727d27255d78068654ac}
+\hypertarget{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{\index{pacman.\-c@{pacman.\-c}!title\-\_\-window@{title\-\_\-window}}
+\index{title\-\_\-window@{title\-\_\-window}!pacman.c@{pacman.\-c}}
+\subsubsection[{title\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W title\-\_\-window}}\label{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}
+\hypertarget{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{\index{pacman.\-c@{pacman.\-c}!user@{user}}
+\index{user@{user}!pacman.c@{pacman.\-c}}
+\subsubsection[{user}]{\setlength{\rightskip}{0pt plus 5cm}char user\mbox{[}30\mbox{]} =\char`\"{}\char`\"{}}}\label{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}
+\hypertarget{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{\index{pacman.\-c@{pacman.\-c}!user\-\_\-email@{user\-\_\-email}}
+\index{user\-\_\-email@{user\-\_\-email}!pacman.c@{pacman.\-c}}
+\subsubsection[{user\-\_\-email}]{\setlength{\rightskip}{0pt plus 5cm}char user\-\_\-email\mbox{[}50\mbox{]} =\char`\"{}\char`\"{}}}\label{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}
+\hypertarget{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{\index{pacman.\-c@{pacman.\-c}!user\-\_\-window@{user\-\_\-window}}
+\index{user\-\_\-window@{user\-\_\-window}!pacman.c@{pacman.\-c}}
+\subsubsection[{user\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W user\-\_\-window}}\label{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}
+\hypertarget{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{\index{pacman.\-c@{pacman.\-c}!wall@{wall}}
+\index{wall@{wall}!pacman.c@{pacman.\-c}}
+\subsubsection[{wall}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W wall}}\label{pacman_8c_af24bae5786b2af7d7d80947be3365e54}

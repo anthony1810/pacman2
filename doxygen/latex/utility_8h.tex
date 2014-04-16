@@ -1,0 +1,154 @@
+\hypertarget{utility_8h}{\section{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.h File Reference}
+\label{utility_8h}\index{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.\-h@{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.\-h}}
+}
+
+
+this is the header file of \hyperlink{utility_8c}{utility.\-c}  
+
+
+{\ttfamily \#include \char`\"{}curses.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+W\-I\-N\-D\-O\-W \hyperlink{utility_8h_a593aba180c6d9165dfc65cb31a561828}{create\-\_\-new\-\_\-win} (int height, int width, int starty, int startx)
+\begin{DoxyCompactList}\small\item\em create a ncurse window \end{DoxyCompactList}\item 
+void \hyperlink{utility_8h_acbb7a753dde41b018c71f591a68b6070}{init\-\_\-screen} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em init gui for user to interact with the program \end{DoxyCompactList}\item 
+void \hyperlink{utility_8h_a11b2e8780ec0b7ab2dbeb29899cc74cf}{init\-\_\-user\-\_\-info} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\-\_\-name}\mbox{[}$\,$\mbox{]}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\-\_\-email}\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em display and update information of user and map \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this is the header file of \hyperlink{utility_8c}{utility.\-c} \begin{DoxyAuthor}{Author}
+Tran Nhat Quang \href{mailto:s3312399@rmit.edu.vn}{\tt s3312399@rmit.\-edu.\-vn} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{utility_8h_a593aba180c6d9165dfc65cb31a561828}{\index{utility.\-h@{utility.\-h}!create\-\_\-new\-\_\-win@{create\-\_\-new\-\_\-win}}
+\index{create\-\_\-new\-\_\-win@{create\-\_\-new\-\_\-win}!utility.h@{utility.\-h}}
+\subsubsection[{create\-\_\-new\-\_\-win}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W create\-\_\-new\-\_\-win (
+\begin{DoxyParamCaption}
+\item[{int}]{height, }
+\item[{int}]{width, }
+\item[{int}]{starty, }
+\item[{int}]{startx}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_a593aba180c6d9165dfc65cb31a561828}
+
+
+create a ncurse window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em height} & the height of the desire window \\
+\hline
+{\em width} & the width of the desire window \\
+\hline
+{\em starty} & the start location horizontally \\
+\hline
+{\em startx} & the start location horizontally \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ncurse window
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+WINDOW \hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window};
+*\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window} = \hyperlink{utility_8c_a593aba180c6d9165dfc65cb31a561828}{create\_new\_win}(\hyperlink{constant_8h_aca66aeea7d75b42b8f410023f648964c}{TITLE\_HEIGHT}, col, 0, 0);
+\end{DoxyCode}
+ \hypertarget{utility_8h_acbb7a753dde41b018c71f591a68b6070}{\index{utility.\-h@{utility.\-h}!init\-\_\-screen@{init\-\_\-screen}}
+\index{init\-\_\-screen@{init\-\_\-screen}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-screen}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-screen (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{note\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{wall, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window, }
+\item[{char}]{user\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_acbb7a753dde41b018c71f591a68b6070}
+
+
+init gui for user to interact with the program 
+
+initilise title\-\_\-window, game\-\_\-window, command\-\_\-window, note\-\_\-window, user\-\_\-window to init G\-U\-I appearance
+
+
+\begin{DoxyParams}{Parameters}
+{\em title\-\_\-window} & the ncurse window responsible for show up title, version and creator \\
+\hline
+{\em game\-\_\-window} & the ncurse window responsible for show up game map \\
+\hline
+{\em command\-\_\-window} & the ncurse window responsible for recieving commands, driving program \\
+\hline
+{\em note\-\_\-window} & the ncurse window responsible for explain some special character of the game \\
+\hline
+{\em wall} & the ncurse window responsible for showing a wall sepeate between game and user\-\_\-window \\
+\hline
+{\em user\-\_\-window} & the ncuses window responsible for display user info and map info\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+WINDOW \hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window};
+WINDOW \hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\_window};
+WINDOW \hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window};
+WINDOW \hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\_window};
+WINDOW \hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall};
+WINDOW \hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window};
+
+\hyperlink{utility_8c_acbb7a753dde41b018c71f591a68b6070}{init\_screen}(&\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window}, &\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\_window}, &
+      \hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window}, &\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\_window}, &\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, &\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window}, 
+      \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}, \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\_email});
+\end{DoxyCode}
+ $<$ Line buffering disabled \hypertarget{utility_8h_a11b2e8780ec0b7ab2dbeb29899cc74cf}{\index{utility.\-h@{utility.\-h}!init\-\_\-user\-\_\-info@{init\-\_\-user\-\_\-info}}
+\index{init\-\_\-user\-\_\-info@{init\-\_\-user\-\_\-info}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-user\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-user\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window, }
+\item[{char}]{user\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{map\-\_\-name\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{author\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{author\-\_\-email\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_a11b2e8780ec0b7ab2dbeb29899cc74cf}
+
+
+display and update information of user and map 
+
+clear content of a ncurses window, print formatted information to it
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\-\_\-window} & the ncurse window targeted for printing \\
+\hline
+{\em user} & the name of the user who use the program \\
+\hline
+{\em user\-\_\-email} & the email of the user who use the prgram \\
+\hline
+{\em map\-\_\-name} & the title of the map \\
+\hline
+{\em map\-\_\-row} & the row length of the ncurse window \\
+\hline
+{\em map\-\_\-col} & the col lenth of the ncurse window \\
+\hline
+{\em author} & the author of the map \\
+\hline
+{\em author\-\_\-email} & the email of the one who create the map\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+WINDOW \hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window};
+\hyperlink{utility_8c_a11b2e8780ec0b7ab2dbeb29899cc74cf}{init\_user\_info}(&\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window},\hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}, \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\_email}, 
+      \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\_name},\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\_row},\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\_col}-1,\hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author},\hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\_email});
+\end{DoxyCode}
+ 

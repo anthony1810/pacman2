@@ -1,0 +1,94 @@
+\hypertarget{write__file_8c}{\section{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/write\-\_\-file.c File Reference}
+\label{write__file_8c}\index{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/write\-\_\-file.\-c@{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/write\-\_\-file.\-c}}
+}
+
+
+this file provide functions to handle writing to text file.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}write\-\_\-file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constant.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{write__file_8c_a915ddd1a476c54cb20e96461ff2a97e1}{write\-\_\-to\-\_\-file} (char file\-\_\-name\mbox{[}$\,$\mbox{]}, char author\-\_\-name\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\-\_\-email}\mbox{[}$\,$\mbox{]}, W\-I\-N\-D\-O\-W $\ast$my\-\_\-win, int width, int height)
+\begin{DoxyCompactList}\small\item\em actual function which handle write to text file \end{DoxyCompactList}\item 
+char \hyperlink{write__file_8c_a5d64a710372b44bfe19d80b2bfc685c7}{get\-Translated\-Char} (int ch)
+\begin{DoxyCompactList}\small\item\em take int type of ncurses character and translate it to normal char in order to write to text file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this file provide functions to handle writing to text file. \begin{DoxyAuthor}{Author}
+Tran Nhat Quang \href{mailto:s3312399@rmit.edu.vn}{\tt s3312399@rmit.\-edu.\-vn} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{write__file_8c_a5d64a710372b44bfe19d80b2bfc685c7}{\index{write\-\_\-file.\-c@{write\-\_\-file.\-c}!get\-Translated\-Char@{get\-Translated\-Char}}
+\index{get\-Translated\-Char@{get\-Translated\-Char}!write_file.c@{write\-\_\-file.\-c}}
+\subsubsection[{get\-Translated\-Char}]{\setlength{\rightskip}{0pt plus 5cm}char get\-Translated\-Char (
+\begin{DoxyParamCaption}
+\item[{int}]{ch}
+\end{DoxyParamCaption}
+)}}\label{write__file_8c_a5d64a710372b44bfe19d80b2bfc685c7}
+
+
+take int type of ncurses character and translate it to normal char in order to write to text file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ch} & the int type of ncurses character \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+the a char character type
+\end{DoxyReturn}
+
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}(ch == 4194912)\{
+    \textcolor{keywordflow}{return} \textcolor{charliteral}{'p'};
+\}
+\end{DoxyCode}
+ \hypertarget{write__file_8c_a915ddd1a476c54cb20e96461ff2a97e1}{\index{write\-\_\-file.\-c@{write\-\_\-file.\-c}!write\-\_\-to\-\_\-file@{write\-\_\-to\-\_\-file}}
+\index{write\-\_\-to\-\_\-file@{write\-\_\-to\-\_\-file}!write_file.c@{write\-\_\-file.\-c}}
+\subsubsection[{write\-\_\-to\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}void write\-\_\-to\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{char}]{file\-\_\-name\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{author\-\_\-name\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{author\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{my\-\_\-win, }
+\item[{int}]{map\-\_\-col, }
+\item[{int}]{map\-\_\-row}
+\end{DoxyParamCaption}
+)}}\label{write__file_8c_a915ddd1a476c54cb20e96461ff2a97e1}
+
+
+actual function which handle write to text file 
+
+loop through an ncurse window with specific row and col to read all characters appear in this window, translate these individual characters to normal char and write down to text file.
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\-\_\-name} & the name of the file to write to, overwrite content on exist and create when not found \\
+\hline
+{\em author\-\_\-name} & the name of the author who create the map \\
+\hline
+{\em author\-\_\-email} & the email of the author who create the map \\
+\hline
+{\em my\-\_\-win} & the ncurses window which will be targeted \\
+\hline
+{\em map\-\_\-col} & the collumn length of the map \\
+\hline
+{\em map\-\_\-row} & the row length of the map\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+\textcolor{keywordtype}{int} characters = (int)mvwinch(my\_win, i, k);
+fputc(\hyperlink{write__file_8c_a5d64a710372b44bfe19d80b2bfc685c7}{getTranslatedChar}(characters), fp);
+\end{DoxyCode}
+ 

@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['init_5fscreen',['init_screen',['../utility_8c.html#acbb7a753dde41b018c71f591a68b6070',1,'init_screen(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[]):&#160;utility.c'],['../utility_8h.html#acbb7a753dde41b018c71f591a68b6070',1,'init_screen(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[]):&#160;utility.c']]],
+  ['init_5fuser_5finfo',['init_user_info',['../utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf',1,'init_user_info(WINDOW *user_window, char user[], char user_email[], char map_name[], int map_row, int map_col, char author[], char author_email[]):&#160;utility.c'],['../utility_8h.html#a11b2e8780ec0b7ab2dbeb29899cc74cf',1,'init_user_info(WINDOW *user_window, char user[], char user_email[], char map_name[], int map_row, int map_col, char author[], char author_email[]):&#160;utility.c']]],
+  ['initialize_5fmap_5farray',['initialize_map_array',['../read__file_8c.html#a0efa4176c3a218ce82f98b09b7378097',1,'initialize_map_array(int map_row, int map_col, char map[map_row][map_col]):&#160;read_file.c'],['../read__file_8h.html#a0efa4176c3a218ce82f98b09b7378097',1,'initialize_map_array(int map_row, int map_col, char map[map_row][map_col]):&#160;read_file.c']]],
+  ['isenter',['isEnter',['../pacman_8c.html#a16115f0b31db53bca020c0fe60b0633b',1,'pacman.c']]]
+];

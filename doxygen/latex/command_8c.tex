@@ -1,0 +1,114 @@
+\hypertarget{command_8c}{\section{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/command.c File Reference}
+\label{command_8c}\index{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/command.\-c@{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/command.\-c}}
+}
+
+
+this file provide functions to handle vi-\/commands style.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}write\-\_\-file.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}read\-\_\-file.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{command_8c_a1b5a278b0cf5959ee18911b2676ebfb6}{start\-\_\-command\-\_\-window} (W\-I\-N\-D\-O\-W $\ast$command\-\_\-win, int y\-\_\-cor)
+\begin{DoxyCompactList}\small\item\em take pointer of a ncurse window to start command function \end{DoxyCompactList}\item 
+void \hyperlink{command_8c_aa0d2ec2d3a40c3165543c8513f84ccf8}{stop\-\_\-command\-\_\-window} (W\-I\-N\-D\-O\-W $\ast$command\-\_\-win, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, int y\-\_\-cor, int x\-\_\-cor)
+\begin{DoxyCompactList}\small\item\em take pointer of a ncurse window to stop command function and move to game map at x\-\_\-cor,y\-\_\-cor \end{DoxyCompactList}\item 
+void \hyperlink{command_8c_a40de59bb6d29460f1045eb9cbde51671}{refresh\-\_\-command\-\_\-window} (W\-I\-N\-D\-O\-W $\ast$command\-\_\-win)
+\begin{DoxyCompactList}\small\item\em clear the command window \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this file provide functions to handle vi-\/commands style. \begin{DoxyAuthor}{Author}
+Tran Nhat Quang \href{mailto:s3312399@rmit.edu.vn}{\tt s3312399@rmit.\-edu.\-vn} 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\hypertarget{command_8c_a40de59bb6d29460f1045eb9cbde51671}{\index{command.\-c@{command.\-c}!refresh\-\_\-command\-\_\-window@{refresh\-\_\-command\-\_\-window}}
+\index{refresh\-\_\-command\-\_\-window@{refresh\-\_\-command\-\_\-window}!command.c@{command.\-c}}
+\subsubsection[{refresh\-\_\-command\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}void refresh\-\_\-command\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-win}
+\end{DoxyParamCaption}
+)}}\label{command_8c_a40de59bb6d29460f1045eb9cbde51671}
+
+
+clear the command window 
+
+
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-win} & pointer of a ncurse window where recieving input command\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+WINDOW command\_win;
+\hyperlink{command_8c_a40de59bb6d29460f1045eb9cbde51671}{refresh\_command\_window}(&\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window});    
+\end{DoxyCode}
+ \hypertarget{command_8c_a1b5a278b0cf5959ee18911b2676ebfb6}{\index{command.\-c@{command.\-c}!start\-\_\-command\-\_\-window@{start\-\_\-command\-\_\-window}}
+\index{start\-\_\-command\-\_\-window@{start\-\_\-command\-\_\-window}!command.c@{command.\-c}}
+\subsubsection[{start\-\_\-command\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}void start\-\_\-command\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-win, }
+\item[{int}]{y\-\_\-cor}
+\end{DoxyParamCaption}
+)}}\label{command_8c_a1b5a278b0cf5959ee18911b2676ebfb6}
+
+
+take pointer of a ncurse window to start command function 
+
+target to a ncurses window to clear, initilise command and recieving input 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-win} & pointer of a ncurse window where recieving input command \\
+\hline
+{\em y\-\_\-cor} & position of the cursor where input is recieved horizontally\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+WINDOW command\_win;
+\hyperlink{constant_8h_a5f45c3f0596373ac815ed03d408448cf}{COMMAND\_STARTY} = 15;
+\hyperlink{command_8c_a1b5a278b0cf5959ee18911b2676ebfb6}{start\_command\_window}(&\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window}, 
+      \hyperlink{constant_8h_a5f45c3f0596373ac815ed03d408448cf}{COMMAND\_STARTY});
+\end{DoxyCode}
+ \hypertarget{command_8c_aa0d2ec2d3a40c3165543c8513f84ccf8}{\index{command.\-c@{command.\-c}!stop\-\_\-command\-\_\-window@{stop\-\_\-command\-\_\-window}}
+\index{stop\-\_\-command\-\_\-window@{stop\-\_\-command\-\_\-window}!command.c@{command.\-c}}
+\subsubsection[{stop\-\_\-command\-\_\-window}]{\setlength{\rightskip}{0pt plus 5cm}void stop\-\_\-command\-\_\-window (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-win, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{int}]{y\-\_\-cor, }
+\item[{int}]{x\-\_\-cor}
+\end{DoxyParamCaption}
+)}}\label{command_8c_aa0d2ec2d3a40c3165543c8513f84ccf8}
+
+
+take pointer of a ncurse window to stop command function and move to game map at x\-\_\-cor,y\-\_\-cor 
+
+target to a ncurses window to clear everything on that ncurse window and move to modify mode at specific location 
+\begin{DoxyParams}{Parameters}
+{\em command\-\_\-win} & pointer of a ncurse window where recieving input command \\
+\hline
+{\em game\-\_\-window} & pointer of a ncurse window \\
+\hline
+{\em y\-\_\-cor} & position of the cursor horizontally \\
+\hline
+{\em x\-\_\-cor} & position of the cursor vertically\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyCode}
+WINDOW command\_win;
+WINDOW \hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\_window};
+\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\_row} = 15;
+\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\_col} = 0;
+\hyperlink{command_8c_aa0d2ec2d3a40c3165543c8513f84ccf8}{stop\_command\_window}(&\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window}, &
+      \hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\_window},\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\_row},\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\_col}); 
+\end{DoxyCode}
+ 
