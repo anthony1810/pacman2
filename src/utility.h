@@ -77,8 +77,10 @@ void init_editor(WINDOW *title_window, WINDOW *game_window, WINDOW *command_wind
 	WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], char path[100],
 	int isEnter, char author[50], char map_name[50], char author_email[50], int map_row, int map_col, int scr_x, int scr_y, FILE *f,int argc, char *argv[]);
 
-void init_menu(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, 
-	WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], char path[100],
-	int isEnter, char author[50], char map_name[50], char author_email[50], int map_row, int map_col, int scr_x,int scr_y, FILE *f,int argc, char *argv[]);
+void init_menu(WINDOW *title_window);
+
+void start_stats(WINDOW *user_window,char user[], char user_email[], int scores, int life, int level);
+
+void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], int level);
 
 #endif

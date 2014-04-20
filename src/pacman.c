@@ -61,12 +61,91 @@ int main(int argc, char * argv[]){
 	//ask for username and email
 	init_screen(user, user_email);
 
+	//init menu
+	init_menu(&title_window);
+
 	int row,col;
 	getmaxyx(stdscr,row,col);
 
-	//init menu for selection
-	init_menu(&title_window, &game_window, &command_window, &note_window, &wall, &user_window,user, user_email, path,
+	int y_cur = 10;
+	int x_cur = (col-strlen(MENU_EDITOR))/2 - 4;
+	
+	attron(COLOR_PAIR(6));
+	mvprintw(y_cur,x_cur,"%s", "->");
+	attroff(COLOR_PAIR(6));
+
+	char ch;
+	while((ch = getch()) != 'q'){
+		if(ch == 'w' && y_cur > 10){
+			mvprintw(y_cur,x_cur,"%s", "  ");
+			y_cur -= 2;
+			attron(COLOR_PAIR(6));
+			mvprintw(y_cur,x_cur,"%s", "->");
+			attroff(COLOR_PAIR(6));
+			refresh();
+		}
+		if(ch == 's' && y_cur < 18 ){
+			mvprintw(y_cur,x_cur,"%s", "  ");
+			y_cur += 2;
+			attron(COLOR_PAIR(6));
+			mvprintw(y_cur,x_cur,"%s", "->");
+			attroff(COLOR_PAIR(6));
+			refresh();
+		}
+		if(ch == 10){
+			// new game
+			if(y_cur == 10){
+				//init title, version, game info window
+				init_game(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email,1);
+
+				//call a function handle map here
+
+				//call your pacman movement function here
+
+				//call your ghost movement fuction here
+
+				
+				//wait for user to enter st
+				getch();
+				clear();
+
+				//return to menu
+				init_menu(&title_window);
+				attron(COLOR_PAIR(6));
+				mvprintw(y_cur,x_cur,"%s", "->");
+				attroff(COLOR_PAIR(6));
+
+			// highscore
+			}else if(y_cur == 12){
+
+			// level editor
+			}else if(y_cur == 14){
+				clear();
+				refresh();
+				//init level editor
+				init_editor(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email, path,
 				isEnter, author, map_name, author_email,map_row, map_col,scr_x,scr_y, f, argc, argv);
+
+				wrefresh(&title_window);
+				wrefresh(&game_window);
+				clear();
+
+				init_menu(&title_window);
+
+				attron(COLOR_PAIR(6));
+				mvprintw(y_cur,x_cur,"%s", "->");
+				attroff(COLOR_PAIR(6));
+
+				continue;
+			// credits
+			}else if(y_cur == 16){
+
+			// end game
+			}else if(y_cur == 18){
+				break;
+			}
+		}
+	}
 
 	refresh();
 	endwin();

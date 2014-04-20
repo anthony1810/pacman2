@@ -210,8 +210,8 @@ void init_editor(WINDOW *title_window, WINDOW *game_window, WINDOW *command_wind
 	}
 
 	wrefresh(title_window);
-	wprintw(game_window,"");
-	wrefresh(game_window);
+	// wprintw(game_window,"");
+	// wrefresh(game_window);
 	wprintw(command_window,"\n");
 
 	for(i =0; i< col;i++){
@@ -389,7 +389,7 @@ void init_editor(WINDOW *title_window, WINDOW *game_window, WINDOW *command_wind
 									start_command_window(command_window, COMMAND_STARTY);
 								}else{
 									read_command(f,path,command_window,game_window,user_window,&map_row,&map_col,map_name,author,author_email,
-                    					user,user_email,scr_x);	
+                    					user,user_email,col);	
 									start_command_window(command_window, COMMAND_STARTY);
 								}
 								isEnter=0;
@@ -420,12 +420,13 @@ void init_editor(WINDOW *title_window, WINDOW *game_window, WINDOW *command_wind
 									wattroff(command_window,A_UNDERLINE);	
 									wprintw(command_window,"with row = ");
 									wprintw(command_window, "%d",map_row);
+									wprintw(command_window," and col = ");
 									wprintw(command_window,"%d", map_col-1);
 									wattroff(command_window,COLOR_PAIR(8));	
 									wrefresh(command_window);
 									init_user_info(user_window,user, user_email, map_name,map_row,map_col-1,author,author_email);
 								    // stop_command_window(&command_window,&game_window, map_row, map_col);	
-								    *game_window=create_new_win(map_row,map_col,GAME_STARTY,(scr_x)/3);
+								    *game_window=create_new_win(map_row,map_col,GAME_STARTY,col);
 
 								    wmove(game_window,map_row-1,map_col-2);
 								    updateMap(game_window,map_row,map_col,map,getcury(game_window),getcurx(game_window));
@@ -491,9 +492,7 @@ void init_editor(WINDOW *title_window, WINDOW *game_window, WINDOW *command_wind
 
 }
 
-void init_menu(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, 
-	WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], char path[100],
-	int isEnter, char author[50], char map_name[50], char author_email[50], int map_row, int map_col, int scr_x,int scr_y, FILE *f,int argc, char *argv[]){
+void init_menu(WINDOW *title_window){
 	//init menu
 
 	int row,col;
@@ -510,89 +509,169 @@ void init_menu(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window
 	mvwprintw(title_window,2,col/2 + strlen(TITLE)/2,"%s",CREATOR);
 	wattroff(title_window,COLOR_PAIR(6)); 
 	wrefresh(title_window);
-
-
-	char menu_title[] = "== MENU ==";
-	char menu_new[] = "New Game";
-	char menu_hscore[] = "High Score";
-	char menu_editor[] = "Level Editor";
-	char menu_credit[] = "Credits";
-	char menu_end[] = "Quit";
-	char menu_instruction[] = "Type 'w' and 's' to point to your desired option, and type 'enter' to select that option"; 
 	
 	attron(A_BOLD | COLOR_PAIR(4) | A_UNDERLINE);
-	mvprintw(6, (col - strlen(menu_title))/2, "%s", menu_title);
+	mvprintw(6, (col - strlen(MENU_TITLE))/2, "%s", MENU_TITLE);
 	attroff(A_BOLD | COLOR_PAIR(4) | A_UNDERLINE);
 
 	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(8, (col - strlen(menu_instruction))/2, "%s", menu_instruction);
+	mvprintw(8, (col - strlen(MENU_INSTRUCTION))/2, "%s", MENU_INSTRUCTION);
 	attroff(A_BOLD | COLOR_PAIR(7));
 
-	int y_cur = 10;
-	int x_cur = (col-strlen(menu_editor))/2 - 4;
-
-	attron(COLOR_PAIR(6));
-	mvprintw(y_cur,x_cur,"%s", "->");
-	attroff(COLOR_PAIR(6));
-
 	attron(COLOR_PAIR(5));
-	mvprintw(10,(col-strlen(menu_new))/2,"%s", menu_new);
-	mvprintw(12,(col-strlen(menu_hscore))/2,"%s", menu_hscore);
-	mvprintw(14,(col-strlen(menu_editor))/2,"%s", menu_editor);
-	mvprintw(16,(col-strlen(menu_credit))/2,"%s",  menu_credit);
-	mvprintw(18,(col-strlen(menu_end))/2,"%s",  menu_end);
+	mvprintw(10,(col-strlen(MENU_NEW))/2,"%s", MENU_NEW);
+	mvprintw(12,(col-strlen(MENU_HSCORE))/2,"%s", MENU_HSCORE);
+	mvprintw(14,(col-strlen(MENU_EDITOR))/2,"%s", MENU_EDITOR);
+	mvprintw(16,(col-strlen(MENU_CREDIT))/2,"%s",  MENU_CREDIT);
+	mvprintw(18,(col-strlen(MENU_END))/2,"%s",  MENU_END);
 	attroff(COLOR_PAIR(5));
 
 	curs_set(0);
-	char ch;
-	while((ch = getch()) != 'q'){
-		if(ch == 'w' && y_cur > 10){
-			mvprintw(y_cur,x_cur,"%s", "  ");
-			y_cur -= 2;
-			attron(COLOR_PAIR(6));
-			mvprintw(y_cur,x_cur,"%s", "->");
-			attroff(COLOR_PAIR(6));
-			refresh();
-		}
-		if(ch == 's' && y_cur < 18 ){
-			mvprintw(y_cur,x_cur,"%s", "  ");
-			y_cur += 2;
-			attron(COLOR_PAIR(6));
-			mvprintw(y_cur,x_cur,"%s", "->");
-			attroff(COLOR_PAIR(6));
-			refresh();
-		}
-		if(ch == 10){
-			// new game
-			if(y_cur == 10){
-
-			// highscore
-			}else if(y_cur == 12){
-
-			// level editor
-			}else if(y_cur == 14){
-				clear();
-				refresh();
-				//init level editor
-				init_editor(title_window, game_window, command_window, note_window, wall, user_window, user, user_email, path,
-				isEnter, author, map_name, author_email,map_row, map_col,scr_x,scr_y, f, argc, argv);
-
-				wrefresh(title_window);
-				wrefresh(game_window);
-				clear();
-
-				init_menu(title_window, game_window, command_window, note_window, wall, user_window,user, user_email, path,
-				isEnter, author, map_name, author_email,map_row, map_col,scr_x,scr_y, f, argc, argv);
-				break;
-			// credits
-			}else if(y_cur == 16){
-
-			// end game
-			}else if(y_cur == 18){
-				break;
-			}
-		}
-	}
-
+	refresh();
 
 }
+
+void start_stats(WINDOW *user_window,char user[],char user_email[], int scores, int life, int level){
+	wclear(user_window);
+	wattron(user_window,A_BOLD | COLOR_PAIR(1) | A_UNDERLINE);
+	wprintw(user_window, "User Info\n");
+	wattroff(user_window,A_BOLD | COLOR_PAIR(1) | A_UNDERLINE);
+	wprintw(user_window, "User:");
+	wprintw(user_window, " ");
+	wattron(user_window,COLOR_PAIR(2));
+	wprintw(user_window, user);
+	wattroff(user_window,COLOR_PAIR(2));
+	wprintw(user_window, "\n");
+
+	wprintw(user_window,"Email:");
+	wprintw(user_window, " ");
+	wattron(user_window,COLOR_PAIR(2));
+	wprintw(user_window, user_email);
+	wattroff(user_window,COLOR_PAIR(2));
+
+
+	wprintw(user_window,"\n\n");
+	wattron(user_window,A_BOLD | COLOR_PAIR(1) | A_UNDERLINE);
+	wprintw(user_window, "Game Info\n");
+	wattroff(user_window,A_BOLD | COLOR_PAIR(1) | A_UNDERLINE);
+
+	wprintw(user_window, "Level:");
+	wprintw(user_window, " ");
+	wattron(user_window,COLOR_PAIR(2));
+	wprintw(user_window,"%i" ,level );
+	wattroff(user_window,COLOR_PAIR(2));
+	wprintw(user_window, "\n");
+
+	wprintw(user_window,"Scores:");
+	wprintw(user_window, " ");
+	wattron(user_window,COLOR_PAIR(2));
+	wprintw(user_window,"%i" ,scores);
+	wattroff(user_window,COLOR_PAIR(2));
+	wprintw(user_window, "\n");
+
+	wprintw(user_window,"Life:");
+	wprintw(user_window, " ");
+	wattron(user_window,COLOR_PAIR(2));
+	wprintw(user_window,"%i" , life);
+	wattroff(user_window,COLOR_PAIR(2));
+	wprintw(user_window, "\n");
+
+	wrefresh(user_window);
+
+}
+
+void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], int level){
+	clear();
+	int row,col;
+	getmaxyx(stdscr,row,col);
+
+	int note_length = strlen(pacman) + strlen(ghost) + strlen(pellet) + strlen(super_pellet) + strlen(fruit) + (strlen(sepChar)*5)+5;
+	
+	
+	*game_window = create_new_win(GAME_HEIGHT, GAME_WIDTH, GAME_STARTY, col/2);
+	*command_window = create_new_win(COMMAND_HEIGHT, col, COMMAND_STARTY, 0);
+	*note_window = create_new_win(TITLE_HEIGHT, col, 4, (col - note_length)/2);
+	int user_window_width = 27;
+	int user_window_startY = TITLE_HEIGHT+3;
+	*user_window = create_new_win(10, user_window_width, user_window_startY,1) ;
+	*wall = create_new_win(GAME_HEIGHT+2,1,user_window_startY-2,user_window_width+2);
+	refresh();
+	for(int i=0;i<GAME_HEIGHT;i++){
+		mvwprintw(wall,i,0,"%s", "|");
+	}
+	wrefresh(wall);
+
+
+	wrefresh(user_window);
+
+	
+	//init title, version and company
+	*title_window = create_new_win(TITLE_HEIGHT, col, 0, 0);
+	refresh();
+	wattron(title_window,A_BOLD);
+	wattron(title_window,COLOR_PAIR(6));
+	mvwprintw(title_window,0,(col-strlen(TITLE))/2,"%s",TITLE);
+	wattroff(title_window,A_BOLD);  
+	mvwprintw(title_window,1,col/2 + strlen(TITLE)/2,"%s",VERSION);
+	mvwprintw(title_window,2,col/2 + strlen(TITLE)/2,"%s",CREATOR);
+	wattroff(title_window,COLOR_PAIR(6)); 
+	wrefresh(title_window);
+
+	wattron(note_window,COLOR_PAIR(2));
+	waddch(note_window,ACS_DIAMOND);
+	wattron(note_window,COLOR_PAIR(1));
+	wprintw(note_window,pacman);
+	wprintw(note_window,sepChar);
+
+
+	wattron(note_window,COLOR_PAIR(3));
+	waddch(note_window, ACS_CKBOARD);
+	wattron(note_window,COLOR_PAIR(1));
+	wprintw(note_window, ghost);
+	wprintw(note_window,sepChar);
+	
+
+	wattron(note_window,COLOR_PAIR(5));
+	waddch(note_window, ACS_BULLET);
+	wattron(note_window,COLOR_PAIR(1));
+	wprintw(note_window, pellet);
+	wprintw(note_window,sepChar);
+	
+	
+	wattron(note_window,COLOR_PAIR(4));
+	waddch(note_window, ACS_STERLING);
+	wattron(note_window,COLOR_PAIR(1));
+	wprintw(note_window, fruit);
+	wprintw(note_window,sepChar);
+
+
+	wattron(note_window,COLOR_PAIR(5));
+	waddch(note_window, ACS_DEGREE);
+	wattron(note_window,COLOR_PAIR(1));
+	wprintw(note_window, super_pellet);
+	
+	
+	wrefresh(note_window);
+	start_stats(user_window,user, user_email, 0, 3, level);
+	
+	int i;
+
+
+	for(i =0; i< col;i++){
+		mvprintw(5,i,"%s","-");
+	}
+
+	wrefresh(title_window);
+	// wprintw(game_window,"");
+	// wrefresh(game_window);
+	wprintw(command_window,"\n");
+
+	for(i =0; i< col;i++){
+		mvprintw(41,i,"%s","-");
+	}
+	wattron(command_window,COLOR_PAIR(6));
+	mvwprintw(command_window,0,0,"%s", "Press anything to return to the menu");
+	wattroff(command_window,COLOR_PAIR(6));
+	wrefresh(command_window);
+
+	}

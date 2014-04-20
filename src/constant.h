@@ -36,4 +36,12 @@
 #define COLOR_FRUIT  	 4
 #define COLOR_PELLET 	 5
 
+#define MENU_TITLE "== MENU =="
+#define MENU_NEW "New Game"
+#define MENU_HSCORE "High Score"
+#define MENU_EDITOR "Level Editor"
+#define MENU_CREDIT "Credits"
+#define MENU_END "Quit"
+#define MENU_INSTRUCTION "Type 'w' and 's' to point to your desired option, and type 'enter' to select that option"
+
 #endif
