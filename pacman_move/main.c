@@ -5,8 +5,8 @@
 #include <assert.h>
 #include <string.h>
 #include <time.h>
-#include "read_file.h"
-#include "pacman.h"
+#include "new_game_read_file.h"
+#include "pacman_character.h"
 #define UP 65
 #define DOWN 66
 #define RIGHT 67
@@ -176,12 +176,12 @@ int main(){
     game_window =create_new_win(MAP_ROW,MAP_COL+1,0,0);
     debug_window=create_new_win(30,30,0,70);
 
-    struct pacman *my_pacman=create_pacman();
-    my_pacman->score=0;
+    struct pacman_char *my_pacman_char=create_pacman_char();
+    my_pacman_char->score=0;
 
 
-    // readFile(&game_window,12,16,map,s,"level1",&pac_row,&pac_col);
-    readFile(&game_window,MAP_ROW,MAP_COL+1,map,s,"level2",my_pacman,&ghost_row,&ghost_col);
+    // new_game_read_file(&game_window,12,16,map,s,"level1",&pac_row,&pac_col);
+    new_game_read_file(&game_window,MAP_ROW,MAP_COL+1,map,s,"level2",my_pacman_char,&ghost_row,&ghost_col);
     wclear(&game_window);
     wrefresh(&game_window);;
     
@@ -192,12 +192,12 @@ int main(){
     initialize_dist_array(MAP_ROW-2,MAP_COL-2);
 
     // dijkstra(transte_from_row_col(ghost_row,ghost_col)); 
-    // printPath(transte_from_row_col(my_pacman->pac_row,my_pacman->pac_col));
+    // printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col));
     //2079 the last pos of 35x65map
 
 
     dijkstra(transte_from_row_col(ghost_row,ghost_col)); 
-    printPath(transte_from_row_col(my_pacman->pac_row,my_pacman->pac_col));
+    printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col));
 
  
     current_num=0;
@@ -209,33 +209,33 @@ int main(){
 
         //w
          if(ch==119){
-            my_pacman->current_direction=UP;
+            my_pacman_char->current_direction=UP;
         }
         //s
         if(ch==115){
-            my_pacman->current_direction=DOWN;
+            my_pacman_char->current_direction=DOWN;
         }
         //d
         if(ch==100){
-            my_pacman->current_direction=RIGHT;
+            my_pacman_char->current_direction=RIGHT;
         }
         //a
         if(ch==97){
-            my_pacman->current_direction=LEFT;
+            my_pacman_char->current_direction=LEFT;
         }
         gettimeofday(&later,NULL);
 
         if(timeval_diff(NULL,&later,&earlier)>=DELAY){
             gettimeofday(&earlier,NULL);
-            pacman_move(my_pacman,map);
-            updateMap(&game_window,36,66,map);
+            pacman_char_move(my_pacman_char,map);
+            new_game_update_map(&game_window,36,66,map);
             wclear(&debug_window);
-            wprintw(&debug_window,"%d",my_pacman->score);
+            wprintw(&debug_window,"%d",my_pacman_char->score);
             wrefresh(&debug_window);
             if(current_num==4){
                 current_num=0;
                 dijkstra(transte_from_row_col(ghost_row,ghost_col)); 
-                printPath(transte_from_row_col(my_pacman->pac_row,my_pacman->pac_col));
+                printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col));
                 current_num=0;
                 //to prevent the ghost flashing when calculating new path
                 translate_from_1_number(path[current_num++]);
@@ -243,7 +243,7 @@ int main(){
                 map[ghost_row][ghost_col]=' ';
                 ghost_row=translate_row_col[0];
                 ghost_col=translate_row_col[1];
-                updateMap(&game_window,MAP_ROW+1,MAP_COL+1,map);
+                new_game_update_map(&game_window,MAP_ROW+1,MAP_COL+1,map);
 
             }
             if(path[current_num]!=0){
@@ -253,7 +253,7 @@ int main(){
                 map[ghost_row][ghost_col]=' ';
                 ghost_row=translate_row_col[0];
                 ghost_col=translate_row_col[1];
-                updateMap(&game_window,MAP_ROW+1,MAP_COL+1,map);
+                new_game_update_map(&game_window,MAP_ROW+1,MAP_COL+1,map);
             }
         }
  

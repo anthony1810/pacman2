@@ -13,7 +13,7 @@
 
 #define TITLE_HEIGHT 3
 
-#define GAME_WIDTH  65
+#define GAME_WIDTH  66
 #define GAME_HEIGHT  35
 #define GAME_STARTY  6
 

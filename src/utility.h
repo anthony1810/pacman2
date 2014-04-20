@@ -83,4 +83,5 @@ void start_stats(WINDOW *user_window,char user[], char user_email[], int scores,
 
 void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], int level);
 
+
 #endif
