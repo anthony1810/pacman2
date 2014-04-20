@@ -217,7 +217,7 @@ int main(int argc, char * argv[]){
 			    struct timeval later;
 			    gettimeofday(&earlier,NULL);
 			    char ch2=0;
-			    while((ch2 = getch()) != 'q'){ 
+			    while((ch2 = getch()) != 'q' && pacman_dead(my_pacman_char,my_ghost_char)==0){ 
 					//w
 			        if(ch2==119){
 			            my_pacman_char->current_direction=UP;

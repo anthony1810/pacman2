@@ -84,4 +84,11 @@ void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]){
             break;
     };
 }
+int pacman_dead(struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_char){
+    if(my_pacman_char->pac_row==my_ghost_char->ghost_row
+        &&my_pacman_char->pac_col==my_ghost_char->ghost_col){
+        return 1;
+    }
+    return 0;
+}
 

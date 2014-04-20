@@ -236,35 +236,3 @@ void new_game_update_map(WINDOW *map_win,int row,int col,char map[row][col]){
 	refresh();
     wrefresh(map_win);
 }
-// void initialize_dist_array(int row,int col,long dist[row][col],int border_row,int border_col,char map[border_row][border_col]){
-//     // col *(r-1)+c
-//     for(int r=1;r<=row;r++){
-//         for(int c=1;c<=col;c++){
-//             // if(r==1&&c==1){
-//             //     dist[1][2]= checkWall(1,2,boder_row,boder_col,map);
-//             //     dist[1][col+1]=checkWall(2,1,boder_row,boder_col,map);
-//             // }else if(r==1 && c==col){
-//             //     dist[c][c-1]= checkWall(r,c-1,boder_row,boder_col,map);
-//             //     dist[c][c* (r+1)]= checkWall(r+1,c,boder_row,boder_col,map)
-//             // }else if(r==row && c==1){
-//             //     dist[col*(row-1)+1 ][col*(row-2)+1 ]
-//             //     dist[col*(row-1)+1 ][col*(row-1)+2]
-//             // }
-//             dist[col *(r-1)+c][col *(r-1)+(c+1)]=checkWall(r,c+1,border_row,border_col,map);
-//             dist[col *(r-1)+c][col *(r-1)+(c-1)]=checkWall(r,c-1,border_row,border_col,map);
-//             if(r-2>0){
-//             dist[col *(r-1)+c][col *(r-2)+c]=checkWall(r-1,c,border_row,border_col,map);
-//             }
-//             dist[col *(r-1)+c][col *(r)+c]=checkWall(r+1,c,border_row,border_col,map);
-//         }
-//     }  
-
-// }
-// int checkWall(int row,int col,int border_row,int border_col,char map[border_row][border_col]){
-//     if(map[row][col]=='s'|| map[row][col]=='S' ||
-//         map[row][col]=='f' || map[row][col]=='F' ||
-//         map[row][col]==' ' ){
-//         return 1;
-//     }
-//     return 999;
-// }
