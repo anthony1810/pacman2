@@ -65,37 +65,36 @@ int map_col=0;
 int scr_x, scr_y;
 FILE *f ;
 
-char map[MAP_ROW][MAP_COL+1];
+
 char s[100];
 int e; /* The number of nonzero edges in the graph */
 int n; /* The number of nodes in the graph */
 long dist[(MAP_ROW+2)*(MAP_COL+2)][(MAP_ROW+2)*(MAP_COL+2)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
-long d[(MAP_ROW+2)*(MAP_COL+2)]; /* d[i] is the length of the shortest path between the source (s) and node i */
-int prev [(MAP_ROW+2)*(MAP_COL+2)];
-int ghost_path [(MAP_ROW+2)*(MAP_COL+2)];
+
+
 int translate_row_col[2];
 int current_num=0;
 
-void printD() {
-    int i;
-    for (i = 1; i <= n; ++i){
-        printf("%10d", i);
-        wrefresh(&game_window);
-    }
-    printf("\n");
-    for (i = 1; i <= n; ++i) {
-        printf("%10ld", d[i]);
-        wrefresh(&game_window);
-    }
-    printf("\n");
+// void printD() {
+//     int i;
+//     for (i = 1; i <= n; ++i){
+//         printf("%10d", i);
+//         wrefresh(&game_window);
+//     }
+//     printf("\n");
+//     for (i = 1; i <= n; ++i) {
+//         printf("%10ld", d[i]);
+//         wrefresh(&game_window);
+//     }
+//     printf("\n");
 
-}
-void printPath(int dest) {
+// }
+void printPath(int dest,int prev[],int ghost_path[]) {
     if (prev[dest] != -1)
-        printPath(prev[dest]);
+        printPath(prev[dest],prev,ghost_path);
     ghost_path[current_num++]=dest;
 }
-int checkWall(int row,int col){
+int checkWall(int row,int col,int map_col,char map[][map_col+1]){
     if(map[row][col]=='s'|| map[row][col]=='S' ||
         map[row][col]=='f' || map[row][col]=='F' ||
         map[row][col]==' ' || map[row][col]=='g'|| map[row][col]=='G' ||map[row][col]=='p'|| map[row][col]=='P'){
@@ -103,27 +102,27 @@ int checkWall(int row,int col){
     }
     return 999;
 }
-void initialize_dist_array(int row,int col){
+void initialize_dist_array(int row,int col,int map_row,int map_col,long dist [][(map_row+2)*(map_col+2)],char map[][map_col+1]) {
     // col *(r-1)+c
     for(int r=1;r<=row;r++){
         for(int c=1;c<=col+1;c++){
             // if(checkWall(r,c+1)==1){
-                dist[col *(r-1)+c][col *(r-1)+(c+1)]=checkWall(r,c+1);
+                dist[col *(r-1)+c][col *(r-1)+(c+1)]=checkWall(r,c+1,map_col,map);
                 // if(col *(r-1)+(c+1)==64){
                 // printf("%d \n", col *(r-1)+(c+1));
                 // wrefresh(&game_window);
                 // return;}
             // }
             // if(checkWall(r,c-1)==1){
-                dist[col *(r-1)+c][col *(r-1)+(c-1)]=checkWall(r,c-1);
+                dist[col *(r-1)+c][col *(r-1)+(c-1)]=checkWall(r,c-1,map_col,map);
             // }
             // if(checkWall(r-1,c)==1){
                 if(r-2>=0){
-                dist[col *(r-1)+c][col *(r-2)+c]=checkWall(r-1,c);
+                dist[col *(r-1)+c][col *(r-2)+c]=checkWall(r-1,c,map_col,map);
                 }
             // }
             // if(checkWall(r+1,c)==1){
-                dist[col *(r-1)+c][col *(r)+c]=checkWall(r+1,c);
+                dist[col *(r-1)+c][col *(r)+c]=checkWall(r+1,c,map_col,map);
             // }
         }
 
@@ -170,6 +169,7 @@ int main(int argc, char * argv[]){
 		if(ch == 10){
 			// new game
 			if(y_cur == 10){
+				
 				//init title, version, game info window
 				init_game(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email,1);
 				timeout(0);
@@ -182,7 +182,7 @@ int main(int argc, char * argv[]){
 			    struct ghost_char *my_ghost_char=create_ghost_char();
 			    char full_path[100]="" ;
 			    strcat(full_path,PATH);
-			    strcat(full_path,"level2");
+			    strcat(full_path,"level1");
 			    strcat(full_path,".pac");
 			    f = fopen(full_path, "r");
 			    char s[100];
@@ -193,15 +193,19 @@ int main(int argc, char * argv[]){
 	            fgets(s, 100, f);
 	            map_col=atoi(s);
 			    // new_game_read_file(&game_window,12,16,map,s,"level1",&pac_row,&pac_col);
-			    new_game_read_file(&game_window,map_row,map_col+1,map,s,"level2",my_pacman_char,my_ghost_char);
+			    char map[map_row][map_col+1];
+			    new_game_read_file(&game_window,map_row,map_col+1,map,s,"level1",my_pacman_char,my_ghost_char);
 			    wclear(&game_window);
 			    wrefresh(&game_window);;
-			    
+			    int prev [(map_row+2)*(map_col+2)];
+				int ghost_path [(map_row+2)*(map_col+2)];
+				long d[(map_row+2)*(map_col+2)]; /* d[i] is the length of the shortest path between the source (s) and node i */
+				
 			    // n=12*15;
 			    // initialize_dist_array(11,14);
 
 			    n=map_row*map_col;
-			    initialize_dist_array(map_row-2,map_col-2);
+			    initialize_dist_array(map_row-2,map_col-2,map_row,map_col,dist,map);
 
 			    // dijkstra(transte_from_row_col(my_ghost_char->ghost_row,my_ghost_char->ghost_col)); 
 			    // printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col));
@@ -209,7 +213,7 @@ int main(int argc, char * argv[]){
 
 
 			    dijkstra(transte_from_row_col(my_ghost_char->ghost_row,my_ghost_char->ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-			    printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col));
+			    printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,ghost_path);
 
 			 
 			    current_num=0;
@@ -238,15 +242,15 @@ int main(int argc, char * argv[]){
 
 			        if(timeval_diff(NULL,&later,&earlier)>=DELAY){
 			            gettimeofday(&earlier,NULL);
-			            pacman_char_move(my_pacman_char,map);
-			            // new_game_update_map(&game_window,35,66,map);
+			            pacman_char_move(my_pacman_char,map_col+1,map);
+			            new_game_update_map(&game_window,map_row,map_col+1,map);
 			            if(current_num==4){
 			                current_num=0;
 			                dijkstra(transte_from_row_col(my_ghost_char->ghost_row,my_ghost_char->ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-			                printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col));
+			                printPath(transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,ghost_path);
 			                current_num=0;
 			                //to prevent the ghost flashing when calculating new path
-			                translate_from_1_number(ghost_path[current_num++],translate_row_col);
+			                translate_from_1_number(ghost_path[current_num++],translate_row_col,map_row,map_col);
 			                map[translate_row_col[0]][translate_row_col[1]]='g';
 			                map[my_ghost_char->ghost_row][my_ghost_char->ghost_col]=' ';
 			                my_ghost_char->ghost_row=translate_row_col[0];
@@ -256,7 +260,7 @@ int main(int argc, char * argv[]){
 			            }
 			            if(ghost_path[current_num]!=0){
 			                 
-			                translate_from_1_number(ghost_path[current_num++],translate_row_col);
+			                translate_from_1_number(ghost_path[current_num++],translate_row_col,map_row,map_col);
 			                map[translate_row_col[0]][translate_row_col[1]]='g';
 			                map[my_ghost_char->ghost_row][my_ghost_char->ghost_col]=' ';
 			                my_ghost_char->ghost_row=translate_row_col[0];

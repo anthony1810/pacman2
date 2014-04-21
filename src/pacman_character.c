@@ -16,7 +16,7 @@ struct pacman_char *create_pacman_char(){
     struct pacman_char *my_pacman_char= malloc(sizeof(struct pacman_char));
     return my_pacman_char;
 }
-int get_score(int row,int col,char map[35][66]){
+int get_score(int row,int col,int map_col,char map[][map_col]){
     switch (map[row][col]){
         case 's':
             return PELLET_SCORE;
@@ -36,12 +36,12 @@ int get_score(int row,int col,char map[35][66]){
             break;
     }
 }
-void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]){
+void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map [][map_col]){
     switch (my_pacman_char->current_direction){
         case DOWN:
             my_pacman_char->pac_row++;
-            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map)>=0){
-                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map);
+            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map)>=0){
+                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map);
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[--my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
                 my_pacman_char->pac_row++;
@@ -51,8 +51,8 @@ void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]){
             break;
         case UP:
             my_pacman_char->pac_row--;
-            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map)>=0){
-                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map);
+            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map)>=0){
+                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map);
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[++my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
                 my_pacman_char->pac_row--;
@@ -62,8 +62,8 @@ void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]){
             break;
         case LEFT:
             my_pacman_char->pac_col--;
-            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map)>=0){
-                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map);
+            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map)>=0){
+                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map);
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[my_pacman_char->pac_row][++my_pacman_char->pac_col]=' ';
                 my_pacman_char->pac_col--;
@@ -73,8 +73,8 @@ void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]){
             break;
         case RIGHT:
             my_pacman_char->pac_col++;
-            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map)>=0){
-                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map);
+            if(get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map)>=0){
+                my_pacman_char->score+=get_score(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col,map);
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[my_pacman_char->pac_row][--my_pacman_char->pac_col]=' ';
                 my_pacman_char->pac_col++;

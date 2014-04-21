@@ -9,7 +9,7 @@ struct pacman_char
 	int score;
 };
 struct pacman_char *create_pacman_char();
-void pacman_char_move(struct pacman_char *my_pacman_char,char map [35][66]);
-int get_score(int row,int col,char map[35][66]);
+void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map [][map_col]);
+int get_score(int row,int col,int map_col,char map[][map_col]);
 int pacman_dead(struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_char);
 #endif

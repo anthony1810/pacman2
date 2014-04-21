@@ -5,23 +5,21 @@
 #include <assert.h>
 #include <string.h>
 #include "ghost_character.h"
-#define MAP_ROW 35
-#define MAP_COL 65
 #define INFINITY 999
 struct ghost_char *create_ghost_char(){
     struct ghost_char *my_ghost_char= malloc(sizeof(struct ghost_char));
     return my_ghost_char;
 }
 
-void translate_from_1_number(int input,int translate_row_col[]){
+void translate_from_1_number(int input,int translate_row_col[],int map_row,int map_col){
     //row
-    if(input % (MAP_COL-2) ==0){
-        translate_row_col[0]= (input/(MAP_COL-2));    
+    if(input % (map_col-2) ==0){
+        translate_row_col[0]= (input/(map_col-2));    
     }else{
-        translate_row_col[0]=(input/(MAP_COL-2))+1;
+        translate_row_col[0]=(input/(map_col-2))+1;
     }
     //col
-    translate_row_col[1]=input-((MAP_COL-2)*(translate_row_col[0]-1));
+    translate_row_col[1]=input-((map_col-2)*(translate_row_col[0]-1));
 }
 
 int transte_from_row_col(int row,int col,int map_col){
