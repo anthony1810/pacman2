@@ -48,6 +48,6 @@
 #define DOWN 66
 #define RIGHT 67
 #define LEFT 68
-#define DELAY 300	
+#define DELAY 400	
 
 #endif

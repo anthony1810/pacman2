@@ -21,6 +21,7 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
     }
     char ch;
     int r=0;int c=0;
+    int current_ghost=0;
     //print Author info, map info, row ,column 
     fgets(s, 100, f);
     fgets(s, 100, f);
@@ -98,9 +99,10 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 wattron(map_win,COLOR_PAIR(3));
                 waddch(map_win,ACS_CKBOARD);
                 map[r][c]='G';
-                my_ghost_char->ghost_row=r;
-                my_ghost_char->ghost_col=c;
+                my_ghost_char[current_ghost].ghost_row=r;
+                my_ghost_char[current_ghost].ghost_col=c;
                 c++;
+                current_ghost++;
                 wattron(map_win,COLOR_PAIR(1));
                 break;
             case 's':
