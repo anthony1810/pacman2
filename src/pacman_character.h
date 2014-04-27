@@ -3,10 +3,14 @@
 #include "ghost_character.h"
 struct pacman_char
 {
+	int live;
 	int pac_row;
 	int pac_col;
+	int initial_pac_row;
+	int initial_pac_col;
 	int current_direction;
 	int score;
+	int pac_state;
 };
 struct map{
 	double total_pellet;

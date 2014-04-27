@@ -23,7 +23,6 @@ struct map *create_map(){
 int get_score(int row,int col,int map_col,char map[][map_col],struct map *my_map){
     switch (map[row][col]){
         case 's':
-            
             return PELLET_SCORE;
             break;
         case 'S':
@@ -102,10 +101,14 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
     };
 }
 int pacman_dead(struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_char){
-    if(my_pacman_char->pac_row==my_ghost_char->ghost_row
-        &&my_pacman_char->pac_col==my_ghost_char->ghost_col){
-        return 1;
+    for (int i = 0; i < 4; ++i)
+    {
+        if(my_pacman_char->pac_row==my_ghost_char[i].ghost_row
+            &&my_pacman_char->pac_col==my_ghost_char[i].ghost_col){
+            return 1;
+        }   
     }
+    
     return 0;
 }
 

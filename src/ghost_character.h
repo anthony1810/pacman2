@@ -4,6 +4,8 @@ struct ghost_char
 {
 	int ghost_row;
 	int ghost_col;
+	int initial_ghost_row;
+	int initial_ghost_col;
 	double speed_multiplier;
 	int current_path;
 	int ghost_num;

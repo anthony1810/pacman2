@@ -7,7 +7,8 @@
 */
 
 #include "curses.h"
-
+#include "ghost_character.h"
+#include "pacman_character.h"
 /*! \brief create a ncurse window 
  *
  *	\param height the height of the desire window
@@ -83,5 +84,5 @@ void start_stats(WINDOW *user_window,char user[], char user_email[], int scores,
 
 void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window, WINDOW *note_window, WINDOW *wall, WINDOW *user_window, char user[], char user_email[], int level);
 
-
+// void dead_reset(struct pacman_char *my_pacman_char, struct ghost_char *my_ghost_char, int map_col,int map[][map_col+1]);
 #endif

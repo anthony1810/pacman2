@@ -702,5 +702,18 @@ void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window
 
 		  return (1000000LL*difference->tv_sec+
 		                   difference->tv_usec)/1000;
-
 	} 
+	// void dead_reset(struct pacman_char *my_pacman_char, struct ghost_char *my_ghost_char, int map_col,int map[][map_col]){
+	// 	my_pacman_char->live--;
+	// 					map[my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
+	// 					map[my_pacman_char->initial_pac_row][my_pacman_char->initial_pac_col]='P';
+	// 					my_pacman_char->pac_row=my_pacman_char->initial_pac_row;
+	// 					my_pacman_char->pac_col=my_pacman_char->initial_pac_col;
+	// 					for(int i=0;i<4;i++){
+	// 						map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=' ';
+	// 						map[my_ghost_char[i].initial_ghost_row][my_ghost_char[i].initial_ghost_col]='G';
+	// 						my_ghost_char[i].ghost_row=my_ghost_char[i].initial_ghost_row;
+	// 						my_ghost_char[i].ghost_col=my_ghost_char[i].initial_ghost_col;
+	// 					}
+	// 					my_pacman_char->current_direction=0;
+	// }

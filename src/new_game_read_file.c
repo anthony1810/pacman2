@@ -102,6 +102,8 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 map[r][c]='G';
                 my_ghost_char[current_ghost].ghost_row=r;
                 my_ghost_char[current_ghost].ghost_col=c;
+                my_ghost_char[current_ghost].initial_ghost_row=r;
+                my_ghost_char[current_ghost].initial_ghost_col=c;
                 my_ghost_char[current_ghost].ghost_num=current_ghost;
                 c++;
                 current_ghost++;
@@ -129,6 +131,8 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
 				map[r][c]='P';
                 my_pacman_char->pac_col=c;
                 my_pacman_char->pac_row=r;
+                my_pacman_char->initial_pac_col=c;
+                my_pacman_char->initial_pac_row=r;
                 c++;
 				wattron(map_win,COLOR_PAIR(1));                   	
 				break;
