@@ -89,22 +89,22 @@ void initialize_dist_array(int row,int col,int map_row,int map_col,long dist [][
 
     }
 }
-void abc(){
-    ghost_path[1][0]=transte_from_row_col(row,col,map_col);
-ghost_path[1][1]=transte_from_row_col(row,col,map_col);
-ghost_path[1][2]=transte_from_row_col(row,col,map_col);
-}
-void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_path[][ghost_path_size],int *current_path) {
+// void abc(){
+//     ghost_path[1][0]=transte_from_row_col(row,col,map_col);
+// ghost_path[1][1]=transte_from_row_col(row,col,map_col);
+// ghost_path[1][2]=transte_from_row_col(row,col,map_col);
+// }
+void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_path[][ghost_path_size],struct ghost_char *my_ghost_char) {
     if (prev[dest] != -1)
-        printPath(ghost_num,prev[dest],prev,ghost_path_size,ghost_path,current_path);
-    ghost_path[ghost_num][(*current_path)++]=dest;
+        printPath(ghost_num,prev[dest],prev,ghost_path_size,ghost_path,my_ghost_char);
+    ghost_path[ghost_num][(my_ghost_char[ghost_num].current_path)++]=dest;
 }
 
-void ghost_move(int ghost_path_size,int ghost_path[][ghost_path_size],int *current_num,int translate_row_col[],int map_row,int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char){
+void ghost_move(int ghost_path_size,int ghost_path[][ghost_path_size],int translate_row_col[],int map_row,int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char){
     
     for (int i = 0; i < 4; ++i)
     {
-        translate_from_1_number(ghost_path[i][(*current_num)++],translate_row_col,map_row,map_col);
+        translate_from_1_number(ghost_path[i][(my_ghost_char[i].current_path)++],translate_row_col,map_row,map_col);
         if(translate_row_col[0]!=0 && translate_row_col[1]!=0 ){
     char temp;
     if(map[translate_row_col[0]][translate_row_col[1]]!='P'){
@@ -116,9 +116,7 @@ void ghost_move(int ghost_path_size,int ghost_path[][ghost_path_size],int *curre
     map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=temp;
     my_ghost_char[i].ghost_row=translate_row_col[0];
     my_ghost_char[i].ghost_col=translate_row_col[1];  }  
-    (*current_num)--;
     }
-    (*current_num)++;
     //  translate_from_1_number(ghost_path[1][(*current_num)++],translate_row_col,map_row,map_col);
     //     if(translate_row_col[0]!=0 && translate_row_col[1]!=0 ){
     // char temp;

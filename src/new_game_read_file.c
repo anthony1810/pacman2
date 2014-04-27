@@ -7,7 +7,8 @@
 #include "new_game_read_file.h"
 #include "constant.h"
 
-void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char s[],char file_name[],struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_char){
+void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char s[],char file_name[],
+                        struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_char,struct map *my_map){
     wclear(map_win);
     FILE *f ;
     char full_path[100]="" ;
@@ -101,6 +102,7 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 map[r][c]='G';
                 my_ghost_char[current_ghost].ghost_row=r;
                 my_ghost_char[current_ghost].ghost_col=c;
+                my_ghost_char[current_ghost].ghost_num=current_ghost;
                 c++;
                 current_ghost++;
                 wattron(map_win,COLOR_PAIR(1));
@@ -109,6 +111,7 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 wattron(map_win,COLOR_PAIR(5));
                 waddch(map_win,ACS_BULLET);
                 map[r][c]='s';
+                my_map->remain_pellet++;
                 c++;
                 wattron(map_win,COLOR_PAIR(1));
                 break;
@@ -146,7 +149,7 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 break;
         }
     }while(ch!=EOF);
-
+    my_map->total_pellet=my_map->remain_pellet;
     refresh();
     wrefresh(map_win);
 
@@ -231,9 +234,7 @@ void new_game_update_map(WINDOW *map_win,int row,int col,char map[row][col]){
                 waddch(map_win,' ');
                 break;
         	}
-
 		}
-
 	}
 	refresh();
     wrefresh(map_win);
