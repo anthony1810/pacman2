@@ -236,6 +236,7 @@ int main(int argc, char * argv[]){
 			            ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char);
 			        	}
 			        	new_game_update_map(&game_window,map_row,map_col+1,map);
+			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
 					}
 					// if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=700){
 					// 	gettimeofday(&pacman_delay_start,NULL);
