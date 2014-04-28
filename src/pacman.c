@@ -132,7 +132,7 @@ int main(int argc, char * argv[]){
 			    char map[map_row][map_col+1];
 
 			    new_game_read_file(&game_window,map_row,map_col+1,map,s,"caoanh2",my_pacman_char,my_ghost_char,my_map);
-			    wclear(&game_window);
+			    // wclear(&game_window);
 			    wrefresh(&game_window);
 			    int prev [(map_row+2)*(map_col+2)];
 				int ghost_path [4][(map_row+2)*(map_col+2)];
@@ -216,9 +216,8 @@ int main(int argc, char * argv[]){
 					}
 					if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=DELAY){
 			            gettimeofday(&pacman_delay_start,NULL);
-			            pacman_char_move(my_pacman_char,map_col+1,map,my_map);
-			            new_game_update_map(&game_window,map_row,map_col+1,map);
-			            
+			            pacman_char_move(my_pacman_char,map_col+1,map,my_map,&game_window);
+			            wrefresh(&game_window);
 					}
 					if(timeval_diff(NULL,&ghost_delay_end,&ghost_delay_start)>=(DELAY*my_ghost_char[0].speed_multiplier)){
 						gettimeofday(&ghost_delay_start,NULL);
@@ -230,12 +229,13 @@ int main(int argc, char * argv[]){
 			                printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row+2)*(map_col+2),ghost_path,my_ghost_char);
 			                //after calculate, reset the number of current path to 0
 			                my_ghost_char[0].current_path=0;
-			                ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char);
-
+			                ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+			                wrefresh(&game_window);
 			            }else{
-			            ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char);
+			           	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+			            	wrefresh(&game_window);
 			        	}
-			        	new_game_update_map(&game_window,map_row,map_col+1,map);
+			        	// new_game_update_map(&game_window,map_row,map_col+1,map);
 			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
 					}
 					// if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=700){

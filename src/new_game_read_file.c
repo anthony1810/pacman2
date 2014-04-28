@@ -243,3 +243,4 @@ void new_game_update_map(WINDOW *map_win,int row,int col,char map[row][col]){
 	refresh();
     wrefresh(map_win);
 }
+
