@@ -50,4 +50,13 @@
 #define LEFT 68
 #define DELAY 400	
 
+#define PELLET_SCORE 100
+#define SUPER_PELLET_SCORE 200
+#define FRUIT_SCORE 300
+#define GHOST_SCORE 400
+
+#define INVULRABLE 1
+#define VULRABLE 0
+#define INVULRABLE_DURATION 3000
+
 #endif

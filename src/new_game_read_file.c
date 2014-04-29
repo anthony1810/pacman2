@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <string.h>
 #include "new_game_read_file.h"
+
 #include "constant.h"
 
 void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char s[],char file_name[],

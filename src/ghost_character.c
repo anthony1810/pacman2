@@ -6,20 +6,17 @@
 #include <string.h>
 #include "ghost_character.h"
 #define INFINITY 999
-struct ghost_char *create_ghost_char(){
-    struct ghost_char *my_ghost_char= malloc(4*sizeof(struct ghost_char));
-    return my_ghost_char;
-}
 
 void translate_from_1_number(int input,int translate_row_col[],int map_row,int map_col){
+    int map_col_without_border=map_col-2;
     //row
-    if(input % (map_col-2) ==0){
-        translate_row_col[0]= (input/(map_col-2));    
+    if(input % (map_col_without_border) ==0){
+        translate_row_col[0]= (input/(map_col_without_border));    
     }else{
-        translate_row_col[0]=(input/(map_col-2))+1;
+        translate_row_col[0]=(input/(map_col_without_border))+1;
     }
     //col
-    translate_row_col[1]=input-((map_col-2)*(translate_row_col[0]-1));
+    translate_row_col[1]=input-((map_col_without_border)*(translate_row_col[0]-1));
 }
 
 int transte_from_row_col(int row,int col,int map_col){
@@ -27,9 +24,9 @@ int transte_from_row_col(int row,int col,int map_col){
 }
 
 
-void dijkstra(int s,int map_row,int map_col,long d[],long dist[(map_row+2)*(map_col+2)][(map_row+2)*(map_col+2)],int n,int prev[]) {
+void dijkstra(int s,int map_row,int map_col,long d[],long dist[(map_row)*(map_col)][(map_row)*(map_col)],int n,int prev[]) {
     int i, k, mini;
-    int visited[(map_row+2)*(map_col+2)];
+    int visited[(map_row)*(map_col)];
  
     for (i = 1; i <= n; ++i) {
         d[i] = INFINITY;
@@ -63,37 +60,20 @@ int checkWall(int row,int col,int map_col,char map[][map_col+1]){
     return 0;
 }
 
-void initialize_dist_array(int row,int col,int map_row,int map_col,long dist [][(map_row+2)*(map_col+2)],char map[][map_col+1]) {
+void initialize_dist_array(int row,int col,int map_row,int map_col,long dist [][(map_row)*(map_col)],char map[][map_col+1]) {
     // col *(r-1)+c
     for(int r=1;r<=row;r++){
         for(int c=1;c<=col+1;c++){
-            // if(checkWall(r,c+1)==1){
                 dist[col *(r-1)+c][col *(r-1)+(c+1)]=checkWall(r,c+1,map_col,map);
-                // if(col *(r-1)+(c+1)==64){
-                // printf("%d \n", col *(r-1)+(c+1));
-                // wrefresh(&game_window);
-                // return;}
-            // }
-            // if(checkWall(r,c-1)==1){
                 dist[col *(r-1)+c][col *(r-1)+(c-1)]=checkWall(r,c-1,map_col,map);
-            // }
-            // if(checkWall(r-1,c)==1){
                 if(r-2>=0){
                 dist[col *(r-1)+c][col *(r-2)+c]=checkWall(r-1,c,map_col,map);
                 }
-            // }
-            // if(checkWall(r+1,c)==1){
                 dist[col *(r-1)+c][col *(r)+c]=checkWall(r+1,c,map_col,map);
-            // }
         }
 
     }
 }
-// void abc(){
-//     ghost_path[1][0]=transte_from_row_col(row,col,map_col);
-// ghost_path[1][1]=transte_from_row_col(row,col,map_col);
-// ghost_path[1][2]=transte_from_row_col(row,col,map_col);
-// }
 void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_path[][ghost_path_size],struct ghost_char *my_ghost_char) {
     if (prev[dest] != -1)
         printPath(ghost_num,prev[dest],prev,ghost_path_size,ghost_path,my_ghost_char);
@@ -130,13 +110,18 @@ void ghost_move(int ghost_path_size,int ghost_path[][ghost_path_size],int transl
     // }
         
         translate_from_1_number(ghost_path[0][(my_ghost_char[0].current_path)++],translate_row_col,map_row,map_col);
-        // wclear(game_window);
+        wattron(game_window,COLOR_PAIR(5));
         mvwaddch(game_window,my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,convert_to_map_character(temp));      
-            wattron(game_window,COLOR_PAIR(3));
-            mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
-            wattron(game_window,COLOR_PAIR(1));
-           if(map[translate_row_col[0]][translate_row_col[1]]!='G'){
-            temp2=map[translate_row_col[0]][translate_row_col[1]];
+        wattron(game_window,COLOR_PAIR(3));
+        mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
+        wattron(game_window,COLOR_PAIR(1));
+        if(map[translate_row_col[0]][translate_row_col[1]]!='G'){
+            if(map[translate_row_col[0]][translate_row_col[1]]!='P'){
+                temp2=map[translate_row_col[0]][translate_row_col[1]];
+            }else{
+                temp2=' ';
+            }
+            // temp2=map[translate_row_col[0]][translate_row_col[1]];
             map[translate_row_col[0]][translate_row_col[1]]='G';
             map[my_ghost_char[0].ghost_row][my_ghost_char[0].ghost_col]=temp;
             temp=temp2;
@@ -144,12 +129,6 @@ void ghost_move(int ghost_path_size,int ghost_path[][ghost_path_size],int transl
             my_ghost_char[0].ghost_row=translate_row_col[0];
             my_ghost_char[0].ghost_col=translate_row_col[1];        
         }      
-            // if(map[translate_row_col[0]][translate_row_col[1]]!='P'){
-            //     temp=map[translate_row_col[0]][translate_row_col[1]];
-                
-            // }else{
-            //     temp=' ';
-            // }
 }
 chtype convert_to_map_character(char text_character){
     switch(text_character){
@@ -175,6 +154,6 @@ chtype convert_to_map_character(char text_character){
                 return ' ';
                 break;
     }
-
+    return ' ';
 }
 
