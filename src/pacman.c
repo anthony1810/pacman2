@@ -13,6 +13,7 @@
 #include "pacman_character.h"
 #include "ghost_character.h"
 #include "struct.h"
+#include "Lee.h"
 /*!
  *	@mainpage COSC2451 Pacman Editor
  *	@author The Thunder Corp (Tran Nhat Quang <s3312399@rmit.edu.vn> - Huynh Phung Cao Anh <s3357672@rmit.edu.vn>)
@@ -48,7 +49,7 @@ WINDOW user_window; 	/* window to display user info and map info */
 
 char user[30] ="";
 char user_email[50]="";
-char path[100] = "";
+char file_path[100] = "";
 int isEnter=0;
 char author[50]="";
 char map_name[50]="";
@@ -63,6 +64,15 @@ char s[100];
 int n; /* The number of nodes in the graph */
 long dist[(GAME_HEIGHT+1)*(GAME_WIDTH+1)][(GAME_HEIGHT+1)*(GAME_WIDTH+1)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
 void random_path(int map_row,int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1],int random_row_col[]);
+
+ void printPath2(){
+        for (int i = 0; i < 35*65; i++){
+            if (path[i] != 0)
+            printf("%d ", path[i]);
+        }
+        printf("\n");
+    }
+
 
 int main(int argc, char * argv[]){
 	
@@ -138,16 +148,16 @@ int main(int argc, char * argv[]){
 			    wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
 				int ghost_path [4][(map_row)*(map_col)];
-				long d[(map_row)*(map_col)];  //d[i] is the length of the shortest path between the source (s) and node i 
+				long d[(map_row)*(map_col)];  //d[i] is the length of the shortest file_path between the source (s) and node i 
 				int translate_row_col[2];
 
 			    n=map_row*map_col;
 			    initialize_dist_array(map_row-2,map_col-2,map_row,map_col,dist,map);
 
-			    //caculate the initial path
+			    //caculate the initial file_path
 			    dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
 			    printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
-			    //after calculate, reset the number of current path to 0
+			    //after calculate, reset the number of current file_path to 0
 			    my_ghost_char[0].current_path=0;
 			  //   dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
 			  //   printPath(1,transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),prev,(map_row+2)*(map_col+2),ghost_path,&current_num);
@@ -228,11 +238,11 @@ int main(int argc, char * argv[]){
 						gettimeofday(&ghost_delay_start,NULL);
 						if(my_pacman_char->pac_state==VULRABLE){
 				            if(my_ghost_char[0].current_path==2){
-				            	//before calculate, reset the current ghost path to 0
+				            	//before calculate, reset the current ghost file_path to 0
 				                my_ghost_char[0].current_path=0;
 				                dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
 				                printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row+2)*(map_col+2),ghost_path,my_ghost_char);
-				                //after calculate, reset the number of current path to 0
+				                //after calculate, reset the number of current file_path to 0
 				                my_ghost_char[0].current_path=0;
 				                ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				            }else{
@@ -250,12 +260,15 @@ int main(int argc, char * argv[]){
 				        	}else{
 				            	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
+				        	
+				        	lee(30,4,11,7, map,&game_window);
+				        	// printPath2();
 			        	}
 			        	wrefresh(&game_window);
 			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
 					}
     			}
-    			//reset the ghost path for "2nd" new game
+    			//reset the ghost file_path for "2nd" new game
     			for (int i = 0; i < (map_row+2)*(map_col+2); ++i)
     			{
     				for (int j = 0; j < 4; ++j)
@@ -283,7 +296,7 @@ int main(int argc, char * argv[]){
 				clear();
 				refresh();
 				//init level editor
-				init_editor(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email, path,
+				init_editor(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email, file_path,
 				isEnter, author, map_name, author_email,map_row, map_col,scr_x,scr_y, f, argc, argv);
 
 				wrefresh(&title_window);
