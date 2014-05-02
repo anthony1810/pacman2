@@ -44,7 +44,12 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
                     gettimeofday(&pacman_invul_start,NULL);
                 }
                 wattron(game_window,COLOR_PAIR(2));
-                mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                if(my_pacman_char->pac_state==INVULRABLE){
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND|A_STANDOUT);    
+                }else{
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                }
+                
                 wattron(game_window,COLOR_PAIR(1));
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[--my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
@@ -65,7 +70,11 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
                     gettimeofday(&pacman_invul_start,NULL);
                 }
                 wattron(game_window,COLOR_PAIR(2));
-                mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                 if(my_pacman_char->pac_state==INVULRABLE){
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND|A_STANDOUT);    
+                }else{
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                }
                 wattron(game_window,COLOR_PAIR(1));
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[++my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
@@ -86,7 +95,11 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
                     gettimeofday(&pacman_invul_start,NULL);
                 }
                 wattron(game_window,COLOR_PAIR(2));
-                mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                if(my_pacman_char->pac_state==INVULRABLE){
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND|A_STANDOUT);    
+                }else{
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                }
                 wattron(game_window,COLOR_PAIR(1));
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[my_pacman_char->pac_row][++my_pacman_char->pac_col]=' ';
@@ -107,7 +120,11 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
                     gettimeofday(&pacman_invul_start,NULL);
                 }
                 wattron(game_window,COLOR_PAIR(2));
-                mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                 if(my_pacman_char->pac_state==INVULRABLE){
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND|A_STANDOUT);    
+                }else{
+                    mvwaddch(game_window,my_pacman_char->pac_row,my_pacman_char->pac_col,ACS_DIAMOND);
+                }
                 wattron(game_window,COLOR_PAIR(1));
                 map[my_pacman_char->pac_row][my_pacman_char->pac_col]='P';
                 map[my_pacman_char->pac_row][--my_pacman_char->pac_col]=' ';

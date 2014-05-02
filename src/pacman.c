@@ -62,7 +62,7 @@ FILE *f ;
 char s[100];
 int n; /* The number of nodes in the graph */
 long dist[(GAME_HEIGHT+1)*(GAME_WIDTH+1)][(GAME_HEIGHT+1)*(GAME_WIDTH+1)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
-void random_path(int ghost_path[][35*65],int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1]);
+void random_path(int map_row,int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1],int random_row_col[]);
 
 int main(int argc, char * argv[]){
 	
@@ -238,22 +238,22 @@ int main(int argc, char * argv[]){
 				            }else{
 				           	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
+			        	}else if(my_pacman_char->pac_state==INVULRABLE){
+			        		if(my_ghost_char[0].current_path==2){
+				        		int random_row_col[2];
+				        		random_path(map_row,map_col,my_ghost_char,map,random_row_col);
+				        		my_ghost_char[0].current_path=0;
+					            dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+					            printPath(0,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,(map_row+2)*(map_col+2),ghost_path,my_ghost_char);
+					            my_ghost_char[0].current_path=0;
+					            ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	}else{
+				            	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	}
 			        	}
-			        	// random_path(ghost_path,map_col, my_ghost_char, map);
-			        	// my_ghost_char[0].current_path=0;
-			        	// ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 			        	wrefresh(&game_window);
 			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
 					}
-				
-					// if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=700){
-					// 	gettimeofday(&pacman_delay_start,NULL);
-					// 	int r = rand() % 35;
-					// 	int c = rand() % 65;
-					// 	wprintw(&game_window,"%d  %d",r,c);
-					// 	wprintw(&game_window," %d %s\n",checkWall(r,c,map_col,map),"ss");
-					// 	wrefresh(&game_window);
-					// }
     			}
     			//reset the ghost path for "2nd" new game
     			for (int i = 0; i < (map_row+2)*(map_col+2); ++i)
@@ -311,37 +311,14 @@ int main(int argc, char * argv[]){
 	endwin();
 	return 0;
 }
-void random_path(int ghost_path[][35*65],int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1]){
-	//default to go down
-	int r=my_ghost_char[0].ghost_row;
-	int c=my_ghost_char[0].ghost_col-1;
-	while(checkWall(r,c,map_col,map)==0){
-		//reset after fail random
-		r=my_ghost_char[0].ghost_row;
-		c=my_ghost_char[0].ghost_col;
-		int direction=rand()%3;
-		switch(direction){
-			//left
-			case 0:
-				c=c-1;
-				break;
-			//right
-			case 1:
-				c=c+1;
-				break;
-			//down
-			case 2:
-				r=r+1;
-				break;
-			//up
-			case 3:
-				r=r-1;
-				break;
-		}
+void random_path(int map_row,int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1],int random_row_col[]){
+	random_row_col[0]=rand()%map_row;
+	random_row_col[1]=rand()%map_col;
+	while(checkWall(random_row_col[0],random_row_col[1],map_col,map)==0){
+		random_row_col[0]=rand()%map_row;
+		random_row_col[1]=rand()%map_col;
 	}
 	
-	
-	ghost_path[0][0]=transte_from_row_col(r,c,map_col);
 }
 
 
