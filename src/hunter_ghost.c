@@ -45,11 +45,6 @@ int is_wall_ahead(WINDOW *game_window, int x_pos, int y_pos){
 	//wrefresh(game_window);
 	int result = 1;
 	int characters = (int)mvwinch(game_window, y_pos, x_pos);
-	// printw("%ix%i: %i - ",y_pos,x_pos,characters);
-	// refresh();
-	//  getch();
-	// printw("%i - ",(int)mvwinch(game_window, y_pos, x_pos));
-	// refresh();
 	//if pacman
 	if(characters==4194912){
 		result = 3;
@@ -314,7 +309,7 @@ void start_hunter(WINDOW *game_window, struct ghost_char *my_ghost_char, struct 
 	hunter_move(game_window, my_ghost_char, my_pacman_char,&my_item_struct);
 
 	wclear(game_window);
-	printw(my_ghost_char[0].ghost_col);
+	printw(my_ghost_char[1].ghost_col);
 	wrefresh(game_window);
 }
 

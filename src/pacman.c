@@ -15,6 +15,7 @@
 #include "struct.h"
 #include "Lee.h"
 #include "hunter_ghost.h"
+#include "high_score.h"
 /*!
  *	@mainpage COSC2451 Pacman Editor
  *	@author The Thunder Corp (Tran Nhat Quang <s3312399@rmit.edu.vn> - Huynh Phung Cao Anh <s3357672@rmit.edu.vn>)
@@ -296,7 +297,7 @@ int main(int argc, char * argv[]){
 
 			// highscore
 			}else if(y_cur == 12){
-
+				show_high_score(&title_window, &command_window);
 			// level editor
 			}else if(y_cur == 14){
 				timeout(-1);

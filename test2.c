@@ -5,8 +5,6 @@
 #include <assert.h>
 #include <string.h>
 
-
-
 struct Item_Struct{
 	int x_pos;
 	int y_pos;
@@ -40,7 +38,7 @@ int HUNTER_SPEED =400000;
 int isFirstTime = 1;
 int move_away = 0;
 
-
+enum Hunter_Directions get_hunter_direction();
 int is_wall_ahead(WINDOW *game_window, int x_pos, int y_pos);
 WINDOW *create_newwin(int height, int width, int starty, int startx);
 bool is_pacman_near(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char);
@@ -58,7 +56,7 @@ void sleep(unsigned int mseconds)
     clock_t goal = mseconds + clock();
     while (goal > clock());
 }
-n
+
 enum Hunter_Directions get_hunter_direction(){
 
 	int r, i;
@@ -349,6 +347,10 @@ void hunter_move(WINDOW *game_window, struct ghost_char *my_ghost_char, struct p
 		my_ghost_char->ghost_col+=new_y;
 		my_ghost_char->ghost_row+=new_x;
 
+		wclear(info);
+		wprintw(info, "%ix%i",my_ghost_char->ghost_col, my_ghost_char->ghost_row);
+		wrefresh(info);
+
 		my_item_struct->x_pos = new_movex;
 		my_item_struct->y_pos = new_movey;
 		if(my_item_struct->x_pos == my_pacman_char->pac_row && my_item_struct->y_pos == my_pacman_char->pac_col){
@@ -375,7 +377,6 @@ void start_hunter(WINDOW *game_window, struct ghost_char *my_ghost_char, struct 
 	
 	hunter_directions = get_hunter_direction();
 	
-	char ch;
 	while(1){
 		hunter_move(game_window, my_ghost_char, my_pacman_char,&my_item_struct);
 	}
@@ -410,7 +411,8 @@ int main(){
 	curs_set(0);
 	refresh();
 	my_win = create_newwin(height, width, starty, startx);
-	mvwaddch(my_win,1,3, ACS_BULLET);
+	mvwaddch(my_win,1,3, ACS_CKBOARD);
+
 	wrefresh(my_win);
 
 	struct ghost_char *my_ghost_char=create_ghost_char();
