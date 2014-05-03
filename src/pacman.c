@@ -14,6 +14,7 @@
 #include "ghost_character.h"
 #include "struct.h"
 #include "Lee.h"
+#include "hunter_ghost.h"
 /*!
  *	@mainpage COSC2451 Pacman Editor
  *	@author The Thunder Corp (Tran Nhat Quang <s3312399@rmit.edu.vn> - Huynh Phung Cao Anh <s3357672@rmit.edu.vn>)
@@ -237,17 +238,23 @@ int main(int argc, char * argv[]){
 					if(timeval_diff(NULL,&ghost_delay_end,&ghost_delay_start)>=(DELAY*my_ghost_char[0].speed_multiplier)){
 						gettimeofday(&ghost_delay_start,NULL);
 						if(my_pacman_char->pac_state==VULRABLE){
-				            if(my_ghost_char[0].current_path==2){
-				            	//before calculate, reset the current ghost file_path to 0
-				                my_ghost_char[0].current_path=0;
-				                dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				                printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row+2)*(map_col+2),ghost_path,my_ghost_char);
-				                //after calculate, reset the number of current file_path to 0
-				                my_ghost_char[0].current_path=0;
-				                ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				            }else{
-				           	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				        	}
+				         //    if(my_ghost_char[0].current_path==2){
+				         //    	//before calculate, reset the current ghost file_path to 0
+				         //        my_ghost_char[0].current_path=0;
+				         //        dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+				         //        printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row+2)*(map_col+2),ghost_path,my_ghost_char);
+				         //        //after calculate, reset the number of current file_path to 0
+				         //        my_ghost_char[0].current_path=0;
+				         //        ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				         //    }else{
+				         //   	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	// }
+
+
+				        	//hunter ghost
+				        	start_hunter(&game_window,&my_ghost_char,my_pacman_char);
+
+
 			        	}else if(my_pacman_char->pac_state==INVULRABLE){
 			        		if(my_ghost_char[0].current_path==2){
 				        		int random_row_col[2];
