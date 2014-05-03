@@ -5,7 +5,7 @@
 
   
     // int path[N_ROWS * N_COLS];
-    int count = 0;
+    int current_path = 0;
     // int temp[N_ROWS][N_COLS];
     // char a[N_ROWS][N_COLS];
 
@@ -60,21 +60,21 @@
 
         if (a[y][x] == 'P') return;
         if (x + 1 < N_COLS && a[y][x+1] != 'G' && checkCollision(x+1, y,a) && temp[y][x+1] <= temp[y][x-1] && temp[y][x+1] <= temp[y+1][x] && temp[y][x+1] <= temp[y-1][x] ){       //Right
-            path[count] = y *N_COLS + x + 1;
-            count++;
+            path[current_path] = y *N_COLS + x + 1;
+            current_path++;
             traceBack(x+1,y, a);
         } else if (x - 1 >= 0  && a[y][x-1] != 'G' && checkCollision(x-1, y,a)  && temp[y][x-1] <= temp[y][x+1] && temp[y][x-1] <= temp[y+1][x] && temp[y][x-1] <= temp[y-1][x] )  {  //Left
-            path[count] = y * N_COLS + x - 1;
-            count++;
+            path[current_path] = y * N_COLS + x - 1;
+            current_path++;
             traceBack(x-1,y, a);
 
         } else if (y + 1 < N_ROWS && a[y+1][x] != 'G'&& checkCollision(x, y+1,a) && temp[y+1][x] <= temp[y][x+1] && temp[y+1][x] <= temp[y][x-1] && temp[y+1][x] <= temp[y-1][x] ){    //Down
-            path[count] = (y+1) * N_COLS + x;
-            count++;
+            path[current_path] = (y+1) * N_COLS + x;
+            current_path++;
             traceBack(x,y+1,a);
         }  else if (y - 1 >= 0 && a[y-1][x] != 'G'&& checkCollision(x, y-1,a) && temp[y-1][x] <= temp[y][x-1] && temp[y-1][x] <= temp[y][x+1] && temp[y-1][x] <= temp[y+1][x] ) {    //Up
-            path[count] = (y-1) * N_COLS + x;
-            count++;
+            path[current_path] = (y-1) * N_COLS + x;
+            current_path++;
             traceBack(x,y-1, a);
         }
     }
@@ -88,15 +88,15 @@
     }
 
     void lee(int start_x, int start_y, int end_x, int end_y, char a[][N_COLS+1],WINDOW *game_window){
-        count = 0;
+        current_path = 0;
 
         for (int i = 0; i < N_ROWS * N_COLS; i++){
             path[i] = 0;
         }
         
-        wclear(&game_window);
-        wprintw(&game_window,"%s","asddddddddd");
-        wrefresh(&game_window);
+        wclear(game_window);
+        wprintw(game_window,"%s","asddddddddd");
+        wrefresh(game_window);
         // for (int i = 0; i < N_ROWS; i++){
         //     for (int j = 0; j < N_COLS; j++){
         //         if (a[i][j] == '.' || a[i][j] == 'f' || a[i][j] == 'F' || a[i][j] == 'G' || a[i][j] == ' '){

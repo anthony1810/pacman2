@@ -261,7 +261,7 @@ int main(int argc, char * argv[]){
 				            	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
 				        	
-				        	lee(30,4,11,7, map,&game_window);
+				        	// lee(30,4,11,7, map,&game_window);
 				        	// printPath2();
 			        	}
 			        	wrefresh(&game_window);
