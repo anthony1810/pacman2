@@ -119,8 +119,8 @@ int main(int argc, char * argv[]){
 				
 				//init title, version, game info window
 				init_game(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email,1);
-				timeout(DELAY);
-				nodelay(stdscr,TRUE);
+				// timeout(DELAY);
+				// nodelay(stdscr,TRUE);
 				//create a struct of pacman and reset the score/current direction
 				struct pacman_char *my_pacman_char=create_pacman_char();
 			    my_pacman_char->score=0;
@@ -152,16 +152,19 @@ int main(int argc, char * argv[]){
 			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
-				my_ghost_char_2->ghost_row=14;
-				my_ghost_char_2->ghost_col=31;
+				my_ghost_char_2->ghost_row=5;
+				my_ghost_char_2->ghost_col=3;
 
 				struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
-				my_pacman_char_2->pac_col=14;
-				my_pacman_char_2->pac_row=12;
-				
+				my_pacman_char_2->pac_col=16;
+				my_pacman_char_2->pac_row=32;
+
 				start_hunter(&game_window, my_ghost_char_2, my_pacman_char_2);
 
-			    // wclear(&game_window);
+				
+				
+				
+
 			 //    wrefresh(&game_window);
 			 //    int prev [(map_row)*(map_col)];
 				
@@ -255,6 +258,7 @@ int main(int argc, char * argv[]){
 				        	
 
 				//         	//hunter ghost
+				//         	start_hunter(&game_window, my_ghost_char_2, my_pacman_char);
 			 //        	}else if(my_pacman_char->pac_state==INVULRABLE){
 			 //        		if(my_ghost_char[0].current_path==2){
 				//         		int random_row_col[2];

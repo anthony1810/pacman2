@@ -4,7 +4,7 @@
 #include <time.h>
 #include <assert.h>
 #include <string.h>
-#include "hunter_ghost.h"
+#include "test2.h"
 
 int HUNTER_SPEED =400000;
 int isFirstTime = 1;
@@ -46,7 +46,15 @@ int is_wall_ahead(WINDOW *game_window, int x_pos, int y_pos){
 	//wrefresh(game_window);
 	int result = 1;
 	int characters = (int)mvwinch(game_window, y_pos, x_pos);
-
+	// printw("%ix%i: %i - ",y_pos,x_pos,characters);
+	// refresh();
+	//  getch();
+	// printw("%i - ",(int)mvwinch(game_window, y_pos, x_pos));
+	// refresh();
+	//if pacman
+	if(characters==4194912){
+		result = 3;
+	}
 	//if ghost
 	if(characters==4195169){
 		result = 0;
@@ -65,9 +73,6 @@ int is_wall_ahead(WINDOW *game_window, int x_pos, int y_pos){
 	}
 	//if space
 	if(characters==32){
-		result = 0;
-	}
-	if(characters==288){
 		result = 0;
 	}
 	if(characters==4194430){
