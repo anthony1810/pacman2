@@ -44,7 +44,6 @@
 #define MENU_END "Quit"
 #define MENU_INSTRUCTION "Type 'w' and 's' to point to your desired option, and type 'enter' to select that option"
 
-
 #define UP 65
 #define DOWN 66
 #define RIGHT 67

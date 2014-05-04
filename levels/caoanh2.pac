@@ -16,11 +16,11 @@ a                           sss                qwwwwwwwwwwwwwwwwa
 a    qwwwwwwwwwwwe           sss               a qwwwwwwwwwwwwwwa
 a    AwwwwwwwwWWWD      qwwwww   wwwwe         a a              a
 a    zwwwwwwweaaaa      ag          ga         a Awwwwwe        a
-a           paaaaa      a      g    ga         a a     a        a
+a           paaaaa      aG           a         a a     a        a
 aS           aaaaa      zwwwwwwwwwwwwc         a a     a        a
 as           aaaaa                             a a     a        a
 as           aaaaa                             zwc     a        a
-as           aaaaa                                              a
+as           aaaaa          G                                   a
 as           zXXXc                                              a
 as                                                              a
 as                                                              a
