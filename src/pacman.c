@@ -119,8 +119,8 @@ int main(int argc, char * argv[]){
 				
 				//init title, version, game info window
 				init_game(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email,1);
-				// timeout(DELAY);
-				// nodelay(stdscr,TRUE);
+				timeout(DELAY);
+				nodelay(stdscr,TRUE);
 				//create a struct of pacman and reset the score/current direction
 				struct pacman_char *my_pacman_char=create_pacman_char();
 			    my_pacman_char->score=0;
@@ -159,128 +159,128 @@ int main(int argc, char * argv[]){
 				my_pacman_char_2->pac_col=16;
 				my_pacman_char_2->pac_row=32;
 
-				start_hunter(&game_window, my_ghost_char_2, my_pacman_char_2);
+				// start_hunter(&game_window, my_ghost_char_2, my_pacman_char_2);
 
 				
 				
 				
 
-			 //    wrefresh(&game_window);
-			 //    int prev [(map_row)*(map_col)];
+			    wrefresh(&game_window);
+			    int prev [(map_row)*(map_col)];
 				
-				// long d[(map_row)*(map_col)];  //d[i] is the length of the shortest file_path between the source (s) and node i 
-				// int translate_row_col[2];
-			 //    n=map_row*map_col;
-			 //    initialize_dist_array(map_row-2,map_col-2,map_row,map_col,dist,map);
+				long d[(map_row)*(map_col)];  //d[i] is the length of the shortest file_path between the source (s) and node i 
+				int translate_row_col[2];
+			    n=map_row*map_col;
+			    initialize_dist_array(map_row-2,map_col-2,map_row,map_col,dist,map);
 
-			 //    //caculate the initial file_path
-			 //    dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-			 //    printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
-			 //    //after calculate, reset the number of current file_path to 0
-			 //    my_ghost_char[0].current_path=0;
+			    //caculate the initial file_path
+			    dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+			    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
+			    //after calculate, reset the number of current file_path to 0
+			    my_ghost_char[3].current_path=0;
 
-			 //    struct timeval pacman_delay_start,pacman_delay_end,ghost_delay_start,ghost_delay_end;
-			 //    gettimeofday(&pacman_delay_start,NULL);
-			 //    gettimeofday(&ghost_delay_start,NULL);
-			 //    char ch2=0;
-			 //    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
-			 //    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
-			 //    	//reset after dead 
-			 //    	if(field_status_code==4){
-				// 		my_pacman_char->live--;
-				// 		map[my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
-				// 		map[my_pacman_char->initial_pac_row][my_pacman_char->initial_pac_col]='P';
-				// 		my_pacman_char->pac_row=my_pacman_char->initial_pac_row;
-				// 		my_pacman_char->pac_col=my_pacman_char->initial_pac_col;
-				// 		for(int i=0;i<4;i++){
-				// 			map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=' ';
-				// 			map[my_ghost_char[i].initial_ghost_row][my_ghost_char[i].initial_ghost_col]='G';
-				// 			my_ghost_char[i].ghost_row=my_ghost_char[i].initial_ghost_row;
-				// 			my_ghost_char[i].ghost_col=my_ghost_char[i].initial_ghost_col;
-				// 		}
-				// 		my_pacman_char->current_direction=0;
-				// 		// // dead_reset(my_pacman_char,my_ghost_char,map_col,map_row,map);
-				// 		new_game_update_map(&game_window,map_row,map_col+1,map);
-			 //    	}else if(field_status_code!=5){
-			 //    		wrefresh(&game_window);
-			 //    		map[my_ghost_char[field_status_code].ghost_row][my_ghost_char[field_status_code].ghost_col]=' ';
-				// 		map[my_ghost_char[field_status_code].initial_ghost_row][my_ghost_char[field_status_code].initial_ghost_col]='G';
-				// 		my_ghost_char[field_status_code].ghost_row=my_ghost_char[field_status_code].initial_ghost_row;
-				// 		my_ghost_char[field_status_code].ghost_col=my_ghost_char[field_status_code].initial_ghost_col;
+			    struct timeval pacman_delay_start,pacman_delay_end,ghost_delay_start,ghost_delay_end;
+			    gettimeofday(&pacman_delay_start,NULL);
+			    gettimeofday(&ghost_delay_start,NULL);
+			    char ch2=0;
+			    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
+			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
+			    	//reset after dead 
+			    	if(field_status_code==4){
+						my_pacman_char->live--;
+						map[my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
+						map[my_pacman_char->initial_pac_row][my_pacman_char->initial_pac_col]='P';
+						my_pacman_char->pac_row=my_pacman_char->initial_pac_row;
+						my_pacman_char->pac_col=my_pacman_char->initial_pac_col;
+						for(int i=0;i<4;i++){
+							map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=' ';
+							map[my_ghost_char[i].initial_ghost_row][my_ghost_char[i].initial_ghost_col]='G';
+							my_ghost_char[i].ghost_row=my_ghost_char[i].initial_ghost_row;
+							my_ghost_char[i].ghost_col=my_ghost_char[i].initial_ghost_col;
+						}
+						my_pacman_char->current_direction=0;
+						// // dead_reset(my_pacman_char,my_ghost_char,map_col,map_row,map);
+						new_game_update_map(&game_window,map_row,map_col+1,map);
+			    	}else if(field_status_code!=5){
+			    		wrefresh(&game_window);
+			    		map[my_ghost_char[field_status_code].ghost_row][my_ghost_char[field_status_code].ghost_col]=' ';
+						map[my_ghost_char[field_status_code].initial_ghost_row][my_ghost_char[field_status_code].initial_ghost_col]='G';
+						my_ghost_char[field_status_code].ghost_row=my_ghost_char[field_status_code].initial_ghost_row;
+						my_ghost_char[field_status_code].ghost_col=my_ghost_char[field_status_code].initial_ghost_col;
 						
-			 //    	}
+			    	}
 
-				// 	// w
-			 //        if(ch2==119){
-			 //            my_pacman_char->current_direction=UP;
-			 //        }
-			 //        //s
-			 //        if(ch2==115){
-			 //            my_pacman_char->current_direction=DOWN;
-			 //        }
-			 //        //d
-			 //        if(ch2==100){
-			 //            my_pacman_char->current_direction=RIGHT;
-			 //        }
-			 //        //a
-			 //        if(ch2==97){
-			 //            my_pacman_char->current_direction=LEFT;
-			 //        }
-			 //        gettimeofday(&pacman_delay_end,NULL);
-			 //        gettimeofday(&ghost_delay_end,NULL);
-			 //       	//ajust the speed of ghost based on remain pellet
-				// 	if(my_map->remain_pellet/my_map->total_pellet>0.75){
-				// 		my_ghost_char[0].speed_multiplier=1.4;
-				// 	}else if(0.75<my_map->remain_pellet/my_map->total_pellet<0.25){
-				// 		my_ghost_char[0].speed_multiplier=0.5;
-				// 	}
+					// w
+			        if(ch2==119){
+			            my_pacman_char->current_direction=UP;
+			        }
+			        //s
+			        if(ch2==115){
+			            my_pacman_char->current_direction=DOWN;
+			        }
+			        //d
+			        if(ch2==100){
+			            my_pacman_char->current_direction=RIGHT;
+			        }
+			        //a
+			        if(ch2==97){
+			            my_pacman_char->current_direction=LEFT;
+			        }
+			        gettimeofday(&pacman_delay_end,NULL);
+			        gettimeofday(&ghost_delay_end,NULL);
+			       	//ajust the speed of ghost based on remain pellet
+					if(my_map->remain_pellet/my_map->total_pellet>0.75){
+						my_ghost_char[3].speed_multiplier=1.4;
+					}else if(0.75<my_map->remain_pellet/my_map->total_pellet<0.25){
+						my_ghost_char[3].speed_multiplier=0.5;
+					}
 
-				// 	if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=DELAY){
-			 //            gettimeofday(&pacman_delay_start,NULL);
-			 //            pacman_char_move(my_pacman_char,map_col+1,map,my_map,&game_window);
-			 //            wrefresh(&game_window);
-				// 	}
-				// 	if(timeval_diff(NULL,&ghost_delay_end,&ghost_delay_start)>=(DELAY*my_ghost_char[0].speed_multiplier)){
-				// 		gettimeofday(&ghost_delay_start,NULL);
-				// 		if(my_pacman_char->pac_state==VULRABLE){
-				//             if(my_ghost_char[0].current_path==2){
-				//             	//before calculate, reset the current ghost file_path to 0
-				//                 my_ghost_char[0].current_path=0;
-				//                 dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				//                 printPath(0,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
-				//                 //after calculate, reset the number of current file_path to 0
-				//                 my_ghost_char[0].current_path=0;
-				//                 ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				//             }else{
-				//            	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				//         	}
+					if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=DELAY){
+			            gettimeofday(&pacman_delay_start,NULL);
+			            pacman_char_move(my_pacman_char,map_col+1,map,my_map,&game_window);
+			            wrefresh(&game_window);
+					}
+					if(timeval_diff(NULL,&ghost_delay_end,&ghost_delay_start)>=(DELAY*my_ghost_char[3].speed_multiplier)){
+						gettimeofday(&ghost_delay_start,NULL);
+						if(my_pacman_char->pac_state==VULRABLE){
+				            if(my_ghost_char[3].current_path==2){
+				            	//before calculate, reset the current ghost file_path to 0
+				                my_ghost_char[3].current_path=0;
+				                dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+				                printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
+				                //after calculate, reset the number of current file_path to 0
+				                my_ghost_char[3].current_path=0;
+				                ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				            }else{
+				           	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	}
 							
 				        	
 
-				//         	//hunter ghost
-				//         	start_hunter(&game_window, my_ghost_char_2, my_pacman_char);
-			 //        	}else if(my_pacman_char->pac_state==INVULRABLE){
-			 //        		if(my_ghost_char[0].current_path==2){
-				//         		int random_row_col[2];
-				//         		random_path(map_row,map_col,my_ghost_char,map,random_row_col);
-				//         		my_ghost_char[0].current_path=0;
-				// 	            dijkstra(transte_from_row_col(my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				// 	            printPath(0,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
-				// 	            my_ghost_char[0].current_path=0;
-				// 	            ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				//         	}else{
-				//             	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
-				//         	}
+				        	//hunter ghost
+				        	start_hunter(&game_window, my_ghost_char_2, my_pacman_char);
+			        	}else if(my_pacman_char->pac_state==INVULRABLE){
+			        		if(my_ghost_char[3].current_path==2){
+				        		int random_row_col[2];
+				        		random_path(map_row,map_col,my_ghost_char,map,random_row_col);
+				        		my_ghost_char[3].current_path=0;
+					            dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+					            printPath(3,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
+					            my_ghost_char[3].current_path=0;
+					            ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	}else{
+				            	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
+				        	}
 				        	
-				//         	// lee(30,4,11,7, map,&game_window);
-				//         	// printPath2();
-			 //        	}
+				        	// lee(30,4,11,7, map,&game_window);
+				        	// printPath2();
+			        	}
 
-			 //        	wrefresh(&game_window);
-			 //        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
+			        	wrefresh(&game_window);
+			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
 
-				// 	}
-    // 			}
+					}
+    			}
     			//reset the ghost file_path for "2nd" new game
     			// for (int i = 0; i < (map_row+2)*(map_col+2); ++i)
     			// {

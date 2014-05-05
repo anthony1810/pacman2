@@ -116,9 +116,9 @@ void ghost_move(int ghost_path_size,int ghost_path[ghost_path_size],int translat
         // wprintw(game_window,"%p",&ghost_path[3]);
         // wrefresh(game_window); 
 
-        translate_from_1_number(ghost_path[(my_ghost_char[0].current_path)++],translate_row_col,map_row,map_col);
+        translate_from_1_number(ghost_path[(my_ghost_char[3].current_path)++],translate_row_col,map_row,map_col);
         wattron(game_window,COLOR_PAIR(5));
-        mvwaddch(game_window,my_ghost_char[0].ghost_row,my_ghost_char[0].ghost_col,convert_to_map_character(char_temp));      
+        mvwaddch(game_window,my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,convert_to_map_character(char_temp));      
         wattron(game_window,COLOR_PAIR(3));
         mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
         wattron(game_window,COLOR_PAIR(1));
@@ -130,11 +130,11 @@ void ghost_move(int ghost_path_size,int ghost_path[ghost_path_size],int translat
             }
             // char_temp2=map[translate_row_col[0]][translate_row_col[1]];
             map[translate_row_col[0]][translate_row_col[1]]='G';
-            map[my_ghost_char[0].ghost_row][my_ghost_char[0].ghost_col]=char_temp;
+            map[my_ghost_char[3].ghost_row][my_ghost_char[3].ghost_col]=char_temp;
             char_temp=char_temp2;
             
-            my_ghost_char[0].ghost_row=translate_row_col[0];
-            my_ghost_char[0].ghost_col=translate_row_col[1];        
+            my_ghost_char[3].ghost_row=translate_row_col[0];
+            my_ghost_char[3].ghost_col=translate_row_col[1];        
         }  
            
 }

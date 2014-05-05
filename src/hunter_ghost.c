@@ -118,12 +118,12 @@ void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_
 
 	my_item_struct->value = characters;
 	mvwaddch(game_window, my_ghost_char->ghost_col, my_ghost_char->ghost_row, ACS_CKBOARD);
-	sleep(HUNTER_SPEED);
+	//sleep(HUNTER_SPEED);
 	wrefresh(game_window);
 }
 
 void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struct pacman_char_2 *my_pacman_char){
-	sleep(1000000);
+	//sleep(1000000);
 	if(my_ghost_char->ghost_row>my_pacman_char->pac_row){
 		mvwaddch(game_window,my_ghost_char->ghost_col,my_ghost_char->ghost_row-1, ACS_RTEE);
 		wrefresh(game_window);
@@ -131,7 +131,7 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 		mvwaddch(game_window,my_ghost_char->ghost_col,my_ghost_char->ghost_row+1, ACS_LTEE);
 		wrefresh(game_window);
 	}
-	sleep(1000000);
+	//sleep(1000000);
 	if(my_ghost_char->ghost_row>my_pacman_char->pac_row){
 		mvwaddch(game_window,my_ghost_char->ghost_col-1,my_ghost_char->ghost_row, ACS_HLINE);
 		wrefresh(game_window);
@@ -139,16 +139,16 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 		mvwaddch(game_window,my_ghost_char->ghost_col+1,my_ghost_char->ghost_row, ACS_HLINE);
 		wrefresh(game_window);
 	}
-	sleep(1000000);
+	//sleep(1000000);
 	mvwaddch(game_window,my_ghost_char->ghost_col,my_ghost_char->ghost_row+1, ACS_VLINE);
-	sleep(1000000);
+	//sleep(1000000);
 	wrefresh(game_window);
 	mvwaddch(game_window,my_ghost_char->ghost_col,my_ghost_char->ghost_row-1, ACS_VLINE);
 	wrefresh(game_window);
-	sleep(1000000);
+	//sleep(1000000);
 	mvwaddch(game_window,my_ghost_char->ghost_col+1,my_ghost_char->ghost_row, ACS_HLINE);
 	wrefresh(game_window);
-	sleep(1000000);
+	//sleep(1000000);
 	mvwaddch(game_window,my_ghost_char->ghost_col-1,my_ghost_char->ghost_row, ACS_HLINE);
 	wrefresh(game_window);
 
@@ -205,7 +205,7 @@ void chase_pacman(WINDOW *game_window,WINDOW *info, struct ghost_char_2 *my_ghos
 					wclear(info);
 					wprintw(info, "Waiting to strike by 3");
 					wrefresh(info);
-					sleep(5000000);
+					//sleep(5000000);
 				}
 				movexy(game_window, my_ghost_char,my_item_struct, 1, 0);
 			}else{
@@ -226,7 +226,7 @@ void chase_pacman(WINDOW *game_window,WINDOW *info, struct ghost_char_2 *my_ghos
 					wclear(info);
 					wprintw(info, "Waiting to strike by 4");
 					wrefresh(info);
-					sleep(5000000);
+					//sleep(5000000);
 				}
 				movexy(game_window, my_ghost_char,my_item_struct, -1, 0);
 			}else{
@@ -240,7 +240,7 @@ void chase_pacman(WINDOW *game_window,WINDOW *info, struct ghost_char_2 *my_ghos
 	wclear(info);
 	wprintw(info, "Attempt to destroy the wall");
 	wrefresh(info);
-	sleep(1000000);
+	//sleep(1000000);
 	// move_away = 1;
 	//hunter_defend(game_window,my_ghost_char, my_pacman_char);
 }
@@ -290,7 +290,7 @@ void hunter_move(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struct
 	wclear(info);
 	wprintw(info, "%ix%i: %i",new_movex,new_movey,characters);
 	wrefresh(info);
-	getch();
+	// getch();
 	// wprintw(game_window, "%ix%i",my_ghost_char->ghost_row + new_x,my_ghost_char->ghost_col + new_y );
 	// wrefresh(game_window);
 
@@ -320,10 +320,10 @@ void hunter_move(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struct
 		}
 		mvwaddch(game_window, my_ghost_char->ghost_col, my_ghost_char->ghost_row, ACS_CKBOARD);
 		wrefresh(game_window);
-		sleep(HUNTER_SPEED);
+		//sleep(HUNTER_SPEED);
 		wrefresh(game_window);
 	}else{
-		sleep(HUNTER_SPEED);
+		//sleep(HUNTER_SPEED);
 		enum Hunter_Directions new_hunter_direction = get_hunter_direction();
 		while(hunter_directions==new_hunter_direction){
 			new_hunter_direction = get_hunter_direction();
@@ -337,9 +337,9 @@ void start_hunter(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struc
 	
 	hunter_directions = get_hunter_direction();
 	
-	while(1){
+	// while(1){
 		hunter_move(game_window, my_ghost_char, my_pacman_char,&my_item_struct);
-	}
+	// }
 	
 }
 
