@@ -152,8 +152,8 @@ int main(int argc, char * argv[]){
 			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
-				my_ghost_char_2->ghost_row=5;
-				my_ghost_char_2->ghost_col=3;
+				my_ghost_char_2->ghost_row=3;
+				my_ghost_char_2->ghost_col=13;
 
 				// struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
 				// my_pacman_char_2->pac_col=16;
