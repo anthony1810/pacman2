@@ -155,17 +155,17 @@ int main(int argc, char * argv[]){
 				my_ghost_char_2->ghost_row=5;
 				my_ghost_char_2->ghost_col=3;
 
-				struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
-				my_pacman_char_2->pac_col=16;
-				my_pacman_char_2->pac_row=32;
+				// struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
+				// my_pacman_char_2->pac_col=16;
+				// my_pacman_char_2->pac_row=32;
 
-				// start_hunter(&game_window, my_ghost_char_2, my_pacman_char_2);
+				enum Hunter_Directions first_direction;
+				hunter_setDirection(first_direction);
 
+				struct Item_Struct my_item_struct;
+				hunter_setItemStruct(&my_item_struct);
 				
-				
-				
-
-			    wrefresh(&game_window);
+				wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
 				
 				long d[(map_row)*(map_col)];  //d[i] is the length of the shortest file_path between the source (s) and node i 
@@ -254,11 +254,8 @@ int main(int argc, char * argv[]){
 				            }else{
 				           	 	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
-							
-				        	
-
 				        	//hunter ghost
-				        	start_hunter(&game_window, my_ghost_char_2, my_pacman_char);
+				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct);
 			        	}else if(my_pacman_char->pac_state==INVULRABLE){
 			        		if(my_ghost_char[3].current_path==2){
 				        		int random_row_col[2];
