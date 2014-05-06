@@ -17,7 +17,49 @@ void save_high_score(char user_email[], int score){
 	fputc('\n',fp);
 	fclose(fp);
 }
+void show_credit(WINDOW *title_window){
+		clear();
+	cbreak();
+	int row,col;
+	getmaxyx(stdscr,row,col);
 
+	//init title, version and company
+	*title_window = create_new_win(TITLE_HEIGHT, col, 0, 0);
+	refresh();
+	wattron(title_window,A_BOLD);
+	wattron(title_window,COLOR_PAIR(6));
+	mvwprintw(title_window,0,(col-strlen(TITLE))/2,"%s",TITLE);
+	wattroff(title_window,A_BOLD);  
+	mvwprintw(title_window,1,col/2 + strlen(TITLE)/2,"%s",VERSION);
+	mvwprintw(title_window,2,col/2 + strlen(TITLE)/2,"%s",CREATOR);
+	wattroff(title_window,COLOR_PAIR(6)); 
+	wrefresh(title_window);
+	
+	attron(A_BOLD | COLOR_PAIR(4) | A_UNDERLINE);
+	mvprintw(6, (col - strlen("CREDIT"))/2, "%s", "CREDIT");
+	attroff(A_BOLD | COLOR_PAIR(4) | A_UNDERLINE);
+
+	attron(A_BOLD | COLOR_PAIR(2));
+	mvprintw(7, (col - strlen("-type any key to return to the menu-"))/2, "%s", "-type any key to return to the menu-");
+	attroff(A_BOLD | COLOR_PAIR(2));
+
+	attron(A_BOLD | COLOR_PAIR(7));
+	mvprintw(13, (col - strlen("Phuc Vo Duc-s3425481"))/2, "%s", "Phuc Vo Duc-s3425481");
+	attroff(A_BOLD | COLOR_PAIR(7));
+
+	attron(A_BOLD | COLOR_PAIR(7));
+	mvprintw(16, (col - strlen("Tran Nhat Quang-s3312399"))/2, "%s", "Tran Nhat Quang-s3312399");
+	attroff(A_BOLD | COLOR_PAIR(7));
+
+	attron(A_BOLD | COLOR_PAIR(7));
+	mvprintw(19, (col - strlen("Huynh Phung Cao Anh-s3357672"))/2, "%s", "Huynh Phung Cao Anh-s3357672");
+	attroff(A_BOLD | COLOR_PAIR(7));
+
+	attron(A_BOLD | COLOR_PAIR(7));
+	mvprintw(22, (col - strlen("-type any key to return to the menu-"))/2, "%s", "-type any key to return to the menu-");
+	attroff(A_BOLD | COLOR_PAIR(7));
+	getch();
+}
 void show_high_score(WINDOW *title_window, WINDOW *command_window){
 
 	clear();
