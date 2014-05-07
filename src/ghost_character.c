@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <string.h>
 #include "ghost_character.h"
+#include "constant.h"
 #define INFINITY 999
 
 void translate_from_1_number(int input,int translate_row_col[],int map_row,int map_col){
@@ -85,7 +86,7 @@ char char_temp2=' ';
 
 
 
-void ghost_move(int ghost_path_size,int ghost_path[ghost_path_size],int translate_row_col[],int map_row,
+void ghost_move(int ghost_path[],int translate_row_col[],int map_row,
     int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char,WINDOW *game_window){
     
     // for (int i = 0; i < 4; ++i)
@@ -165,3 +166,48 @@ chtype convert_to_map_character(char text_character){
     return ' ';
 }
 
+char current_char=' ';
+char previous_char=' ';
+
+void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char,int map_col,char map[][map_col+1],WINDOW *game_window){
+
+    wattron(game_window,COLOR_PAIR(5));
+    mvwaddch(game_window,my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,convert_to_map_character(current_char));      
+
+    int temp_row=my_ghost_char[2].ghost_row;
+    int temp_col=my_ghost_char[2].ghost_col;
+    switch(my_pacman_char->current_direction){
+        case UP:
+            my_ghost_char[2].ghost_row++;       
+            break;
+        case DOWN:
+            my_ghost_char[2].ghost_row--;
+            break;
+        case LEFT:
+            my_ghost_char[2].ghost_col++;
+            break;
+        case RIGHT:
+            my_ghost_char[2].ghost_col--;
+            break;
+    };
+    // my_ghost_char[2].pac_row;
+    // my_ghost_char[2].pac_col;
+    if(checkWall(my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,map_col,map)==0){
+        my_ghost_char[2].ghost_row=temp_row;
+        my_ghost_char[2].ghost_col=temp_col;
+    }
+    wattron(game_window,COLOR_PAIR(3));
+    mvwaddch(game_window,my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,ACS_CKBOARD);
+    wattron(game_window,COLOR_PAIR(1));
+        if(map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]!='G'){
+            if(map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]!='P'){
+                previous_char=map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col];
+            }else{
+                previous_char=' ';
+            }
+            // previous_char=map[translate_row_col[0]][translate_row_col[1]];
+            map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]='G';
+            map[temp_row][temp_col]=current_char;
+            current_char=previous_char;      
+        }  
+}
