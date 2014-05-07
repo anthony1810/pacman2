@@ -38,6 +38,7 @@
 
 #define MENU_TITLE "== MENU =="
 #define MENU_NEW "New Game"
+#define MENU_OPTION "Option"
 #define MENU_HSCORE "High Score"
 #define MENU_EDITOR "Level Editor"
 #define MENU_CREDIT "Credits"

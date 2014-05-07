@@ -520,10 +520,11 @@ void init_menu(WINDOW *title_window){
 
 	attron(COLOR_PAIR(5));
 	mvprintw(10,(col-strlen(MENU_NEW))/2,"%s", MENU_NEW);
-	mvprintw(12,(col-strlen(MENU_HSCORE))/2,"%s", MENU_HSCORE);
-	mvprintw(14,(col-strlen(MENU_EDITOR))/2,"%s", MENU_EDITOR);
-	mvprintw(16,(col-strlen(MENU_CREDIT))/2,"%s",  MENU_CREDIT);
-	mvprintw(18,(col-strlen(MENU_END))/2,"%s",  MENU_END);
+	mvprintw(12,(col-strlen(MENU_OPTION))/2,"%s", MENU_OPTION);
+	mvprintw(14,(col-strlen(MENU_HSCORE))/2,"%s", MENU_HSCORE);
+	mvprintw(16,(col-strlen(MENU_EDITOR))/2,"%s", MENU_EDITOR);
+	mvprintw(18,(col-strlen(MENU_CREDIT))/2,"%s",  MENU_CREDIT);
+	mvprintw(20,(col-strlen(MENU_END))/2,"%s",  MENU_END);
 	attroff(COLOR_PAIR(5));
 
 	curs_set(0);

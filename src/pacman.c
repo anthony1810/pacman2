@@ -61,6 +61,8 @@ int map_col=0;
 int scr_x, scr_y;
 FILE *f ;
 
+int option = 0;
+
 int ghost_path [35*65]={0};
 int ghost_path_2 [10]={0};
 char s[100];
@@ -106,7 +108,7 @@ int main(int argc, char * argv[]){
 			attroff(COLOR_PAIR(6));
 			refresh();
 		}
-		if(ch == 's' && y_cur < 18 ){
+		if(ch == 's' && y_cur < 20 ){
 			mvprintw(y_cur,x_cur,"%s", "  ");
 			y_cur += 2;
 			attron(COLOR_PAIR(6));
@@ -318,8 +320,17 @@ int main(int argc, char * argv[]){
 				mvprintw(y_cur,x_cur,"%s", "->");
 				attroff(COLOR_PAIR(6));
 
-			// highscore
+			// Option
 			}else if(y_cur == 12){
+				timeout(-1);
+				show_option(&title_window,&option);
+				clear();
+				init_menu(&title_window);
+				attron(COLOR_PAIR(6));
+				mvprintw(y_cur,x_cur,"%s", "->");
+				attroff(COLOR_PAIR(6));
+			// high score
+			}else if(y_cur == 14){
 				timeout(-1);
 				show_high_score(&title_window,&command_window);
 				clear();
@@ -328,7 +339,7 @@ int main(int argc, char * argv[]){
 				mvprintw(y_cur,x_cur,"%s", "->");
 				attroff(COLOR_PAIR(6));
 			// level editor
-			}else if(y_cur == 14){
+			}else if(y_cur == 16){
 				timeout(-1);
 				clear();
 				refresh();
@@ -348,7 +359,7 @@ int main(int argc, char * argv[]){
 
 				continue;
 			// credits
-			}else if(y_cur == 16){
+			}else if(y_cur == 18){
 				timeout(-1);
 				show_credit(&title_window);
 				clear();
@@ -357,7 +368,7 @@ int main(int argc, char * argv[]){
 				mvprintw(y_cur,x_cur,"%s", "->");
 				attroff(COLOR_PAIR(6));
 			// end game
-			}else if(y_cur == 18){
+			}else if(y_cur == 20){
 				break;
 			}
 		}
