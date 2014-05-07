@@ -165,6 +165,21 @@ int main(int argc, char * argv[]){
 				struct Item_Struct my_item_struct;
 				hunter_setItemStruct(&my_item_struct);
 				
+				struct Item_Struct *new_upper_left_struct = create_item_struct();
+				struct Item_Struct *new_upper_struct = create_item_struct();
+				struct Item_Struct *new_upper_right_struct = create_item_struct();
+				struct Item_Struct *new_left_struct = create_item_struct();
+				struct Item_Struct *new_right_struct = create_item_struct();
+				struct Item_Struct *new_lower_left_struct = create_item_struct();
+				struct Item_Struct *new_down_struct = create_item_struct();
+				struct Item_Struct *new_lower_right_struct = create_item_struct();
+
+				hunter_setDefendOriginChar(new_upper_right_struct,new_upper_struct, new_left_struct,
+				new_upper_left_struct, new_lower_left_struct, new_lower_right_struct, new_down_struct, 
+				new_right_struct);
+
+				hunter_setDurationBuildWalls(8);
+				
 				wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
 				
@@ -268,6 +283,7 @@ int main(int argc, char * argv[]){
 				        	}else{
 				            	ghost_move((map_row+2)*(map_col+2),ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
+				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct);
 				        	
 				        	// lee(30,4,11,7, map,&game_window);
 				        	// printPath2();
