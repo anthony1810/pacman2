@@ -84,7 +84,10 @@ void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_p
 char char_temp=' ';
 char char_temp2=' ';
 
-
+void reset_cell(){
+    char_temp=' ';
+    char_temp2=' ';
+}
 
 void ghost_move(int ghost_path[],int translate_row_col[],int map_row,
     int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char,WINDOW *game_window){

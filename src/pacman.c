@@ -136,7 +136,7 @@ int main(int argc, char * argv[]){
 			    // read the file and get the row&col
 			    char full_path[100]="" ;
 			    strcat(full_path,PATH);
-			    strcat(full_path,"hunter_map");
+			    strcat(full_path,"caoanh2");
 			    strcat(full_path,".pac");
 			    f = fopen(full_path, "r");
 			    
@@ -152,7 +152,7 @@ int main(int argc, char * argv[]){
 
 
 
-			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
+			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "caoanh2", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
@@ -210,12 +210,15 @@ int main(int argc, char * argv[]){
 						map[my_pacman_char->initial_pac_row][my_pacman_char->initial_pac_col]='P';
 						my_pacman_char->pac_row=my_pacman_char->initial_pac_row;
 						my_pacman_char->pac_col=my_pacman_char->initial_pac_col;
-						for(int i=0;i<4;i++){
+						for(int i=1;i<4;i++){
 							map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=' ';
 							map[my_ghost_char[i].initial_ghost_row][my_ghost_char[i].initial_ghost_col]='G';
 							my_ghost_char[i].ghost_row=my_ghost_char[i].initial_ghost_row;
 							my_ghost_char[i].ghost_col=my_ghost_char[i].initial_ghost_col;
 						}
+						my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
+						my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
+						reset_cell();
 						my_pacman_char->current_direction=0;
 						// // dead_reset(my_pacman_char,my_ghost_char,map_col,map_row,map);
 						new_game_update_map(&game_window,map_row,map_col+1,map);
@@ -277,7 +280,7 @@ int main(int argc, char * argv[]){
 				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 				        	// other ghost
 				        	ghost_mimic_pacman(my_ghost_char,my_pacman_char,map_col,map,&game_window);
-				        	lee(my_pacman_char->pac_col,my_pacman_char->pac_row,my_ghost_char[1].ghost_col,my_ghost_char[1].ghost_row, map,&game_window);
+				        	// lee(my_pacman_char->pac_col,my_pacman_char->pac_row,my_ghost_char[1].ghost_col,my_ghost_char[1].ghost_row, map,&game_window);
 				        	// printPath2();
 
 			        	}else if(my_pacman_char->pac_state==INVULRABLE){
@@ -305,13 +308,11 @@ int main(int argc, char * argv[]){
     			}
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
-    			// for (int i = 0; i < (map_row+2)*(map_col+2); ++i)
-    			// {
-    			// 	for (int j = 0; j < 4; ++j)
-    			// 	{
-    			// 		ghost_path[j][i]=0;
-    			// 	}
-    			// }
+    			for (int i = 0; i < map_row*map_col; ++i)
+    			{
+    					ghost_path[i]=0;
+    				
+    			}
 				free(my_pacman_char);
 				free(my_ghost_char);
 				//wait for user to enter st

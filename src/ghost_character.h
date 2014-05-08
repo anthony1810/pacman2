@@ -15,4 +15,6 @@ chtype convert_to_map_character(char text_character);
 
 void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char,int map_col,char map[][map_col+1],WINDOW *game_window);
 
+void reset_cell();
+
 #endif

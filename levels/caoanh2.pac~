@@ -15,8 +15,8 @@ a                                                               a
 a                           sss                qwwwwwwwwwwwwwwwwa
 a    qwwwwwwwwwwwe           sss               a qwwwwwwwwwwwwwwa
 a    AwwwwwwwwWWWD      qwwwww   wwwwe         a a              a
-a    zwwwwwwweaaaa      ag          ga         a Awwwwwe        a
-a           paaaaa      aG           a         a a     a        a
+a    zwwwwwwweaaaa       g          ga         a Awwwwwe        a
+a           paaaaa       G           a         a a     a        a
 aS           aaaaa      zwwwwwwwwwwwwc         a a     a        a
 as           aaaaa                             a a     a        a
 as           aaaaa                             zwc     a        a
