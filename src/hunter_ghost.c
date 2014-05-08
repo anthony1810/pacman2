@@ -44,8 +44,8 @@ struct Item_Struct *create_item_struct(){
     return my_item_struct;
 }
 
-void hunter_setGameMap(char new_map[35][66]){
-	//game_map = new_map;
+void set_isFirstTime(){
+	isFirstTime=1;
 }
 
 void hunter_setDefendOriginChar(struct Item_Struct *new_upper_right_struct,struct Item_Struct *new_upper_struct, struct Item_Struct *new_left_struct,
@@ -133,7 +133,9 @@ void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_
 	int characters = (int)mvwinch(game_window, my_item_struct->y_pos, my_item_struct->x_pos);
 
 	my_item_struct->value = characters;
+	wattron(game_window,COLOR_PAIR(3));
 	mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
+	wattron(game_window,COLOR_PAIR(1));
 
 	wrefresh(game_window);
 }
@@ -317,7 +319,8 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 }
 
 
-void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char,struct Item_Struct *my_item_struct){
+void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char,struct Item_Struct *my_item_struct,
+				int map_col,char map[][map_col+1]){
 	//my_pacman_char->pac_state = 1;
 	// wclear(title);
 	// wprintw(title, "Pac State: %i,Defend Index: %i",my_pacman_char->pac_state ,recently_defend);
@@ -385,8 +388,9 @@ void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gho
 			}else{
 				my_item_struct->value = characters;
 			}
+			wattron(game_window,COLOR_PAIR(3));
 			mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
-
+			wattron(game_window,COLOR_PAIR(1));
 		}else{
 
 			enum Hunter_Directions new_hunter_direction = get_hunter_direction();
@@ -396,7 +400,21 @@ void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gho
 			hunter_setDirection(new_hunter_direction);
 		}
 	}
+	update_map_array(map_col,map,game_window);
 }
+void update_map_array(int map_col,char map[][map_col+1],WINDOW *game_window){
+	
+	// map[34][18]='q';
+	for(int i=0; i<35; i++){
+		for(int k=0;k<map_col;k++){
+			int characters = (int)mvwinch(game_window, i, k);
+ 			
+			map[i][k]=getTranslatedChar(characters);
+		}
+	}	
+}
+
+
 
 struct ghost_char_2 *create_ghost_char2(){
     struct ghost_char_2 *my_ghost_char= malloc(sizeof(struct ghost_char_2));

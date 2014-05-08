@@ -119,8 +119,9 @@ char getTranslatedChar(int ch){
 		return 'f';
 	}
 	// space
-	else
+	else{
 		return 32;
+	}
 }
 
 

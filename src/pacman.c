@@ -136,7 +136,7 @@ int main(int argc, char * argv[]){
 			    // read the file and get the row&col
 			    char full_path[100]="" ;
 			    strcat(full_path,PATH);
-			    strcat(full_path,"caoanh2");
+			    strcat(full_path,"hunter_map");
 			    strcat(full_path,".pac");
 			    f = fopen(full_path, "r");
 			    
@@ -155,8 +155,8 @@ int main(int argc, char * argv[]){
 			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
-				my_ghost_char_2->ghost_row=3;
-				my_ghost_char_2->ghost_col=13;
+				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
+				my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
 
 				// struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
 				// my_pacman_char_2->pac_col=16;
@@ -273,7 +273,8 @@ int main(int argc, char * argv[]){
 				           	 	ghost_move(ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
 				        	//hunter ghost
-				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct);
+
+				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 				        	// other ghost
 				        	ghost_mimic_pacman(my_ghost_char,my_pacman_char,map_col,map,&game_window);
 
@@ -290,7 +291,7 @@ int main(int argc, char * argv[]){
 				        	}else{
 				            	ghost_move(ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
 				        	}
-				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct);
+				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 				        	
 				        	// lee(30,4,11,7, map,&game_window);
 				        	// printPath2();
@@ -301,6 +302,7 @@ int main(int argc, char * argv[]){
 
 					}
     			}
+    			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
     			// for (int i = 0; i < (map_row+2)*(map_col+2); ++i)
     			// {
