@@ -31,6 +31,7 @@ void hunter_setDirection(enum Hunter_Directions first_direction);
 void hunter_setItemStruct(struct Item_Struct *item);
 void hunter_setDurationBuildWalls(int new_duration);
 void set_isFirstTime();
+void hunter_setVisionLength(int new_length);
 void hunter_setDefendOriginChar(struct Item_Struct *new_upper_right_struct,struct Item_Struct *new_upper_struct, struct Item_Struct *new_left_struct,
 struct Item_Struct *new_upper_left_struct, struct Item_Struct *new_lower_left_struct, struct Item_Struct *new_lower_right_struct, struct Item_Struct *new_down_struct, 
 struct Item_Struct *new_right_struct);

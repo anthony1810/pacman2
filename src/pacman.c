@@ -126,6 +126,7 @@ int main(int argc, char * argv[]){
 				init_game(&title_window, &game_window, &command_window, &note_window, &wall, &user_window, user, user_email,1);
 				timeout(DELAY);
 				nodelay(stdscr,TRUE);
+
 				//create a struct of pacman and reset the score/current direction
 				struct pacman_char *my_pacman_char=create_pacman_char();
 			    my_pacman_char->score=0;
@@ -184,8 +185,32 @@ int main(int argc, char * argv[]){
 				new_upper_left_struct, new_lower_left_struct, new_lower_right_struct, new_down_struct, 
 				new_right_struct);
 
-				hunter_setDurationBuildWalls(20);
 				
+				
+				if(option == 1){
+					
+					//hunter buils wall 
+					hunter_setDurationBuildWalls(5);
+					//hunter only see pacman 
+					hunter_setVisionLength(5);
+					//ghost speed
+					my_ghost_char[3].speed_multiplier = 1.5;
+
+				}else if(option == 2){
+					//hunter buils wall 
+					hunter_setDurationBuildWalls(3);
+					// //hunter only see pacman 
+					hunter_setVisionLength(10);
+					//ghost speed
+					my_ghost_char[3].speed_multiplier = 1.3;
+				}else if(option == 3){
+					//hunter buils wall 
+					hunter_setDurationBuildWalls(0);
+					//hunter only see pacman 
+					hunter_setVisionLength(20);
+					//ghost speed
+					my_ghost_char[3].speed_multiplier = 0.5;
+				}
 				wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
 				

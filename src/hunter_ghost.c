@@ -12,6 +12,7 @@ int wall_duration_constant = 15;
 int wall_duration = 0;
 int recently_defend = 0;
 int isCollised = 0;
+int vision_length = 0; 
 enum Hunter_Directions hunter_directions;
 
 struct Item_Struct my_item_struct;
@@ -59,6 +60,10 @@ struct Item_Struct *create_item_struct(){
 
 void set_isFirstTime(){
 	isFirstTime=1;
+}
+
+void hunter_setVisionLength(int new_length){
+	vision_length = new_length;
 }
 
 void hunter_setDefendOriginChar(struct Item_Struct *new_upper_right_struct,struct Item_Struct *new_upper_struct, struct Item_Struct *new_left_struct,
@@ -258,9 +263,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 
 void restore_after_defend(WINDOW *game_window, WINDOW *info){
 
-	wclear(info);
-	wprintw(info, "%ix%i: %i - ", upper_right_struct->y_pos,upper_right_struct->x_pos,upper_right_struct->value);
-	wrefresh(info);
+	// wclear(info);
+	// wprintw(info, "%ix%i: %i - ", upper_right_struct->y_pos,upper_right_struct->x_pos,upper_right_struct->value);
+	// wrefresh(info);
 
 	mvwaddch(game_window,upper_right_struct->y_pos,upper_right_struct->x_pos,upper_right_struct->value);
 	mvwaddch(game_window,upper_struct->y_pos,upper_struct->x_pos, upper_struct->value);
