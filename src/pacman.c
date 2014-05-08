@@ -70,6 +70,8 @@ int n; /* The number of nodes in the graph */
 long dist[(GAME_HEIGHT+1)*(GAME_WIDTH+1)][(GAME_HEIGHT+1)*(GAME_WIDTH+1)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
 void random_path(int map_row,int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1],int random_row_col[],struct pacman_char *my_pacman_char);
 
+char *maps[2]={"caoanh2","hunter_map"};
+int current_map=0;
  void printPath2(){
         for (int i = 0; i < 35*65; i++){
             if (path[i] != 0)
@@ -152,7 +154,7 @@ int main(int argc, char * argv[]){
 
 
 
-			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
+			    new_game_read_file(&game_window, map_row,map_col+1, map, s, maps[current_map], my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
@@ -322,6 +324,11 @@ int main(int argc, char * argv[]){
 
 					}
     			}
+    			if(current_map==1){
+    				current_map=0;
+    			}else{
+    				current_map=1;
+    			}
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
     			for (int i = 0; i < map_row*map_col; ++i)
@@ -399,12 +406,18 @@ int main(int argc, char * argv[]){
 	return 0;
 }
 void random_path(int map_row,int map_col,struct ghost_char *my_ghost_char,char map[][map_col+1],int random_row_col[],struct pacman_char *my_pacman_char){
-	random_row_col[0]=rand()%(map_row-1);
-	random_row_col[1]=rand()%(map_col-1);
-	while(checkWall(random_row_col[0],random_row_col[1],map_col,map)==0 && 
-		(random_row_col[0]==my_pacman_char->pac_row || random_row_col[1]==my_pacman_char->pac_col)){
-		random_row_col[0]=rand()%(map_row-1);
-		random_row_col[1]=rand()%(map_col-1);
+	if(my_pacman_char->pac_row<17 && my_pacman_char->pac_col<32){
+		random_row_col[0]=1;
+		random_row_col[1]=1;
+	}else if(my_pacman_char->pac_row<17 && my_pacman_char->pac_col>32){
+		random_row_col[0]=1;
+		random_row_col[1]=63;
+	}else if(my_pacman_char->pac_row>17 && my_pacman_char->pac_col<32){
+		random_row_col[0]=33;
+		random_row_col[1]=1;
+	}else if(my_pacman_char->pac_row>17 && my_pacman_char->pac_col>32){
+		random_row_col[0]=33;
+		random_row_col[1]=63;
 	}	
 }
 
