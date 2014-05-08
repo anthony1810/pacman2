@@ -205,6 +205,10 @@ int main(int argc, char * argv[]){
 			    gettimeofday(&ghost_delay_start,NULL);
 			    char ch2=0;
 			    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
+			    	if(my_map->remain_pellet==0){
+			    		current_map = (current_map==1) ? current_map=0:current_map++;
+			    		break;
+			    	}
 			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
 			    	
 			    	//reset after dead 
