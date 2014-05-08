@@ -5,7 +5,6 @@
 #include "pacman_character.h"
 #include "constant.h"
 
-
 int get_score(int row,int col,int map_col,char map[][map_col],struct map *my_map,int is_invul){
     switch (map[row][col]){
         case 's':
@@ -136,7 +135,7 @@ void pacman_char_move(struct pacman_char *my_pacman_char,int map_col,char map []
             break;
     };
     gettimeofday(&pacman_invul_end,NULL);
-    if(timeval_diff(NULL,&pacman_invul_end,&pacman_invul_start)>INVULRABLE_DURATION){
+    if(timeval_diff(NULL,&pacman_invul_end,&pacman_invul_start)>my_pacman_char->invulrable_duration){
         my_pacman_char->pac_state=VULRABLE;
     }
 }

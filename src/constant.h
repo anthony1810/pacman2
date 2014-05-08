@@ -58,5 +58,4 @@
 
 #define INVULRABLE 1
 #define VULRABLE 0
-#define INVULRABLE_DURATION 15000
 #endif

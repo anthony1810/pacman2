@@ -14,3 +14,7 @@ struct map *create_map(){
     struct map *my_map=malloc(sizeof(struct map));
     return my_map;
 }
+struct map_status *create_map_status(){
+	struct map_status *my_map_status=malloc(sizeof(struct map_status));
+	return my_map_status;
+}

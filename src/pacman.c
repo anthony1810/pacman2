@@ -61,7 +61,11 @@ int map_col=0;
 int scr_x, scr_y;
 FILE *f ;
 
-int option = 0;
+int option = 2;
+int is_map_complete=0;
+int score;
+int life;
+int current_invulrable_duration;
 
 int ghost_path [35*65]={0};
 int ghost_path_2 [10]={0};
@@ -129,10 +133,17 @@ int main(int argc, char * argv[]){
 
 				//create a struct of pacman and reset the score/current direction
 				struct pacman_char *my_pacman_char=create_pacman_char();
+				if(is_map_complete==0){
 			    my_pacman_char->score=0;
 			    my_pacman_char->live=3;
 			    my_pacman_char->current_direction=0;
 			    my_pacman_char->pac_state=VULRABLE;
+			    my_pacman_char->invulrable_duration=10000;
+				}else{
+					my_pacman_char->score=score;
+			    my_pacman_char->live=life;
+				}
+			    // my_pacman_char->invulrable_duration=5000;
 			    struct ghost_char *my_ghost_char=create_ghost_char();
 			    struct map *my_map=create_map();
 
@@ -188,29 +199,48 @@ int main(int argc, char * argv[]){
 				
 				
 				if(option == 1){
-					
+					if(is_map_complete==1){
+						my_pacman_char->invulrable_duration-=1000;
+						my_ghost_char[3].speed_multiplier -= 0.2;
+					}else{
 					//hunter buils wall 
-					hunter_setDurationBuildWalls(5);
-					//hunter only see pacman 
-					hunter_setVisionLength(5);
-					//ghost speed
-					my_ghost_char[3].speed_multiplier = 1.5;
-
+						hunter_setDurationBuildWalls(5);
+						//hunter only see pacman 
+						hunter_setVisionLength(5);
+						//ghost speed
+						my_ghost_char[3].speed_multiplier = 1.5;
+						my_pacman_char->invulrable_duration=15000;
+					}
 				}else if(option == 2){
-					//hunter buils wall 
-					hunter_setDurationBuildWalls(3);
-					// //hunter only see pacman 
-					hunter_setVisionLength(10);
-					//ghost speed
-					my_ghost_char[3].speed_multiplier = 1.3;
+					if(is_map_complete==1){
+						my_pacman_char->invulrable_duration-=1000;
+						my_ghost_char[3].speed_multiplier -= 0.2;
+					}else{
+						//hunter buils wall 
+						hunter_setDurationBuildWalls(3);
+						// //hunter only see pacman 
+						hunter_setVisionLength(10);
+						//ghost speed
+						my_ghost_char[3].speed_multiplier = 1.3;
+						my_pacman_char->invulrable_duration=10000;	
+					}
+					
 				}else if(option == 3){
-					//hunter buils wall 
-					hunter_setDurationBuildWalls(0);
-					//hunter only see pacman 
-					hunter_setVisionLength(20);
-					//ghost speed
-					my_ghost_char[3].speed_multiplier = 0.5;
+					if(is_map_complete==1){
+						my_pacman_char->invulrable_duration-=1000;
+						my_ghost_char[3].speed_multiplier -= 0.2;
+					}else{
+						//hunter buils wall 
+						hunter_setDurationBuildWalls(0);
+						//hunter only see pacman 
+						hunter_setVisionLength(20);
+						//ghost speed
+						my_ghost_char[3].speed_multiplier = 0.5;
+						my_pacman_char->invulrable_duration=6000;
+					}
 				}
+				//reset no complete map
+				is_map_complete=0;
 				wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
 				
@@ -232,6 +262,7 @@ int main(int argc, char * argv[]){
 			    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
 			    	if(my_map->remain_pellet==0){
 			    		current_map = (current_map==1) ? current_map=0:current_map++;
+			    		is_map_complete=1;
 			    		break;
 			    	}
 			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
@@ -353,11 +384,15 @@ int main(int argc, char * argv[]){
 
 					}
     			}
+    			score=my_pacman_char->score;
+    			current_invulrable_duration=my_pacman_char->invulrable_duration;
+    			life=my_pacman_char->live;
     			if(current_map==1){
     				current_map=0;
     			}else{
     				current_map=1;
     			}
+    			reset_cell();
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
     			for (int i = 0; i < map_row*map_col; ++i)

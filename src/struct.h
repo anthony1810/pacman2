@@ -10,6 +10,7 @@ struct pacman_char
 	int current_direction;
 	int score;
 	int pac_state;
+	int invulrable_duration;
 };
 struct map{
 	double total_pellet;
@@ -25,8 +26,14 @@ struct ghost_char
 	int current_path;
 	int ghost_num;
 };
+struct map_status{
+	int invulrable_duration;
+	int score;
+	int live;
+};
+
 struct ghost_char *create_ghost_char();
 struct pacman_char *create_pacman_char();
 struct map *create_map();
-
+struct map_status *create_map_status();
 #endif
