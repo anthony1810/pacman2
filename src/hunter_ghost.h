@@ -25,6 +25,8 @@ struct ghost_char_2
 };
 
 enum Hunter_Directions get_hunter_direction();
+int getHunterCollision();
+void hunter_reset_colision();
 void hunter_setDirection(enum Hunter_Directions first_direction);
 void hunter_setItemStruct(struct Item_Struct *item);
 void hunter_setDurationBuildWalls(int new_duration);

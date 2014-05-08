@@ -8,9 +8,10 @@
 
 int HUNTER_SPEED =400000;
 int isFirstTime = 1;
-int wall_duration_constant = 8;
+int wall_duration_constant = 15;
 int wall_duration = 0;
 int recently_defend = 0;
+int isCollised = 0;
 enum Hunter_Directions hunter_directions;
 
 struct Item_Struct my_item_struct;
@@ -25,6 +26,18 @@ struct Item_Struct *down_struct;
 struct Item_Struct *lower_right_struct;
 
 char game_map[35][66];
+
+int getHunterCollision(){
+	return isCollised;
+}
+
+void hunter_reset_colision(){
+	if(isCollised==0){
+		isCollised = 1;
+	}else{
+		isCollised = 0;
+	}
+}
 
 void hunter_setDirection(enum Hunter_Directions first_direction){
 	hunter_directions = first_direction;
@@ -142,6 +155,7 @@ void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_
 
 void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char){
 	recently_defend = 1;
+	if(isCollised != 1){
 	/** Build walls surrounds ghost **/
 		if(wall_duration == 8){
 			//store origin char
@@ -239,7 +253,7 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			wall_duration--;
 		}
 		wrefresh(game_window);
-
+	}
 }
 
 void restore_after_defend(WINDOW *game_window, WINDOW *info){
@@ -268,11 +282,11 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 	int ghost_y = my_ghost_char->ghost_row;
 	int pac_y = my_pacman_char->pac_row;
 
-	if(pac_x==ghost_x && pac_y==ghost_y){
-		wclear(title);
-		wprintw(title, "Finish!");
-		wrefresh(title);
-	}
+	// if(pac_x==ghost_x && pac_y==ghost_y){
+	// 	wclear(title);
+	// 		    	wprintw(title, "%i", getHunterCollision());
+	// 		    	wrefresh(title);
+	// }
 
 	if(pac_x > ghost_x){
 			ghost_x++;

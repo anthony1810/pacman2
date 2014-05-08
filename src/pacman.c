@@ -152,7 +152,7 @@ int main(int argc, char * argv[]){
 
 
 
-			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "caoanh2", my_pacman_char, my_ghost_char, my_map);
+			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "hunter_map", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
@@ -163,6 +163,7 @@ int main(int argc, char * argv[]){
 				// my_pacman_char_2->pac_row=32;
 
 				enum Hunter_Directions first_direction;
+				first_direction = get_hunter_direction();
 				hunter_setDirection(first_direction);
 
 				struct Item_Struct my_item_struct;
@@ -181,7 +182,7 @@ int main(int argc, char * argv[]){
 				new_upper_left_struct, new_lower_left_struct, new_lower_right_struct, new_down_struct, 
 				new_right_struct);
 
-				hunter_setDurationBuildWalls(8);
+				hunter_setDurationBuildWalls(20);
 				
 				wrefresh(&game_window);
 			    int prev [(map_row)*(map_col)];
@@ -203,6 +204,7 @@ int main(int argc, char * argv[]){
 			    char ch2=0;
 			    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
 			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
+			    	
 			    	//reset after dead 
 			    	if(field_status_code==4){
 						my_pacman_char->live--;
@@ -230,7 +232,18 @@ int main(int argc, char * argv[]){
 						my_ghost_char[field_status_code].ghost_col=my_ghost_char[field_status_code].initial_ghost_col;
 						
 			    	}
-
+			    	// wclear(&title_window);
+			    	// wprintw(&title_window, "%i", getHunterCollision());
+			    	// wrefresh(&title_window);
+			    	if(my_ghost_char_2->ghost_col == my_pacman_char->pac_col && my_ghost_char_2->ghost_row==my_pacman_char->pac_row && my_pacman_char->pac_state == INVULRABLE){
+			    		hunter_reset_colision();
+			    		set_isFirstTime();
+			    		my_ghost_char_2->ghost_col = my_ghost_char[0].initial_ghost_col;
+			    		my_ghost_char_2->ghost_row = my_ghost_char[0].initial_ghost_row;
+			    		mvwaddch(&game_window,my_ghost_char_2->ghost_row, my_ghost_char_2->ghost_col, ACS_CKBOARD );
+			    		
+			    		wrefresh(&game_window);
+			    	}
 					// w
 			        if(ch2==119){
 			            my_pacman_char->current_direction=UP;
@@ -259,6 +272,9 @@ int main(int argc, char * argv[]){
 					if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=DELAY){
 			            gettimeofday(&pacman_delay_start,NULL);
 			            pacman_char_move(my_pacman_char,map_col+1,map,my_map,&game_window);
+			            if(my_pacman_char->score==2000){
+			    		my_pacman_char->live++;
+			    	}
 			            wrefresh(&game_window);
 					}
 					if(timeval_diff(NULL,&ghost_delay_end,&ghost_delay_start)>=(DELAY*my_ghost_char[3].speed_multiplier)){

@@ -4,37 +4,37 @@ hunter_map
 65
 qwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwe
 aSsssssssssssssssssssssssssssssasssssssssssssssssssssssssssssssSa
-as  qww                       sas                         wwe  sa
-as  a        g                sas                          ga  sa
-as  a                         sas                           a  sa
-as                            s s                              sa
+as  qww   qwwwwwwwwwwwwwwwwwwesasqwwwwwwwwwwwwwwwwwwwwe   wwe  sa
+as  ag    a                  asasa                    a    ga  sa
+as  a     a                  asasa                    a     a  sa
+as        zwwwwwwwwwwwwwwwwwwcs szwwwwwwwwwwwwwwwwwwwwc        sa
 asssssssssfssssssssssssssssssssSsssssssssssssssssssfssssssssssssa
-as                            s s                              sa
-as             wwwwe          s s           qwwww              sa
-as                 a          sfs           a                  sa
-as                 a          s s           a                  sa
-as                 a          s s           a                  sa
-as                 a          s s           a                  sa
-as                            s s                              sa
-as                            s s                              sa
+asqwwwwwwwwwwwwwwwwwwwwwwwwwwes sqwwwwwwwwwwwwwwwwwwwwwwwwwwwwesa
+asa                          as sa                            asa
+asa                          asfsa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+aszwwwwwwwwwwwwwwwwwwwwwwwwwwcs szwwwwwwwwwwwwwwwwwwwwwwwwwwwwcsa
 asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssa
 awwwww    S     wwwwwwwwwwwwww p wwwwwwwwwwwwwww      S     wwwwa
 asssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssa
-as                            s s                              sa
-as                            s s                              sa
-as                 a          s s           a                  sa
-as                 a          s s           a                  sa
-as                 a          sfs           a                  sa
-as                 a          s s           a                  sa
-as                 a          s s           a                  sa
-as             wwwwc          s s           zwwww              sa
-as                            s s                              sa
-as                            s s                              sa
+asqwwwwwwwwwwwwwwwwwwwwwwwwwwes sqwwwwwwwwwwwwwwwwwwwwwwwwwwwwesa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          asfsa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+asa                          as sa                            asa
+aszwwwwwwwwwwwwwwwwwwwwwwwwwwcs szwwwwwwwwwwwwwwwwwwwwwwwwwwwwcsa
 asssssssssssssssfssssssssssssssSssssssssssssssfsssssssssssssssssa
-as   a                        sas                           a  sa
-as   ag                       sas                          ga  sa
-as   zww                      sas                         wwc  sa
-as                            sas                              sa
+as   a    qwwwwwwwwwwwwwwwwwwesas qwwwwwwwwwwwwwwwwwwe      a  sa
+as   ag   a                  asas a                  a     ga  sa
+as   zww  a                  asas a                  a    wwc  sa
+as        zwwwwwwwwwwwwwwwwwwcsas zwwwwwwwwwwwwwwwwwwc         sa
 aSsssssssssssssssssssssssssssssasssssssssssssssssssssssssssssssSa
 zwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwc
 
