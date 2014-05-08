@@ -277,7 +277,8 @@ int main(int argc, char * argv[]){
 				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 				        	// other ghost
 				        	ghost_mimic_pacman(my_ghost_char,my_pacman_char,map_col,map,&game_window);
-
+				        	lee(my_pacman_char->pac_col,my_pacman_char->pac_row,my_ghost_char[1].ghost_col,my_ghost_char[1].ghost_row, map,&game_window);
+				        	// printPath2();
 
 			        	}else if(my_pacman_char->pac_state==INVULRABLE){
 			        		if(my_ghost_char[3].current_path==2){

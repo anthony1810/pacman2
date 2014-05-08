@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <curses.h>
 #include "Lee.h"
+#include "ghost_character.h"
+#include "constant.h"
 
   
     // int path[N_ROWS * N_COLS];
     int current_path = 0;
+    int move_count = 0;
     // int temp[N_ROWS][N_COLS];
     // char a[N_ROWS][N_COLS];
 
@@ -94,16 +97,16 @@
             path[i] = 0;
         }
         
-        wclear(game_window);
-        wprintw(game_window,"%s","asddddddddd");
-        wrefresh(game_window);
-        // for (int i = 0; i < N_ROWS; i++){
-        //     for (int j = 0; j < N_COLS; j++){
-        //         if (a[i][j] == '.' || a[i][j] == 'f' || a[i][j] == 'F' || a[i][j] == 'G' || a[i][j] == ' '){
-        //             temp[i][j] = 9999;
-        //         } else temp [i][j] = 0;
-        //     }
-        // }
-        // expand(0, start_x, start_y, a);
-        // traceBack(end_x, end_y, a);
+        // wclear(game_window);
+        // wprintw(game_window,"%s","Error");
+        // wrefresh(game_window);
+        for (int i = 0; i < N_ROWS; i++){
+            for (int j = 0; j < N_COLS; j++){
+                if (a[i][j] == 's' || a[i][j] == 'f' || a[i][j] == 'F' || a[i][j] == 'G' || a[i][j] == ' ' || a[i][j] == 'S'){
+                    temp[i][j] = 9999;
+                } else temp [i][j] = 0;
+            }
+        }
+        expand(0, start_x, start_y, a);
+        traceBack(end_x, end_y, a);
     }
