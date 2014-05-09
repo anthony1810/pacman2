@@ -49,7 +49,7 @@
 #define DOWN 66
 #define RIGHT 67
 #define LEFT 68
-#define DELAY 400	
+#define DELAY 1000	
 
 #define PELLET_SCORE 100
 #define SUPER_PELLET_SCORE 200

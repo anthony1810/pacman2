@@ -9,8 +9,8 @@ int checkWall(int row,int col,int map_col,char map[][map_col+1]);
 void initialize_dist_array(int row,int col,int map_row,int map_col,long dist [][(map_row)*(map_col)],char map[][map_col+1]);
 void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_path[ghost_path_size],struct ghost_char *my_ghost_char);
 
-void ghost_move(int ghost_path[],int translate_row_col[],
-int map_row,int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char,WINDOW *game_window);
+void ghost_move(int ghost_num,int ghost_path[],int translate_row_col[],
+int map_row,int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char,WINDOW *game_window,WINDOW *user_window);
 chtype convert_to_map_character(char text_character);
 
 void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char,int map_col,char map[][map_col+1],WINDOW *game_window);
