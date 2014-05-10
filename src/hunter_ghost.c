@@ -433,6 +433,10 @@ void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gho
 				new_hunter_direction = get_hunter_direction();
 			}
 			hunter_setDirection(new_hunter_direction);
+			wattron(game_window,COLOR_PAIR(5));
+			mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
+			wattroff(game_window,COLOR_PAIR(5));
+			wrefresh(game_window);
 		}
 	}
 	update_map_array(map_col,map,game_window);

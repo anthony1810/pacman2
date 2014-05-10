@@ -181,7 +181,7 @@ int main(int argc, char * argv[]){
 
 
 
-			    new_game_read_file(&game_window, map_row,map_col+1, map, s, maps[current_map], my_pacman_char, my_ghost_char, my_map);
+			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "caoanh2", my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
@@ -416,7 +416,8 @@ int main(int argc, char * argv[]){
 				
 
 				            if(strcmp(phase,"random")==0 && move_count<=MAX_MOVE_RANDOM){
-				            	if(ghost_path_2[my_ghost_char[1].current_path]!=0){
+				            	int next_step=my_ghost_char[1].current_path;
+				            	if(ghost_path_2[next_step+1]!=0){
 						 	   		ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				            	}else{
 				            		my_ghost_char[1].current_path=0;
@@ -425,7 +426,6 @@ int main(int argc, char * argv[]){
 								    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
 								    my_ghost_char[1].current_path=0;
 								    ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
-
 				            	}
 				            	move_count++;
 				            	if(move_count==MAX_MOVE_RANDOM){

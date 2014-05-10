@@ -148,6 +148,7 @@ int pacman_dead(struct pacman_char *my_pacman_char,struct ghost_char *my_ghost_c
             return 4;
         }else if(my_pacman_char->pac_row==my_ghost_char[i].ghost_row
             &&my_pacman_char->pac_col==my_ghost_char[i].ghost_col && my_pacman_char->pac_state==INVULRABLE){
+            my_ghost_char[i].item_overlap=' ';
             //return dead ghost's number 
             return i;
         }

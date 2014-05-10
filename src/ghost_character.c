@@ -102,7 +102,7 @@ void ghost_move(int ghost_num,int ghost_path[],int translate_row_col[],int map_r
         }
         mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
         wattron(game_window,COLOR_PAIR(1));
-        if(map[translate_row_col[0]][translate_row_col[1]]!='g'){
+        if(map[translate_row_col[0]][translate_row_col[1]]!='g' ||map[translate_row_col[0]][translate_row_col[1]]!='G'){
             if(map[translate_row_col[0]][translate_row_col[1]]!='p'){
                 my_ghost_char[ghost_num].item_overlap =map[translate_row_col[0]][translate_row_col[1]];
             }else{
