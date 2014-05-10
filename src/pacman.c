@@ -81,6 +81,7 @@ int n; /* The number of nodes in the graph */
 long dist[(GAME_HEIGHT+1)*(GAME_WIDTH+1)][(GAME_HEIGHT+1)*(GAME_WIDTH+1)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
 void avoid_path(int avoid_row_col[],struct pacman_char *my_pacman_char);
 void ghost_path_2_reset();
+void ghost_path_1_reset();
 void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman_char,int random[]);
 int random_row_col[2]={0,0};
 
@@ -160,7 +161,10 @@ int main(int argc, char * argv[]){
 			    my_ghost_char[1].speed_multiplier=1;
 			    my_ghost_char[3].current_path=0;
 			    my_ghost_char[1].current_path=0;
+			    my_ghost_char[3].item_overlap=' ';
+			    my_ghost_char[1].item_overlap=' ';
 			    ghost_path_2_reset();
+			    ghost_path_1_reset();
 
 			    struct map *my_map=create_map();
 
@@ -309,8 +313,15 @@ int main(int argc, char * argv[]){
 						}
 						my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
 						my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
-						reset_cell();
 						my_pacman_char->current_direction=0;
+						my_ghost_char[1].speed_multiplier=1;
+					    my_ghost_char[3].current_path=0;
+					    my_ghost_char[1].current_path=0;
+					    my_ghost_char[3].item_overlap=' ';
+					    my_ghost_char[1].item_overlap=' ';
+					    ghost_path_2_reset();
+					    ghost_path_1_reset();
+
 						// // dead_reset(my_pacman_char,my_ghost_char,map_col,map_row,map);
 						new_game_update_map(&game_window,map_row,map_col+1,map);
 			    	}else if(field_status_code!=5){
@@ -475,7 +486,6 @@ int main(int argc, char * argv[]){
     			}else{
     				current_map=1;
     			}
-    			reset_cell();
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
     			for (int i = 0; i < map_row*map_col; ++i)
@@ -573,7 +583,11 @@ void ghost_path_2_reset(){
 		ghost_path_2[i]=0;
 	}
 }
-
+void ghost_path_1_reset(){
+	for(int i=0;ghost_path[i]!=0;i++){
+		ghost_path[i]=0;
+	}
+}
 void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman_char,int random[]){
 	random[0]=rand()% 33;
 	random[1]=rand()%63;

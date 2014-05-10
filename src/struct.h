@@ -25,6 +25,7 @@ struct ghost_char
 	double speed_multiplier;
 	int current_path;
 	int ghost_num;
+	char item_overlap;
 };
 struct map_status{
 	int invulrable_duration;

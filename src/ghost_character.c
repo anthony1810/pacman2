@@ -81,49 +81,20 @@ void printPath(int ghost_num,int dest,int prev[],int ghost_path_size,int ghost_p
     ghost_path[(my_ghost_char[ghost_num].current_path)++]=dest;
     
 }
-char char_temp=' ';
-char char_temp2=' ';
 
-void reset_cell(){
-    char_temp=' ';
-    char_temp2=' ';
-}
 
 void ghost_move(int ghost_num,int ghost_path[],int translate_row_col[],int map_row,
     int map_col,char map[][map_col+1],struct ghost_char *my_ghost_char,WINDOW *game_window,WINDOW *user_window){
-    
-    // for (int i = 0; i < 4; ++i)
-    // {
-    //   translate_from_1_number(ghost_path[i][(my_ghost_char[i].current_path)++],translate_row_col,map_row,map_col);
-    //     wattron(game_window,COLOR_PAIR(5));
-    //     mvwaddch(game_window,my_ghost_char[i].ghost_row,my_ghost_char[i].ghost_col,convert_to_map_character(char_temp));      
-    //     wattron(game_window,COLOR_PAIR(3));
-    //     mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
-    //     wattron(game_window,COLOR_PAIR(1));
-    //     if(map[translate_row_col[0]][translate_row_col[1]]!='G'){
-    //         if(map[translate_row_col[0]][translate_row_col[1]]!='P'){
-    //             char_temp2=map[translate_row_col[0]][translate_row_col[1]];
-    //         }else{
-    //             char_temp2=' ';
-    //         }
-    //         // char_temp2=map[translate_row_col[0]][translate_row_col[1]];
-    //         map[translate_row_col[0]][translate_row_col[1]]='G';
-    //         map[my_ghost_char[i].ghost_row][my_ghost_char[i].ghost_col]=char_temp;
-    //         char_temp=char_temp2;
-            
-    //         my_ghost_char[i].ghost_row=translate_row_col[0];
-    //         my_ghost_char[i].ghost_col=translate_row_col[1];        
-    //     }
-    // }
-        // wclear(game_window);
-        // fake_path(map_row*map_col, ghost_path,map_col,my_ghost_char);   
-        // wprintw(game_window,"%p",&ghost_path[3]);
-        // wrefresh(game_window); 
+
     
         translate_from_1_number(ghost_path[(++my_ghost_char[ghost_num].current_path)],translate_row_col,map_row,map_col);
-
-        wattron(game_window,COLOR_PAIR(5));
-        mvwaddch(game_window,my_ghost_char[ghost_num].ghost_row,my_ghost_char[ghost_num].ghost_col,convert_to_map_character(char_temp));      
+        if(convert_to_map_character( my_ghost_char[ghost_num].item_overlap )==ACS_CKBOARD){
+            wattron(game_window,COLOR_PAIR(3));
+        }else{
+            wattron(game_window,COLOR_PAIR(5));    
+        }
+        mvwaddch(game_window,my_ghost_char[ghost_num].ghost_row,my_ghost_char[ghost_num].ghost_col,convert_to_map_character( my_ghost_char[ghost_num].item_overlap ));      
+       
         if(ghost_num==3){
             wattron(game_window,COLOR_PAIR(3));
         }else if(ghost_num==1){
@@ -131,26 +102,15 @@ void ghost_move(int ghost_num,int ghost_path[],int translate_row_col[],int map_r
         }
         mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
         wattron(game_window,COLOR_PAIR(1));
-        // if(map[translate_row_col[0]][translate_row_col[1]]!='G'){
             if(map[translate_row_col[0]][translate_row_col[1]]!='P'){
-                char_temp2=map[translate_row_col[0]][translate_row_col[1]];
-                if(ghost_num==1){
-                wclear(user_window);
-                wprintw(user_window,"%c",char_temp);
-                wrefresh(user_window);}
+                my_ghost_char[ghost_num].item_overlap =map[translate_row_col[0]][translate_row_col[1]];
             }else{
-                char_temp2=' ';
+                my_ghost_char[ghost_num].item_overlap =' ';
             }
-            // char_temp2=map[translate_row_col[0]][translate_row_col[1]];
             map[translate_row_col[0]][translate_row_col[1]]='G';
-            map[my_ghost_char[ghost_num].ghost_row][my_ghost_char[ghost_num].ghost_col]=char_temp;
-            char_temp=char_temp2;
-            
+            map[my_ghost_char[ghost_num].ghost_row][my_ghost_char[ghost_num].ghost_col]=my_ghost_char[ghost_num].item_overlap;;
             my_ghost_char[ghost_num].ghost_row=translate_row_col[0];
-            my_ghost_char[ghost_num].ghost_col=translate_row_col[1];        
-        // }  
-        
-           
+            my_ghost_char[ghost_num].ghost_col=translate_row_col[1];            
 }
 chtype convert_to_map_character(char text_character){
     switch(text_character){
@@ -179,13 +139,12 @@ chtype convert_to_map_character(char text_character){
     return ' ';
 }
 
-char current_char=' ';
-char previous_char=' ';
+
 
 void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char,int map_col,char map[][map_col+1],WINDOW *game_window){
 
     wattron(game_window,COLOR_PAIR(5));
-    mvwaddch(game_window,my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,convert_to_map_character(current_char));      
+    mvwaddch(game_window,my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,convert_to_map_character(my_ghost_char[2].item_overlap));      
 
     int temp_row=my_ghost_char[2].ghost_row;
     int temp_col=my_ghost_char[2].ghost_col;
@@ -203,8 +162,6 @@ void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my
             my_ghost_char[2].ghost_col--;
             break;
     };
-    // my_ghost_char[2].pac_row;
-    // my_ghost_char[2].pac_col;
     if(checkWall(my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,map_col,map)==0){
         my_ghost_char[2].ghost_row=temp_row;
         my_ghost_char[2].ghost_col=temp_col;
@@ -212,15 +169,12 @@ void ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my
     wattron(game_window,COLOR_PAIR(3));
     mvwaddch(game_window,my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,ACS_CKBOARD);
     wattron(game_window,COLOR_PAIR(1));
-        // if(map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]!='G'){
+    
             if(map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]!='P'){
-                previous_char=map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col];
+                my_ghost_char[2].item_overlap=map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col];
             }else{
-                previous_char=' ';
+                my_ghost_char[2].item_overlap=' ';
             }
-            // previous_char=map[translate_row_col[0]][translate_row_col[1]];
             map[my_ghost_char[2].ghost_row][my_ghost_char[2].ghost_col]='G';
-            map[temp_row][temp_col]=current_char;
-            current_char=previous_char;      
-        // }  
+            map[temp_row][temp_col]=my_ghost_char[2].item_overlap;  
 }
