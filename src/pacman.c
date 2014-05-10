@@ -81,7 +81,6 @@ void ghost_path_1_reset();
 void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman_char,int random[]);
 int random_row_col[2]={0,0};
 
-char *maps[2]={"caoanh2","hunter_map"};
 int current_map=0;
  void printPath2(WINDOW *game_window){
  	wclear(game_window);
@@ -178,10 +177,14 @@ int main(int argc, char * argv[]){
 			    char map[map_row][map_col+1];
 
 			    // new_game_read_file(&game_window,map_row,map_col+1,map,s,"caoanh2",my_pacman_char,my_ghost_char,my_map);
+			    if(argc==2){
+			    	strcpy(map_name,argv[1]);   
+			    }else{
+			    	strcpy(map_name,"hunter_map");   
+			    }
 
 
-
-			    new_game_read_file(&game_window, map_row,map_col+1, map, s, "caoanh2", my_pacman_char, my_ghost_char, my_map);
+			    new_game_read_file(&game_window, map_row,map_col+1, map, s, map_name, my_pacman_char, my_ghost_char, my_map);
 
 				struct ghost_char_2 *my_ghost_char_2=create_ghost_char2();
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
