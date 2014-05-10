@@ -96,9 +96,9 @@ void ghost_move(int ghost_num,int ghost_path[],int translate_row_col[],int map_r
         mvwaddch(game_window,my_ghost_char[ghost_num].ghost_row,my_ghost_char[ghost_num].ghost_col,convert_to_map_character( my_ghost_char[ghost_num].item_overlap ));      
        
         if(ghost_num==3){
-            wattron(game_window,COLOR_PAIR(3));
-        }else if(ghost_num==1){
             wattron(game_window,COLOR_PAIR(2));
+        }else if(ghost_num==1){
+            wattron(game_window,COLOR_PAIR(1));
         }
         mvwaddch(game_window,translate_row_col[0],translate_row_col[1],ACS_CKBOARD);
         wattron(game_window,COLOR_PAIR(1));

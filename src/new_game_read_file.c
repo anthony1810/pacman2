@@ -98,7 +98,19 @@ void new_game_read_file(WINDOW *map_win,int row,int col,char map[row][col], char
                 break;    
             case 'G':
             case 'g':
-                wattron(map_win,COLOR_PAIR(3));
+                if(current_ghost==0){
+                    wattron(map_win,COLOR_PAIR(1));    
+                }//chase and random
+                else if(current_ghost==1){
+                    wattron(map_win,COLOR_PAIR(2));
+                }//mimic pacman (yellow)
+                else if(current_ghost==2){
+                    wattron(map_win,COLOR_PAIR(3));
+                }//chase
+                else if(current_ghost==3){
+                    wattron(map_win,COLOR_PAIR(4));
+                }
+                
                 waddch(map_win,ACS_CKBOARD);
                 map[r][c]='G';
                 my_ghost_char[current_ghost].ghost_row=r;
