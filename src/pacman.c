@@ -61,7 +61,7 @@ int map_col=0;
 int scr_x, scr_y;
 FILE *f ;
 
-int option = 2;
+int option = 1;
 
 int ghost_path [35*65]={0};
 int ghost_path_2 [35*65]={0};
@@ -215,16 +215,16 @@ int main(int argc, char * argv[]){
 				
 				if(option == 1){
 					//hunter buils wall 
-						hunter_setDurationBuildWalls(5);
+						hunter_setDurationBuildWalls(12);
 						//hunter only see pacman 
-						hunter_setVisionLength(5);
+						hunter_setVisionLength(20);
 						//ghost speed
 						my_ghost_char[3].speed_multiplier = 1.5;
 						my_pacman_char->invulrable_duration=15000;
 					
 				}else if(option == 2){
 						//hunter buils wall 
-						hunter_setDurationBuildWalls(3);
+						hunter_setDurationBuildWalls(10);
 						// //hunter only see pacman 
 						hunter_setVisionLength(10);
 						//ghost speed
@@ -235,7 +235,7 @@ int main(int argc, char * argv[]){
 				}else if(option == 3){
 					
 						//hunter buils wall 
-						hunter_setDurationBuildWalls(0);
+						hunter_setDurationBuildWalls(8);
 						//hunter only see pacman 
 						hunter_setVisionLength(20);
 						//ghost speed

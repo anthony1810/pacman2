@@ -151,9 +151,10 @@ void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_
 	int characters = (int)mvwinch(game_window, my_item_struct->y_pos, my_item_struct->x_pos);
 
 	my_item_struct->value = characters;
-	wattron(game_window,COLOR_PAIR(3));
+	wattron(game_window,COLOR_PAIR(5));
 	mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
-	wattron(game_window,COLOR_PAIR(1));
+	wattroff(game_window,COLOR_PAIR(5));
+	wrefresh(game_window);
 
 	wrefresh(game_window);
 }
@@ -169,7 +170,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 
 				upper_right_struct->value = upper_right;
 				//change char, keep pos
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row-1,my_ghost_char->ghost_col+1, ACS_URCORNER);
+				wattroff(game_window,COLOR_PAIR(3));
 				upper_right_struct->x_pos = my_ghost_char->ghost_col+1;
 				upper_right_struct->y_pos = my_ghost_char->ghost_row-1;
 			}
@@ -180,8 +183,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int up_char = (int)mvwinch(game_window,my_ghost_char->ghost_row-1,my_ghost_char->ghost_col);
 			if(up_char!= 4194912 || up_char!= 4195169){
 				upper_struct->value = up_char;
-			
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row-1,my_ghost_char->ghost_col, ACS_HLINE);
+				wattroff(game_window,COLOR_PAIR(3));
 				upper_struct->x_pos = my_ghost_char->ghost_col;
 				upper_struct->y_pos = my_ghost_char->ghost_row-1;
 			}
@@ -191,8 +195,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int left_char = (int)mvwinch(game_window,my_ghost_char->ghost_row,my_ghost_char->ghost_col-1);
 			if(left_char!=4194912 || left_char!= 4195169){
 				left_struct->value = left_char;
-					
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row,my_ghost_char->ghost_col-1, ACS_VLINE);
+				wattroff(game_window,COLOR_PAIR(3));
 				left_struct->x_pos = my_ghost_char->ghost_col-1;
 				left_struct->y_pos = my_ghost_char->ghost_row;
 			}
@@ -202,8 +207,10 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int upper_left = (int)mvwinch(game_window,my_ghost_char->ghost_row-1,my_ghost_char->ghost_col-1);
 			if(upper_left!=4194912|| upper_left!= 4195169){
 				upper_left_struct->value = upper_left;
-			
+				
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row-1,my_ghost_char->ghost_col-1, ACS_ULCORNER);
+				wattroff(game_window,COLOR_PAIR(3));
 				upper_left_struct->x_pos = my_ghost_char->ghost_col-1;
 				upper_left_struct->y_pos = my_ghost_char->ghost_row-1;
 			}
@@ -213,8 +220,10 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int lower_right = (int)mvwinch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col+1);
 			if(lower_right!=4194912 || lower_right!= 4195169){
 				lower_right_struct->value = lower_right;
-			
+				
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col+1, ACS_LRCORNER);
+				wattroff(game_window,COLOR_PAIR(3));
 				lower_right_struct->x_pos = my_ghost_char->ghost_col+1;
 				lower_right_struct->y_pos = my_ghost_char->ghost_row+1;
 			}
@@ -225,8 +234,10 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int down_char = (int)mvwinch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col);
 			if(down_char!=4194912 || down_char!= 4195169){
 				down_struct->value = down_char;
-			
+				
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col, ACS_HLINE);
+				wattroff(game_window,COLOR_PAIR(3));
 				down_struct->x_pos = my_ghost_char->ghost_col;
 				down_struct->y_pos = my_ghost_char->ghost_row+1;
 			}
@@ -236,8 +247,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int right_char = (int)mvwinch(game_window,my_ghost_char->ghost_row,my_ghost_char->ghost_col+1);
 			if(right_char!=4194912 || right_char!= 4195169){
 				right_struct->value = right_char;
-			
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row,my_ghost_char->ghost_col+1, ACS_VLINE);
+				wattroff(game_window,COLOR_PAIR(3));
 				right_struct->x_pos = my_ghost_char->ghost_col+1;
 				right_struct->y_pos = my_ghost_char->ghost_row;
 			}
@@ -247,8 +259,9 @@ void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, stru
 			int lower_left = (int)mvwinch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col-1);
 			if(lower_left!=4194912 || lower_left!= 4195169){
 				lower_left_struct->value = lower_left;
-			
+				wattron(game_window,COLOR_PAIR(3));
 				mvwaddch(game_window,my_ghost_char->ghost_row+1,my_ghost_char->ghost_col-1, ACS_LLCORNER);
+				wattroff(game_window,COLOR_PAIR(3));
 				lower_left_struct->x_pos = my_ghost_char->ghost_col-1;
 				lower_left_struct->y_pos = my_ghost_char->ghost_row+1;
 			}
@@ -314,25 +327,27 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 			}	
 
 	}
-
-	if(pac_y < ghost_y){
-			ghost_y--;
-			if(is_wall_ahead(game_window, title, ghost_y, ghost_x)==0){
-				movexy(game_window, my_ghost_char,my_item_struct, 0, -1);
-			}else{
-				ghost_y++;
-			}		
-	}
-
-
-	if(pac_y > ghost_y){
-			ghost_y++;
-			if(is_wall_ahead(game_window,title,  ghost_y, ghost_x)==0){
-				movexy(game_window, my_ghost_char,my_item_struct, 0, 1);
-			}else{
+	
+	if(pac_x == ghost_x){
+		if(pac_y < ghost_y){
 				ghost_y--;
-			}		
+				if(is_wall_ahead(game_window, title, ghost_y, ghost_x)==0){
+					movexy(game_window, my_ghost_char,my_item_struct, 0, -1);
+				}else{
+					ghost_y++;
+				}		
+		}
 
+
+		if(pac_y > ghost_y){
+				ghost_y++;
+				if(is_wall_ahead(game_window,title,  ghost_y, ghost_x)==0){
+					movexy(game_window, my_ghost_char,my_item_struct, 0, 1);
+				}else{
+					ghost_y--;
+				}		
+
+		}
 	}
 	
 }
@@ -407,9 +422,10 @@ void hunter_move(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gho
 			}else{
 				my_item_struct->value = characters;
 			}
-			wattron(game_window,COLOR_PAIR(3));
+			wattron(game_window,COLOR_PAIR(5));
 			mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
-			wattron(game_window,COLOR_PAIR(1));
+			wattroff(game_window,COLOR_PAIR(5));
+			wrefresh(game_window);
 		}else{
 
 			enum Hunter_Directions new_hunter_direction = get_hunter_direction();
