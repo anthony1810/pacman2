@@ -298,6 +298,17 @@ int main(int argc, char * argv[]){
 					    my_ghost_char[1].item_overlap=' ';
 					    ghost_path_2_reset();
 					    ghost_path_1_reset();
+					    random_path(map_col,map,my_pacman_char,random_row_col);
+			    dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+			    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+			    //after calculate, reset the number of current file_path to 0
+			    my_ghost_char[1].current_path=0;
+
+			      //caculate the initial file_path
+			    dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+			    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
+			    //after calculate, reset the number of current file_path to 0
+			    my_ghost_char[3].current_path=0;
 
 						// // dead_reset(my_pacman_char,my_ghost_char,map_col,map_row,map);
 						new_game_update_map(&game_window,map_row,map_col+1,map);
@@ -363,7 +374,7 @@ int main(int argc, char * argv[]){
 				        	//hunter ghost
 				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 				        	// other ghost
-				        	ghost_mimic_pacman(my_ghost_char,my_pacman_char,map_col,map,&game_window);
+				        	//ghost_mimic_pacman(my_ghost_char,my_pacman_char,map_col,map,&game_window);
 							if(my_ghost_char[3].current_path==2){
 				            	//before calculate, reset the current ghost file_path to 0
 				                my_ghost_char[3].current_path=0;
