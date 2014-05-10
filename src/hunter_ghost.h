@@ -48,5 +48,5 @@ void start_hunter(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struc
 struct ghost_char_2 *create_ghost_char2();
 struct Item_Struct *create_item_struct();
 
-void update_map_array(int map_col,char map[][map_col+1],WINDOW *title,struct ghost_char_2 *my_ghost_char,WINDOW *game_window);
+void update_map_array(int map_col,char map[][map_col+1],WINDOW *game_window);
 #endif

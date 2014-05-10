@@ -15,7 +15,7 @@ void save_high_score(char user_email[], int score){
 	fp=fopen("high_score.txt", "a");
 	fputs(user_email,fp);
 	fputc('-',fp);
-	fputc(score,fp);
+	fprintf(fp, "%d", score);
 	fputc('\n',fp);
 	fclose(fp);
 }
@@ -27,11 +27,13 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "EASY MODE\n");
 			wattroff(note_window,COLOR_PAIR(1)); 
 			wprintw(note_window, "- Power pellet duration lasts 15 seconds\n");
-			wprintw(note_window, "- items such as pellet, fruit, .. will have more value\n\n");
+			//wprintw(note_window, "- items such as pellet, fruit, .. will have more value\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 3 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within only 5 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have less chance of attacking pacman\n\n");
-			wprintw(note_window, "- caoanh Ghost speed equal 1/3 pacman speed \n");
+			wprintw(note_window, "- Ghosts speed equal 1/3 pacman speed \n\n");
+			wprintw(note_window, "- Caoanh2 has shorter duration of chasing pacman\n");
+			wprintw(note_window, "- Caoanh2 has longer duration of moving random\n");
 			wrefresh(note_window);
 		}else if(x_cur == 43){
 			wclear(note_window);
@@ -39,11 +41,13 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "MEDIUM MODE\n");
 			wattroff(note_window,COLOR_PAIR(2)); 
 			wprintw(note_window, "- Power pellet duration lasts 10 seconds\n");
-			wprintw(note_window, "- items such as pellet, fruit, .. will have normal value\n\n");
+			//wprintw(note_window, "- items such as pellet, fruit, .. will have normal value\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 1 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within 10 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have more chance of attacking pacman\n\n");
-			wprintw(note_window, "- caoanh Ghost speed equal pacman speed \n");
+			wprintw(note_window, "- Ghosts speed equal pacman speed \n\n");
+			wprintw(note_window, "- Caoanh Ghost has normal duration of chasing pacman\n");
+			wprintw(note_window, "- Caoanh Ghost has normal duration of moving random\n");
 			wrefresh(note_window);
 		}else if(x_cur == 63){
 			wclear(note_window);
@@ -51,11 +55,13 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "IMPOSSIBLE MODE\n");
 			wattroff(note_window,COLOR_PAIR(7)); 
 			wprintw(note_window, "- Power pellet duration lasts 6 seconds\n");
-			wprintw(note_window, "- items such as pellet, fruit, .. will have less value\n\n");
+			//wprintw(note_window, "- items such as pellet, fruit, .. will have less value\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 0 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within 15 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have high chance of attacking pacman\n\n");
-			wprintw(note_window, "- caoanh Ghost speed equal 2 times pacman speed \n");
+			wprintw(note_window, "- Ghosts moves 2 times faster than pacman \n\n");
+			wprintw(note_window, "- Caoanh Ghost has extremely long duration of chasing pacman\n");
+			wprintw(note_window, "- Caoanh Ghost has extremely short duration of moving random\n");
 			wrefresh(note_window);
 		}
 }
@@ -67,8 +73,7 @@ void show_option(WINDOW *title_window, int *option){
 	//init title, version and company
 	*title_window = create_new_win(TITLE_HEIGHT, col, 0, 0);
 	WINDOW note_window = create_new_win(100, 100, 20, 23);
-	wprintw(&note_window, "fuck");
-	wrefresh(&note_window);
+
 	refresh();
 	wattron(title_window,A_BOLD);
 	wattron(title_window,COLOR_PAIR(6));

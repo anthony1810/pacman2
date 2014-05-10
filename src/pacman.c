@@ -215,32 +215,40 @@ int main(int argc, char * argv[]){
 				
 				if(option == 1){
 					//hunter buils wall 
-						hunter_setDurationBuildWalls(12);
+						hunter_setDurationBuildWalls(11);
 						//hunter only see pacman 
-						hunter_setVisionLength(20);
+						hunter_setVisionLength(5);
 						//ghost speed
 						my_ghost_char[3].speed_multiplier = 1.5;
-						my_pacman_char->invulrable_duration=30000;
-					
+						my_pacman_char->invulrable_duration=15000;
+						MAX_MOVE_RANDOM=50;
+						MAX_MOVE_CHASE=30;
+
 				}else if(option == 2){
 						//hunter buils wall 
-						hunter_setDurationBuildWalls(10);
+						hunter_setDurationBuildWalls(9);
 						// //hunter only see pacman 
 						hunter_setVisionLength(10);
 						//ghost speed
 						my_ghost_char[3].speed_multiplier = 1.3;
 						my_pacman_char->invulrable_duration=10000;	
-					
+						
+						//
+						MAX_MOVE_RANDOM=30;
+						MAX_MOVE_CHASE=30;
 					
 				}else if(option == 3){
 					
 						//hunter buils wall 
 						hunter_setDurationBuildWalls(8);
 						//hunter only see pacman 
-						hunter_setVisionLength(20);
+						hunter_setVisionLength(15);
 						//ghost speed
 						my_ghost_char[3].speed_multiplier = 0.5;
 						my_pacman_char->invulrable_duration=6000;
+
+						MAX_MOVE_RANDOM=10;
+						MAX_MOVE_CHASE=50;
 					
 				}
 				//reset no complete map
@@ -469,9 +477,17 @@ int main(int argc, char * argv[]){
 				            wrefresh(&game_window);
 					}
     			}
-    			// score=my_pacman_char->score;
-    			// current_invulrable_duration=my_pacman_char->invulrable_duration;
-    			// life=my_pacman_char->live;
+    			int row2,col2;
+				getmaxyx(&game_window,row2,col2);
+    			wclear(&game_window);
+    			mvwprintw(&game_window,10, (col2-strlen("GAME OVER"))/2, "GAME OVER");
+    			mvwprintw(&game_window,12, (col2-strlen("This is your score: "))/2, "This is your score: %i ",my_pacman_char->score);
+    			mvwprintw(&game_window,13, (col2-strlen("Your score has been saved high_score.txt"))/2, "Your score has been saved in high_score.txt");
+    			wrefresh(&game_window);
+    			timeout(-1);
+    			getch();
+    			if(my_pacman_char->score > 0)
+    			save_high_score(user, my_pacman_char->score);
     			
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
@@ -483,8 +499,8 @@ int main(int argc, char * argv[]){
     			}
 				free(my_pacman_char);
 				free(my_ghost_char);
+				free(my_ghost_char_2);
 				//wait for user to enter st
-				getch();
 				clear();
 				//return to menu
 				init_menu(&title_window);
