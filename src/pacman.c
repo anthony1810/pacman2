@@ -480,17 +480,22 @@ int main(int argc, char * argv[]){
 				            wrefresh(&game_window);
 					}
     			}
-    			int row2,col2;
-				getmaxyx(&game_window,row2,col2);
-    			wclear(&game_window);
-    			mvwprintw(&game_window,10, (col2-strlen("GAME OVER"))/2, "GAME OVER");
-    			mvwprintw(&game_window,12, (col2-strlen("This is your score: "))/2, "This is your score: %i ",my_pacman_char->score);
-    			mvwprintw(&game_window,13, (col2-strlen("Your score has been saved high_score.txt"))/2, "Your score has been saved in high_score.txt");
-    			wrefresh(&game_window);
+    			
+    			if(my_pacman_char->score > 0){
+
+    				int row2,col2;
+    				getmaxyx(&game_window,row2,col2);
+    				wclear(&game_window);
+    				mvwprintw(&game_window,10, (col2-strlen("GAME OVER"))/2, "GAME OVER");
+    				mvwprintw(&game_window,12, (col2-strlen("This is your score: "))/2, "This is your score: %i ",my_pacman_char->score);
+    				mvwprintw(&game_window,13, (col2-strlen("Your score has been saved high_score.txt"))/2, "Your score has been saved in high_score.txt");
+    				wrefresh(&game_window);   				    		
+    				save_high_score(user, my_pacman_char->score);
+
+    			}
+
     			timeout(-1);
     			getch();
-    			if(my_pacman_char->score > 0)
-    			save_high_score(user, my_pacman_char->score);
     			
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game
