@@ -152,6 +152,7 @@ int main(int argc, char * argv[]){
 			    struct ghost_char *my_ghost_char=create_ghost_char();
 			    //reset
 			    my_ghost_char[1].speed_multiplier=1;
+			    my_ghost_char[3].speed_multiplier=0.8;
 			    my_ghost_char[3].current_path=0;
 			    my_ghost_char[1].current_path=0;
 			    my_ghost_char[3].item_overlap=' ';
@@ -291,7 +292,9 @@ int main(int argc, char * argv[]){
 						my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
 						my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
 						my_pacman_char->current_direction=0;
+
 						my_ghost_char[1].speed_multiplier=1;
+						my_ghost_char[3].speed_multiplier=0.8;
 					    my_ghost_char[3].current_path=0;
 					    my_ghost_char[1].current_path=0;
 					    my_ghost_char[3].item_overlap=' ';
@@ -352,12 +355,12 @@ int main(int argc, char * argv[]){
 			        gettimeofday(&pacman_delay_end,NULL);
 			        gettimeofday(&ghost_1_delay_end,NULL);
 			        gettimeofday(&ghost_3_delay_end,NULL);
-			       	//ajust the speed of ghost based on remain pellet
-					if(my_map->remain_pellet/my_map->total_pellet>0.75){
-						my_ghost_char[3].speed_multiplier=1.4;
-					}else if(0.75<my_map->remain_pellet/my_map->total_pellet<0.25){
-						my_ghost_char[3].speed_multiplier=0.5;
-					}
+			  //      	//ajust the speed of ghost based on remain pellet
+					// if(my_map->remain_pellet/my_map->total_pellet>0.75){
+					// 	my_ghost_char[3].speed_multiplier=1.4;
+					// }else if(0.75<my_map->remain_pellet/my_map->total_pellet<0.25){
+					// 	my_ghost_char[3].speed_multiplier=0.5;
+					// }
 
 					if(timeval_diff(NULL,&pacman_delay_end,&pacman_delay_start)>=DELAY){
 			            gettimeofday(&pacman_delay_start,NULL);
@@ -475,6 +478,7 @@ int main(int argc, char * argv[]){
     			for (int i = 0; i < map_row*map_col; ++i)
     			{
     					ghost_path[i]=0;
+    					ghost_path_2[i]=0;
     				
     			}
 				free(my_pacman_char);
