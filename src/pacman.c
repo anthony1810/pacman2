@@ -220,7 +220,7 @@ int main(int argc, char * argv[]){
 						hunter_setVisionLength(20);
 						//ghost speed
 						my_ghost_char[3].speed_multiplier = 1.5;
-						my_pacman_char->invulrable_duration=15000;
+						my_pacman_char->invulrable_duration=30000;
 					
 				}else if(option == 2){
 						//hunter buils wall 
