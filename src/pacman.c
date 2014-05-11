@@ -142,7 +142,7 @@ int main(int argc, char * argv[]){
 				struct pacman_char *my_pacman_char=create_pacman_char();
 				
 			    my_pacman_char->score=0;
-			    my_pacman_char->live=3;
+			    my_pacman_char->live=4;
 			    my_pacman_char->current_direction=0;
 			    my_pacman_char->pac_state=VULRABLE;
 			    my_pacman_char->invulrable_duration=10000;
@@ -190,10 +190,6 @@ int main(int argc, char * argv[]){
 				my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
 				my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
 
-				// struct pacman_char_2 *my_pacman_char_2=create_pacman_char2();
-				// my_pacman_char_2->pac_col=16;
-				// my_pacman_char_2->pac_row=32;
-
 				enum Hunter_Directions first_direction;
 				first_direction = get_hunter_direction();
 				hunter_setDirection(first_direction);
@@ -217,7 +213,9 @@ int main(int argc, char * argv[]){
 				
 				
 				if(option == 1){
-					//hunter buils wall 
+						//pacman start with 4 live
+						my_pacman_char->live=4;
+						//hunter buils wall 
 						hunter_setDurationBuildWalls(11);
 						//hunter only see pacman 
 						hunter_setVisionLength(5);
@@ -228,6 +226,8 @@ int main(int argc, char * argv[]){
 						MAX_MOVE_CHASE=30;
 
 				}else if(option == 2){
+						//pacman start with 3 live
+						my_pacman_char->live=3;
 						//hunter buils wall 
 						hunter_setDurationBuildWalls(9);
 						// //hunter only see pacman 
@@ -241,7 +241,8 @@ int main(int argc, char * argv[]){
 						MAX_MOVE_CHASE=30;
 					
 				}else if(option == 3){
-					
+						//pacman start with 1 live
+						my_pacman_char->live=1;
 						//hunter buils wall 
 						hunter_setDurationBuildWalls(8);
 						//hunter only see pacman 
@@ -341,9 +342,12 @@ int main(int argc, char * argv[]){
 			    	if(my_ghost_char_2->ghost_col == my_pacman_char->pac_col && my_ghost_char_2->ghost_row==my_pacman_char->pac_row && my_pacman_char->pac_state == INVULRABLE){
 			    		hunter_reset_colision();
 			    		set_isFirstTime();
+			    		restore_after_defend(&game_window, &title_window);
 			    		my_ghost_char_2->ghost_col = my_ghost_char[0].initial_ghost_col;
 			    		my_ghost_char_2->ghost_row = my_ghost_char[0].initial_ghost_row;
-			    		mvwaddch(&game_window,my_ghost_char_2->ghost_row, my_ghost_char_2->ghost_col, ACS_CKBOARD );
+			    		wattron(&game_window,COLOR_PAIR(5));
+						mvwaddch(&game_window, my_ghost_char_2->ghost_row, my_ghost_char_2->ghost_col, ACS_CKBOARD);
+						wattroff(&game_window,COLOR_PAIR(5));
 			    		wrefresh(&game_window);
 			    	}
 					// w
@@ -419,7 +423,7 @@ int main(int argc, char * argv[]){
 			        	}
 
 			        	wrefresh(&game_window);
-			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, 1);
+			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, option);
 					}
 					//ghost [1]
 					if(timeval_diff(NULL,&ghost_1_delay_end,&ghost_1_delay_start)>=(DELAY*my_ghost_char[1].speed_multiplier)){
@@ -486,16 +490,19 @@ int main(int argc, char * argv[]){
     				int row2,col2;
     				getmaxyx(&game_window,row2,col2);
     				wclear(&game_window);
+    				wattron(&game_window,COLOR_PAIR(5));
     				mvwprintw(&game_window,10, (col2-strlen("GAME OVER"))/2, "GAME OVER");
     				mvwprintw(&game_window,12, (col2-strlen("This is your score: "))/2, "This is your score: %i ",my_pacman_char->score);
-    				mvwprintw(&game_window,13, (col2-strlen("Your score has been saved high_score.txt"))/2, "Your score has been saved in high_score.txt");
+    				mvwprintw(&game_window,13, (col2-strlen("Your score has been saved. Check out 5 top High Scores."))/2, "Your score has been saved. Check out 5 top High Scores.");
+    				wattroff(&game_window,COLOR_PAIR(5));
     				wrefresh(&game_window);   				    		
     				save_high_score(user, my_pacman_char->score);
+    				timeout(-1);
+    				getch();
 
     			}
 
-    			timeout(-1);
-    			getch();
+    		
     			
     			set_isFirstTime();
     			//reset the ghost file_path for "2nd" new game

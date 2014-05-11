@@ -9,7 +9,7 @@
 	@brief this file provide functions to handle writing to text file.
 	@author Tran Nhat Quang <s3312399@rmit.edu.vn> 
 */
-	
+		
 void write_to_file(char file_name[],char author_name[], char author_email[], WINDOW *my_win, int width, int height){
 	
 	FILE *fp;

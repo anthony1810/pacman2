@@ -27,7 +27,7 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "EASY MODE\n");
 			wattroff(note_window,COLOR_PAIR(1)); 
 			wprintw(note_window, "- Power pellet duration lasts 15 seconds\n");
-			//wprintw(note_window, "- items such as pellet, fruit, .. will have more value\n\n");
+			wprintw(note_window, "- Pacman starts with 4 lives\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 3 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within only 5 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have less chance of attacking pacman\n\n");
@@ -41,7 +41,7 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "MEDIUM MODE\n");
 			wattroff(note_window,COLOR_PAIR(2)); 
 			wprintw(note_window, "- Power pellet duration lasts 10 seconds\n");
-			//wprintw(note_window, "- items such as pellet, fruit, .. will have normal value\n\n");
+			wprintw(note_window, "- Pacman starts with 3 lives\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 1 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within 10 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have more chance of attacking pacman\n\n");
@@ -55,7 +55,7 @@ void show_option_log(WINDOW *note_window, int x_cur){
 			wprintw(note_window, "IMPOSSIBLE MODE\n");
 			wattroff(note_window,COLOR_PAIR(7)); 
 			wprintw(note_window, "- Power pellet duration lasts 6 seconds\n");
-			//wprintw(note_window, "- items such as pellet, fruit, .. will have less value\n\n");
+			wprintw(note_window, "- Pacman starts with 1 lives\n\n");
 			wprintw(note_window, "- Hunter Ghost create walls after 0 seconds\n");
 			wprintw(note_window, "- Hunter Ghost will see pacman within 15 meters\n");
 			wprintw(note_window, "- Hunter Ghost will have high chance of attacking pacman\n\n");
@@ -105,8 +105,6 @@ void show_option(WINDOW *title_window, int *option){
 	attroff(COLOR_PAIR(7)); 
 
 	refresh();
-
-	
 	
 	attron(COLOR_PAIR(6));
 	mvprintw(y_cur,x_cur,"%s", "->");
@@ -241,7 +239,7 @@ void show_high_score(WINDOW *title_window, WINDOW *command_window){
 	struct Node fifth;
 	fifth.score = 0;
 
-
+	int count = 0;
 	if (pFile!=NULL)
 	{
 		while( fgets(string,100,pFile) != NULL)
@@ -286,51 +284,55 @@ void show_high_score(WINDOW *title_window, WINDOW *command_window){
 				strcpy(fifth.user_email,user_email);
 				fifth.score = numb;
 			}
+			count++;
 		}
 	}
 
-	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(10, (col - strlen(" #1 - TRUE-GOD"))/2," #1 - Rampage");
-	attroff(A_BOLD | COLOR_PAIR(7));
-
-	attron(COLOR_PAIR(5));
-	mvprintw(11,(col - strlen(" #1 - TRUE-GOD"))/2,"%s - %i", first.user_email,first.score);
-	attroff(COLOR_PAIR(5));
-
-	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(13, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #2 - GOD-LIKE");
-	attroff(A_BOLD | COLOR_PAIR(7));
-
-	attron(COLOR_PAIR(4));
-	mvprintw(14,(col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i", second.user_email,second.score);
-	attroff(COLOR_PAIR(4));
-
-	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(16, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #3 - WICKED-SICK");
-	attroff(A_BOLD | COLOR_PAIR(7));
-
-	attron(COLOR_PAIR(3));
-	mvprintw(17, (col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i", third.user_email,third.score);
-	attroff(COLOR_PAIR(3));
-
-	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(19, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #4 - DOMINATED");
-	attroff(A_BOLD | COLOR_PAIR(7));
-
-	attron(COLOR_PAIR(2));
-	mvprintw(20,(col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i",  fourth.user_email,fourth.score);
-	attroff(COLOR_PAIR(2));
-
-	attron(A_BOLD | COLOR_PAIR(7));
-	mvprintw(22, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #5 - ABNORMAL");
-	attroff(A_BOLD | COLOR_PAIR(7));
-
-	attron(COLOR_PAIR(1));
-	mvprintw(23, (col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i",  fifth.user_email,fifth.score);
-	attroff(COLOR_PAIR(1));
-
-	//wclear(command_window);
-	//wprintw(command_window, "type any key to quit");
+	if(count>5){
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(10, (col - strlen(" #1 - TRUE-GOD"))/2," #1 - Rampage");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	
+		attron(COLOR_PAIR(5));
+		mvprintw(11,(col - strlen(" #1 - TRUE-GOD"))/2,"%s - %i", first.user_email,first.score);
+		attroff(COLOR_PAIR(5));
+	
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(13, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #2 - GOD-LIKE");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	
+		attron(COLOR_PAIR(4));
+		mvprintw(14,(col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i", second.user_email,second.score);
+		attroff(COLOR_PAIR(4));
+	
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(16, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #3 - WICKED-SICK");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	
+		attron(COLOR_PAIR(3));
+		mvprintw(17, (col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i", third.user_email,third.score);
+		attroff(COLOR_PAIR(3));
+	
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(19, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #4 - DOMINATED");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	
+		attron(COLOR_PAIR(2));
+		mvprintw(20,(col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i",  fourth.user_email,fourth.score);
+		attroff(COLOR_PAIR(2));
+	
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(22, (col - strlen(" #2 - GOD-LIKE"))/2, "%s", " #5 - ABNORMAL");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	
+		attron(COLOR_PAIR(1));
+		mvprintw(23, (col - strlen(" #2 - GOD-LIKE"))/2,"%s - %i",  fifth.user_email,fifth.score);
+		attroff(COLOR_PAIR(1));
+	}else{
+		attron(A_BOLD | COLOR_PAIR(7));
+		mvprintw(10, (col - strlen("Need at least 5 score to show! Let's invite some more players"))/2,"Need at least 5 score to show! Let's invite some more players");
+		attroff(A_BOLD | COLOR_PAIR(7));
+	}
 	curs_set(0);
 	refresh();
 	

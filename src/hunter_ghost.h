@@ -4,11 +4,28 @@
 #include "struct.h"
 #include "constant.h"
 #include "write_file.h"
+
+/*! @file write_file.h 
+	@brief this is the header file of \ref hunter_ghost.c.
+	@author Tran Nhat Quang <s3312399@rmit.edu.vn> 
+*/
+
+
+/*! 
+	@brief this struct used to save the character that hunter walk by so that hunter won't eat item such as another ghost, pellet, ..
+	
+*/
+
 struct Item_Struct{
 	int x_pos;
 	int y_pos;
 	int value;
 };
+
+/*! 
+	@brief this enumeration used to define direction of hunter
+	
+*/
 
 enum Hunter_Directions{
 	Up,
@@ -17,6 +34,11 @@ enum Hunter_Directions{
 	Right
 };
 
+/*! 
+	@brief this is the struct of hunter ghost
+	
+*/
+
 struct ghost_char_2
 {
 	int ghost_row;
@@ -24,9 +46,25 @@ struct ghost_char_2
 	int speed_multiplier;
 };
 
+/*!
+	&brief this is the variable which will hold the current direction of hunter
+*/
 enum Hunter_Directions get_hunter_direction();
+
+/*!
+	this function will responsible to inform hunter that he and pacman is collise
+*/
 int getHunterCollision();
+
+/*!
+	this function will reset whatever boolean value of hunter and pacman collision
+*/
 void hunter_reset_colision();
+
+/*!
+	this function will reset whatever boolean value of hunter and pacman collision
+*/
+
 void hunter_setDirection(enum Hunter_Directions first_direction);
 void hunter_setItemStruct(struct Item_Struct *item);
 void hunter_setDurationBuildWalls(int new_duration);

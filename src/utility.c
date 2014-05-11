@@ -556,7 +556,7 @@ void start_stats(WINDOW *user_window,char user[],char user_email[], int scores, 
 	wprintw(user_window, "Game Info\n");
 	wattroff(user_window,A_BOLD | COLOR_PAIR(1) | A_UNDERLINE);
 
-	wprintw(user_window, "Level:");
+	wprintw(user_window, "Dificulty Level:");
 	wprintw(user_window, " ");
 	wattron(user_window,COLOR_PAIR(2));
 	wprintw(user_window,"%i" ,level );
@@ -671,7 +671,7 @@ void init_game(WINDOW *title_window, WINDOW *game_window, WINDOW *command_window
 		mvprintw(41,i,"%s","-");
 	}
 	wattron(command_window,COLOR_PAIR(6));
-	mvwprintw(command_window,0,0,"%s", "Press anything to return to the menu");
+	mvwprintw(command_window,0,0,"%s", "Press 'q' to quit...");
 	wattroff(command_window,COLOR_PAIR(6));
 	wrefresh(command_window);
 
