@@ -1,5 +1,5 @@
-\hypertarget{utility_8h}{\section{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.h File Reference}
-\label{utility_8h}\index{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.\-h@{/home/bit/hostshare/\-C\-O\-S\-C2451\-\_\-\-A1\-\_\-s3312399/src/utility.\-h}}
+\hypertarget{utility_8h}{\section{/home/bit/master/src/utility.h File Reference}
+\label{utility_8h}\index{/home/bit/master/src/utility.\-h@{/home/bit/master/src/utility.\-h}}
 }
 
 
@@ -7,15 +7,25 @@ this is the header file of \hyperlink{utility_8c}{utility.\-c}
 
 
 {\ttfamily \#include \char`\"{}curses.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ghost\-\_\-character.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pacman\-\_\-character.\-h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 W\-I\-N\-D\-O\-W \hyperlink{utility_8h_a593aba180c6d9165dfc65cb31a561828}{create\-\_\-new\-\_\-win} (int height, int width, int starty, int startx)
 \begin{DoxyCompactList}\small\item\em create a ncurse window \end{DoxyCompactList}\item 
-void \hyperlink{utility_8h_acbb7a753dde41b018c71f591a68b6070}{init\-\_\-screen} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]})
+void \hyperlink{utility_8h_ab2cf0767f3696cd6288aa0be901356cc}{init\-\_\-screen} (char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]})
 \begin{DoxyCompactList}\small\item\em init gui for user to interact with the program \end{DoxyCompactList}\item 
 void \hyperlink{utility_8h_a11b2e8780ec0b7ab2dbeb29899cc74cf}{init\-\_\-user\-\_\-info} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\-\_\-name}\mbox{[}$\,$\mbox{]}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\-\_\-email}\mbox{[}$\,$\mbox{]})
-\begin{DoxyCompactList}\small\item\em display and update information of user and map \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em display and update information of user and map \end{DoxyCompactList}\item 
+void \hyperlink{utility_8h_a804994d18e5ec19e9f3def23f78c806a}{init\-\_\-editor} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, char path\mbox{[}100\mbox{]}, int \hyperlink{pacman_8c_a16115f0b31db53bca020c0fe60b0633b}{is\-Enter}, char \hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author}\mbox{[}50\mbox{]}, char \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\-\_\-name}\mbox{[}50\mbox{]}, char \hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\-\_\-email}\mbox{[}50\mbox{]}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, int \hyperlink{pacman_8c_a37e6a2d9119b69f227693217a943388f}{scr\-\_\-x}, int \hyperlink{pacman_8c_a40a956d9f4e3727d27255d78068654ac}{scr\-\_\-y}, F\-I\-L\-E $\ast$\hyperlink{pacman_8c_a3efb0e1a16208deecbd84c15401f7cf8}{f}, int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{utility_8h_aa814dcc43bcf7dc00c13684827e201ba}{init\-\_\-menu} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window})
+\item 
+void \hyperlink{utility_8h_ae1e5a33d024a5a2e881d0e4e323d7188}{start\-\_\-stats} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, int scores, int life, int level)
+\item 
+void \hyperlink{utility_8h_a1f1be9d8efe117708009822903781996}{init\-\_\-game} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window}, char \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}\mbox{[}$\,$\mbox{]}, char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, int level)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -56,11 +66,11 @@ ncurse window
 
 \begin{DoxyCode}
 WINDOW \hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window};
-*\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window} = \hyperlink{utility_8c_a593aba180c6d9165dfc65cb31a561828}{create\_new\_win}(\hyperlink{constant_8h_aca66aeea7d75b42b8f410023f648964c}{TITLE\_HEIGHT}, col, 0, 0);
+*title\_window = \hyperlink{utility_8c_a593aba180c6d9165dfc65cb31a561828}{create\_new\_win}(\hyperlink{constant_8h_aca66aeea7d75b42b8f410023f648964c}{TITLE\_HEIGHT}, col, 0, 0);
 \end{DoxyCode}
- \hypertarget{utility_8h_acbb7a753dde41b018c71f591a68b6070}{\index{utility.\-h@{utility.\-h}!init\-\_\-screen@{init\-\_\-screen}}
-\index{init\-\_\-screen@{init\-\_\-screen}!utility.h@{utility.\-h}}
-\subsubsection[{init\-\_\-screen}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-screen (
+ \hypertarget{utility_8h_a804994d18e5ec19e9f3def23f78c806a}{\index{utility.\-h@{utility.\-h}!init\-\_\-editor@{init\-\_\-editor}}
+\index{init\-\_\-editor@{init\-\_\-editor}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-editor}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-editor (
 \begin{DoxyParamCaption}
 \item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window, }
 \item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
@@ -69,9 +79,51 @@ WINDOW \hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window};
 \item[{W\-I\-N\-D\-O\-W $\ast$}]{wall, }
 \item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window, }
 \item[{char}]{user\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{path\mbox{[}100\mbox{]}, }
+\item[{int}]{is\-Enter, }
+\item[{char}]{author\mbox{[}50\mbox{]}, }
+\item[{char}]{map\-\_\-name\mbox{[}50\mbox{]}, }
+\item[{char}]{author\-\_\-email\mbox{[}50\mbox{]}, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col, }
+\item[{int}]{scr\-\_\-x, }
+\item[{int}]{scr\-\_\-y, }
+\item[{F\-I\-L\-E $\ast$}]{f, }
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_a804994d18e5ec19e9f3def23f78c806a}
+\hypertarget{utility_8h_a1f1be9d8efe117708009822903781996}{\index{utility.\-h@{utility.\-h}!init\-\_\-game@{init\-\_\-game}}
+\index{init\-\_\-game@{init\-\_\-game}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-game}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-game (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{note\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{wall, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window, }
+\item[{char}]{user\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_a1f1be9d8efe117708009822903781996}
+\hypertarget{utility_8h_aa814dcc43bcf7dc00c13684827e201ba}{\index{utility.\-h@{utility.\-h}!init\-\_\-menu@{init\-\_\-menu}}
+\index{init\-\_\-menu@{init\-\_\-menu}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-menu}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-menu (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_aa814dcc43bcf7dc00c13684827e201ba}
+\hypertarget{utility_8h_ab2cf0767f3696cd6288aa0be901356cc}{\index{utility.\-h@{utility.\-h}!init\-\_\-screen@{init\-\_\-screen}}
+\index{init\-\_\-screen@{init\-\_\-screen}!utility.h@{utility.\-h}}
+\subsubsection[{init\-\_\-screen}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-screen (
+\begin{DoxyParamCaption}
+\item[{char}]{user\mbox{[}$\,$\mbox{]}, }
 \item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}}
 \end{DoxyParamCaption}
-)}}\label{utility_8h_acbb7a753dde41b018c71f591a68b6070}
+)}}\label{utility_8h_ab2cf0767f3696cd6288aa0be901356cc}
 
 
 init gui for user to interact with the program 
@@ -102,8 +154,7 @@ WINDOW \hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\_window};
 WINDOW \hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall};
 WINDOW \hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window};
 
-\hyperlink{utility_8c_acbb7a753dde41b018c71f591a68b6070}{init\_screen}(&\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\_window}, &\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\_window}, &
-      \hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\_window}, &\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\_window}, &\hyperlink{pacman_8c_af24bae5786b2af7d7d80947be3365e54}{wall}, &\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window}, 
+\hyperlink{utility_8c_ab2cf0767f3696cd6288aa0be901356cc}{init\_screen}(&title\_window, &game\_window, &command\_window, &note\_window, &wall, &user\_window, 
       \hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}, \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\_email});
 \end{DoxyCode}
  $<$ Line buffering disabled \hypertarget{utility_8h_a11b2e8780ec0b7ab2dbeb29899cc74cf}{\index{utility.\-h@{utility.\-h}!init\-\_\-user\-\_\-info@{init\-\_\-user\-\_\-info}}
@@ -148,7 +199,18 @@ clear content of a ncurses window, print formatted information to it
 
 \begin{DoxyCode}
 WINDOW \hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window};
-\hyperlink{utility_8c_a11b2e8780ec0b7ab2dbeb29899cc74cf}{init\_user\_info}(&\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\_window},\hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}, \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\_email}, 
+\hyperlink{utility_8c_a11b2e8780ec0b7ab2dbeb29899cc74cf}{init\_user\_info}(&user\_window,\hyperlink{pacman_8c_a06c2206a2e6ed014bb3205cf1b6bd0a7}{user}, \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\_email}, 
       \hyperlink{pacman_8c_a072788baae5ebbbc74fec33e8eccb7e7}{map\_name},\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\_row},\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\_col}-1,\hyperlink{pacman_8c_ad3125f739f1d8f5bbe8c6f3a030b96c0}{author},\hyperlink{pacman_8c_a396de8361779342a09b263537530b4c9}{author\_email});
 \end{DoxyCode}
- 
+ \hypertarget{utility_8h_ae1e5a33d024a5a2e881d0e4e323d7188}{\index{utility.\-h@{utility.\-h}!start\-\_\-stats@{start\-\_\-stats}}
+\index{start\-\_\-stats@{start\-\_\-stats}!utility.h@{utility.\-h}}
+\subsubsection[{start\-\_\-stats}]{\setlength{\rightskip}{0pt plus 5cm}void start\-\_\-stats (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window, }
+\item[{char}]{user\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{scores, }
+\item[{int}]{life, }
+\item[{int}]{level}
+\end{DoxyParamCaption}
+)}}\label{utility_8h_ae1e5a33d024a5a2e881d0e4e323d7188}

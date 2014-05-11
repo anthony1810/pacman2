@@ -7,6 +7,9 @@
 #include "ghost_character.h"
 #include "constant.h"
 #define INFINITY 999
+/*! @file ghost_character.c 
+    @brief All function for calculating ghost moving related to dijkstra
+*/
 
 void translate_from_1_number(int input,int translate_row_col[],int map_row,int map_col){
     int map_col_without_border=map_col-2;
@@ -27,26 +30,30 @@ int transte_from_row_col(int row,int col,int map_col){
 
 void dijkstra(int s,int map_row,int map_col,long d[],long dist[(map_row)*(map_col)][(map_row)*(map_col)],int n,int prev[]) {
     int i, k, mini;
-    int visited[(map_row)*(map_col)];
+    int visited[(map_row)*(map_col)];//contain node that already optimize =1/ not optimized=0;
  
     for (i = 1; i <= n; ++i) {
-        d[i] = INFINITY;
+        d[i] = INFINITY;// the distance to all node not caculated yet
         prev[i] = -1; /* no path has yet been found to i */
-        visited[i] = 0; /* the i-th element has not yet been visited */
+        visited[i] = 0; /* the no node has been minimized yet */
     }
     d[s] = 0;
     
     for (k = 1; k <= n; ++k) {
+        //reset the index of mini
         mini = -1;
-        for (i = 1; i <= n; ++i)
-            if (!visited[i] && ((mini == -1) || (d[i] < d[mini])))
+        for (i = 1; i <= n; ++i){
+            //compared current distance to each node with the distance of "new found" minimized node, ignore any found-before minimized node 
+            if (!visited[i] && ((mini == -1) || (d[i] < d[mini]))){//update the minimized index if smaller
                 mini = i;
- 
-        visited[mini] = 1;
+            }
+        }
+        visited[mini] = 1;//update the minimized
+        //d[mini] the most optimize path distance
  
         for (i = 1; i <= n; ++i)
-            if (dist[mini][i])
-                if (d[mini] + dist[mini][i] < d[i]) {
+            if (dist[mini][i])//check the neighboor node of the minimized node
+                if (d[mini] + dist[mini][i] < d[i]) {//caculate the shorter path for the node[i], 
                     d[i] = d[mini] + dist[mini][i];
                     prev[i] = mini;
                 }           

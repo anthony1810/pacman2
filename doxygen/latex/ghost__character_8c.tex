@@ -1,0 +1,242 @@
+\hypertarget{ghost__character_8c}{\section{/home/bit/master/src/ghost\-\_\-character.c File Reference}
+\label{ghost__character_8c}\index{/home/bit/master/src/ghost\-\_\-character.\-c@{/home/bit/master/src/ghost\-\_\-character.\-c}}
+}
+
+
+All function for calculating ghost moving related to dijkstra.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ghost\-\_\-character.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constant.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ghost__character_8c_a956e2723d559858d08644ac99146e910}{I\-N\-F\-I\-N\-I\-T\-Y}~999
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ghost__character_8c_af247dae710b7c68caa7d748d2ddfc563}{translate\-\_\-from\-\_\-1\-\_\-number} (int input, int translate\-\_\-row\-\_\-col\mbox{[}$\,$\mbox{]}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col})
+\begin{DoxyCompactList}\small\item\em convert position from 1\-D to 2\-D array (row and col) \end{DoxyCompactList}\item 
+int \hyperlink{ghost__character_8c_a7ec9a73e9d3666def13886548b522f0a}{transte\-\_\-from\-\_\-row\-\_\-col} (int row, int col, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col})
+\begin{DoxyCompactList}\small\item\em convert the position of 2\-D array to 1\-D array move the cursor to the lower-\/right coner of the map \end{DoxyCompactList}\item 
+void \hyperlink{ghost__character_8c_a81879348fd872769b95535bffd2e2688}{dijkstra} (int \hyperlink{pacman_8c_adf3a90a767bcfff19bdcbda822e6021e}{s}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, long d\mbox{[}$\,$\mbox{]}, long \hyperlink{pacman_8c_aff2bd3916b5cbd39d14383d90bf9f426}{dist}\mbox{[}(\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row})$\ast$(\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col})\mbox{]}\mbox{[}(\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row})$\ast$(\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col})\mbox{]}, int \hyperlink{pacman_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{n}, int prev\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em read the file and print it on screen \end{DoxyCompactList}\item 
+int \hyperlink{ghost__character_8c_a1dbd951f4c524d93869b6822925b3bde}{check\-Wall} (int row, int col, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]})
+\begin{DoxyCompactList}\small\item\em check if the position is wall \end{DoxyCompactList}\item 
+void \hyperlink{ghost__character_8c_a4d95bc0fab304b67092bd7ef32447589}{initialize\-\_\-dist\-\_\-array} (int row, int col, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, long \hyperlink{pacman_8c_aff2bd3916b5cbd39d14383d90bf9f426}{dist}\mbox{[}$\,$\mbox{]}\mbox{[}(\hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row})$\ast$(\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col})\mbox{]}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]})
+\begin{DoxyCompactList}\small\item\em initilaize the dist 2\-D array storing the distance to neighbor for all node \end{DoxyCompactList}\item 
+void \hyperlink{ghost__character_8c_a5bd4853c5a5527539129c13c256db2ec}{print\-Path} (int ghost\-\_\-num, int dest, int prev\mbox{[}$\,$\mbox{]}, int ghost\-\_\-path\-\_\-size, int ghost\-\_\-path\mbox{[}ghost\-\_\-path\-\_\-size\mbox{]}, struct \hyperlink{structghost__char}{ghost\-\_\-char} $\ast$my\-\_\-ghost\-\_\-char)
+\begin{DoxyCompactList}\small\item\em store all the caculated path to for later usage using recursion \end{DoxyCompactList}\item 
+void \hyperlink{ghost__character_8c_afea79f6c08a98737030a5630dc0241a4}{ghost\-\_\-move} (int ghost\-\_\-num, int ghost\-\_\-path\mbox{[}$\,$\mbox{]}, int translate\-\_\-row\-\_\-col\mbox{[}$\,$\mbox{]}, int \hyperlink{pacman_8c_adcaac76a96bc545b114cd51df846f2c8}{map\-\_\-row}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]}, struct \hyperlink{structghost__char}{ghost\-\_\-char} $\ast$my\-\_\-ghost\-\_\-char, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a9c62404bc89bc039be4061e6b0201fdd}{user\-\_\-window})
+\begin{DoxyCompactList}\small\item\em reposible for moving the ghost around, update map 2d array \end{DoxyCompactList}\item 
+chtype \hyperlink{ghost__character_8c_a41cba41769eb795e29770fa9513d9394}{convert\-\_\-to\-\_\-map\-\_\-character} (char text\-\_\-character)
+\begin{DoxyCompactList}\small\item\em use for converting map text character(g,p,f) to on-\/screen character(\-A\-C\-S\-\_\-\-C\-K\-B\-O\-A\-R\-D,\-A\-C\-S\-\_\-\-D\-I\-A\-M\-O\-N\-D,\-A\-C\-S\-\_\-\-S\-T\-E\-R\-L\-I\-N\-G) \end{DoxyCompactList}\item 
+void \hyperlink{ghost__character_8c_aa44c09cf4e69ae7e6d83e254ddb5e383}{ghost\-\_\-mimic\-\_\-pacman} (struct \hyperlink{structghost__char}{ghost\-\_\-char} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+All function for calculating ghost moving related to dijkstra. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ghost__character_8c_a956e2723d559858d08644ac99146e910}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!I\-N\-F\-I\-N\-I\-T\-Y@{I\-N\-F\-I\-N\-I\-T\-Y}}
+\index{I\-N\-F\-I\-N\-I\-T\-Y@{I\-N\-F\-I\-N\-I\-T\-Y}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{I\-N\-F\-I\-N\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-F\-I\-N\-I\-T\-Y~999}}\label{ghost__character_8c_a956e2723d559858d08644ac99146e910}
+
+
+\subsection{Function Documentation}
+\hypertarget{ghost__character_8c_a1dbd951f4c524d93869b6822925b3bde}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!check\-Wall@{check\-Wall}}
+\index{check\-Wall@{check\-Wall}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{check\-Wall}]{\setlength{\rightskip}{0pt plus 5cm}int check\-Wall (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a1dbd951f4c524d93869b6822925b3bde}
+
+
+check if the position is wall 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col,row} & position to check \\
+\hline
+{\em map\mbox{[}row\mbox{]}\mbox{[}col\mbox{]}} & 2d array store the map for checking \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 if wall, 1 otherwise 
+\end{DoxyReturn}
+\hypertarget{ghost__character_8c_a41cba41769eb795e29770fa9513d9394}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!convert\-\_\-to\-\_\-map\-\_\-character@{convert\-\_\-to\-\_\-map\-\_\-character}}
+\index{convert\-\_\-to\-\_\-map\-\_\-character@{convert\-\_\-to\-\_\-map\-\_\-character}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{convert\-\_\-to\-\_\-map\-\_\-character}]{\setlength{\rightskip}{0pt plus 5cm}chtype convert\-\_\-to\-\_\-map\-\_\-character (
+\begin{DoxyParamCaption}
+\item[{char}]{text\-\_\-character}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a41cba41769eb795e29770fa9513d9394}
+
+
+use for converting map text character(g,p,f) to on-\/screen character(\-A\-C\-S\-\_\-\-C\-K\-B\-O\-A\-R\-D,\-A\-C\-S\-\_\-\-D\-I\-A\-M\-O\-N\-D,\-A\-C\-S\-\_\-\-S\-T\-E\-R\-L\-I\-N\-G) 
+
+\hypertarget{ghost__character_8c_a81879348fd872769b95535bffd2e2688}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{dijkstra}]{\setlength{\rightskip}{0pt plus 5cm}void dijkstra (
+\begin{DoxyParamCaption}
+\item[{int}]{s, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col, }
+\item[{long}]{d\mbox{[}$\,$\mbox{]}, }
+\item[{long}]{dist\mbox{[}(map\-\_\-row)$\ast$(map\-\_\-col)\mbox{]}\mbox{[}(map\-\_\-row)$\ast$(map\-\_\-col)\mbox{]}, }
+\item[{int}]{n, }
+\item[{int}]{prev\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a81879348fd872769b95535bffd2e2688}
+
+
+read the file and print it on screen 
+
+
+\begin{DoxyCode}
+   \textcolor{keywordflow}{for} (i = 1; i <= \hyperlink{pacman_8c_a76f11d9a0a47b94f72c2d0e77fb32240}{n}; ++i) \{
+    d[i] = \hyperlink{ghost__character_8c_a956e2723d559858d08644ac99146e910}{INFINITY};
+    prev[i] = -1; 
+    visited[i] = 0; 
+\}      
+\end{DoxyCode}
+ prepare all the array 
+\begin{DoxyParams}{Parameters}
+{\em $\ast$map\-\_\-win} & the window that contain the map to write the character on it \\
+\hline
+{\em col,row} & contain the row and col for the array \\
+\hline
+{\em map\mbox{[}row\mbox{]}\mbox{[}col\mbox{]}} & 2d array store the map for later use,N\-O\-T\-E\-: the col is read from the file P\-L\-U\-S 1(the '\par
+' character ) \\
+\hline
+\end{DoxyParams}
+\hypertarget{ghost__character_8c_aa44c09cf4e69ae7e6d83e254ddb5e383}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!ghost\-\_\-mimic\-\_\-pacman@{ghost\-\_\-mimic\-\_\-pacman}}
+\index{ghost\-\_\-mimic\-\_\-pacman@{ghost\-\_\-mimic\-\_\-pacman}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{ghost\-\_\-mimic\-\_\-pacman}]{\setlength{\rightskip}{0pt plus 5cm}void ghost\-\_\-mimic\-\_\-pacman (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ghost\-\_\-char} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_aa44c09cf4e69ae7e6d83e254ddb5e383}
+\hypertarget{ghost__character_8c_afea79f6c08a98737030a5630dc0241a4}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!ghost\-\_\-move@{ghost\-\_\-move}}
+\index{ghost\-\_\-move@{ghost\-\_\-move}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{ghost\-\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}void ghost\-\_\-move (
+\begin{DoxyParamCaption}
+\item[{int}]{ghost\-\_\-num, }
+\item[{int}]{ghost\-\_\-path\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{translate\-\_\-row\-\_\-col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}, }
+\item[{struct {\bf ghost\-\_\-char} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{user\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_afea79f6c08a98737030a5630dc0241a4}
+
+
+reposible for moving the ghost around, update map 2d array 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ghost\-\_\-num} & the ghost number need to move \\
+\hline
+{\em ghost\-\_\-path} & the ghost corresponding calculated path \\
+\hline
+{\em map\mbox{[}row\mbox{]}\mbox{[}col\mbox{]}} & 2d array use for updating \\
+\hline
+\end{DoxyParams}
+\hypertarget{ghost__character_8c_a4d95bc0fab304b67092bd7ef32447589}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!initialize\-\_\-dist\-\_\-array@{initialize\-\_\-dist\-\_\-array}}
+\index{initialize\-\_\-dist\-\_\-array@{initialize\-\_\-dist\-\_\-array}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{initialize\-\_\-dist\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}void initialize\-\_\-dist\-\_\-array (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col, }
+\item[{long}]{dist\mbox{[}$\,$\mbox{]}\mbox{[}(map\-\_\-row)$\ast$(map\-\_\-col)\mbox{]}, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a4d95bc0fab304b67092bd7ef32447589}
+
+
+initilaize the dist 2\-D array storing the distance to neighbor for all node 
+
+\hypertarget{ghost__character_8c_a5bd4853c5a5527539129c13c256db2ec}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!print\-Path@{print\-Path}}
+\index{print\-Path@{print\-Path}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{print\-Path}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Path (
+\begin{DoxyParamCaption}
+\item[{int}]{ghost\-\_\-num, }
+\item[{int}]{dest, }
+\item[{int}]{prev\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{ghost\-\_\-path\-\_\-size, }
+\item[{int}]{ghost\-\_\-path\mbox{[}ghost\-\_\-path\-\_\-size\mbox{]}, }
+\item[{struct {\bf ghost\-\_\-char} $\ast$}]{my\-\_\-ghost\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a5bd4853c5a5527539129c13c256db2ec}
+
+
+store all the caculated path to for later usage using recursion 
+
+\hypertarget{ghost__character_8c_af247dae710b7c68caa7d748d2ddfc563}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!translate\-\_\-from\-\_\-1\-\_\-number@{translate\-\_\-from\-\_\-1\-\_\-number}}
+\index{translate\-\_\-from\-\_\-1\-\_\-number@{translate\-\_\-from\-\_\-1\-\_\-number}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{translate\-\_\-from\-\_\-1\-\_\-number}]{\setlength{\rightskip}{0pt plus 5cm}void translate\-\_\-from\-\_\-1\-\_\-number (
+\begin{DoxyParamCaption}
+\item[{int}]{input, }
+\item[{int}]{translate\-\_\-row\-\_\-col\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{map\-\_\-row, }
+\item[{int}]{map\-\_\-col}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_af247dae710b7c68caa7d748d2ddfc563}
+
+
+convert position from 1\-D to 2\-D array (row and col) 
+
+
+\begin{DoxyCode}
+wmove(map\_win,row-1,col-2);  
+refresh();
+wrefresh(map\_win);      
+\end{DoxyCode}
+ move the cursor to the lower-\/right coner of the map 
+\begin{DoxyParams}{Parameters}
+{\em input} & the index of position in 1\-D array \\
+\hline
+{\em translate\-\_\-row\-\_\-col\mbox{[}$\,$\mbox{]}} & the array for storing converted row and caol \\
+\hline
+\end{DoxyParams}
+\hypertarget{ghost__character_8c_a7ec9a73e9d3666def13886548b522f0a}{\index{ghost\-\_\-character.\-c@{ghost\-\_\-character.\-c}!transte\-\_\-from\-\_\-row\-\_\-col@{transte\-\_\-from\-\_\-row\-\_\-col}}
+\index{transte\-\_\-from\-\_\-row\-\_\-col@{transte\-\_\-from\-\_\-row\-\_\-col}!ghost_character.c@{ghost\-\_\-character.\-c}}
+\subsubsection[{transte\-\_\-from\-\_\-row\-\_\-col}]{\setlength{\rightskip}{0pt plus 5cm}int transte\-\_\-from\-\_\-row\-\_\-col (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col, }
+\item[{int}]{map\-\_\-col}
+\end{DoxyParamCaption}
+)}}\label{ghost__character_8c_a7ec9a73e9d3666def13886548b522f0a}
+
+
+convert the position of 2\-D array to 1\-D array move the cursor to the lower-\/right coner of the map 
+
+
+\begin{DoxyParams}{Parameters}
+{\em col,row} & contain the row and col need to convert \\
+\hline
+{\em map\-\_\-col} & the map\-\_\-col used for converting \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,79 @@
+\hypertarget{Lee_8c}{\section{/home/bit/master/src/\-Lee.c File Reference}
+\label{Lee_8c}\index{/home/bit/master/src/\-Lee.\-c@{/home/bit/master/src/\-Lee.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Lee.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ghost\-\_\-character.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constant.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Lee_8c_a5db15a101d931ef27033a61b635e1129}{expand} (int cost, int x, int y, char a\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{Lee_8h_a402e9fd28bf9c6d86e5e8e6a7f42099a}{N\-\_\-\-C\-O\-L\-S}+1\mbox{]})
+\item 
+void \hyperlink{Lee_8c_a60a05c46f1c9e8ac5c832b5ee161f316}{trace\-Back} (int x, int y, char a\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{Lee_8h_a402e9fd28bf9c6d86e5e8e6a7f42099a}{N\-\_\-\-C\-O\-L\-S}+1\mbox{]})
+\item 
+int \hyperlink{Lee_8c_a1b625cfff7168996e784946812250616}{check\-Collision} (int x, int y, char a\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{Lee_8h_a402e9fd28bf9c6d86e5e8e6a7f42099a}{N\-\_\-\-C\-O\-L\-S}+1\mbox{]})
+\item 
+void \hyperlink{Lee_8c_a61ab9c98b99137248fdf9c3c58638f24}{lee} (int start\-\_\-x, int start\-\_\-y, int end\-\_\-x, int end\-\_\-y, char a\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{Lee_8h_a402e9fd28bf9c6d86e5e8e6a7f42099a}{N\-\_\-\-C\-O\-L\-S}+1\mbox{]}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{Lee_8c_a22089a94221aafb46ff15bcddf6ce1dc}{current\-\_\-path} = 0
+\item 
+int \hyperlink{Lee_8c_ab90eb523fd2ae3c48ddf762cee1bec91}{is\-\_\-pacman\-\_\-alive}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Lee_8c_a1b625cfff7168996e784946812250616}{\index{Lee.\-c@{Lee.\-c}!check\-Collision@{check\-Collision}}
+\index{check\-Collision@{check\-Collision}!Lee.c@{Lee.\-c}}
+\subsubsection[{check\-Collision}]{\setlength{\rightskip}{0pt plus 5cm}int check\-Collision (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{a\mbox{[}$\,$\mbox{]}\mbox{[}\-N\-\_\-\-C\-O\-L\-S+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{Lee_8c_a1b625cfff7168996e784946812250616}
+\hypertarget{Lee_8c_a5db15a101d931ef27033a61b635e1129}{\index{Lee.\-c@{Lee.\-c}!expand@{expand}}
+\index{expand@{expand}!Lee.c@{Lee.\-c}}
+\subsubsection[{expand}]{\setlength{\rightskip}{0pt plus 5cm}void expand (
+\begin{DoxyParamCaption}
+\item[{int}]{cost, }
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{a\mbox{[}$\,$\mbox{]}\mbox{[}\-N\-\_\-\-C\-O\-L\-S+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{Lee_8c_a5db15a101d931ef27033a61b635e1129}
+\hypertarget{Lee_8c_a61ab9c98b99137248fdf9c3c58638f24}{\index{Lee.\-c@{Lee.\-c}!lee@{lee}}
+\index{lee@{lee}!Lee.c@{Lee.\-c}}
+\subsubsection[{lee}]{\setlength{\rightskip}{0pt plus 5cm}void lee (
+\begin{DoxyParamCaption}
+\item[{int}]{start\-\_\-x, }
+\item[{int}]{start\-\_\-y, }
+\item[{int}]{end\-\_\-x, }
+\item[{int}]{end\-\_\-y, }
+\item[{char}]{a\mbox{[}$\,$\mbox{]}\mbox{[}\-N\-\_\-\-C\-O\-L\-S+1\mbox{]}, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{Lee_8c_a61ab9c98b99137248fdf9c3c58638f24}
+\hypertarget{Lee_8c_a60a05c46f1c9e8ac5c832b5ee161f316}{\index{Lee.\-c@{Lee.\-c}!trace\-Back@{trace\-Back}}
+\index{trace\-Back@{trace\-Back}!Lee.c@{Lee.\-c}}
+\subsubsection[{trace\-Back}]{\setlength{\rightskip}{0pt plus 5cm}void trace\-Back (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{char}]{a\mbox{[}$\,$\mbox{]}\mbox{[}\-N\-\_\-\-C\-O\-L\-S+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{Lee_8c_a60a05c46f1c9e8ac5c832b5ee161f316}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Lee_8c_a22089a94221aafb46ff15bcddf6ce1dc}{\index{Lee.\-c@{Lee.\-c}!current\-\_\-path@{current\-\_\-path}}
+\index{current\-\_\-path@{current\-\_\-path}!Lee.c@{Lee.\-c}}
+\subsubsection[{current\-\_\-path}]{\setlength{\rightskip}{0pt plus 5cm}int current\-\_\-path = 0}}\label{Lee_8c_a22089a94221aafb46ff15bcddf6ce1dc}
+\hypertarget{Lee_8c_ab90eb523fd2ae3c48ddf762cee1bec91}{\index{Lee.\-c@{Lee.\-c}!is\-\_\-pacman\-\_\-alive@{is\-\_\-pacman\-\_\-alive}}
+\index{is\-\_\-pacman\-\_\-alive@{is\-\_\-pacman\-\_\-alive}!Lee.c@{Lee.\-c}}
+\subsubsection[{is\-\_\-pacman\-\_\-alive}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-pacman\-\_\-alive}}\label{Lee_8c_ab90eb523fd2ae3c48ddf762cee1bec91}

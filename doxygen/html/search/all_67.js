@@ -1,10 +1,31 @@
 var searchData=
 [
   ['game_5fheight',['GAME_HEIGHT',['../constant_8h.html#addffa3e327bacbc3da87278442b2b507',1,'constant.h']]],
+  ['game_5fmap',['game_map',['../hunter__ghost_8c.html#a600b0d3dae578ac0475803acc5474bed',1,'hunter_ghost.c']]],
   ['game_5fstarty',['GAME_STARTY',['../constant_8h.html#a6216e36c2ef1d14ad5087ba82425bdab',1,'constant.h']]],
   ['game_5fwidth',['GAME_WIDTH',['../constant_8h.html#a693f306b88f7336281e4d1f07754579c',1,'constant.h']]],
   ['game_5fwindow',['game_window',['../pacman_8c.html#ab7e8df5037eda813f482880cd772e95f',1,'pacman.c']]],
   ['get_5fauthor_5fname_5fand_5femail',['get_author_name_and_email',['../read__file_8c.html#ae54775a075f834952c30af4905b85409',1,'get_author_name_and_email(char fullString[], char author[], char email[]):&#160;read_file.c'],['../read__file_8h.html#ae54775a075f834952c30af4905b85409',1,'get_author_name_and_email(char fullString[], char author[], char email[]):&#160;read_file.c']]],
+  ['get_5fhunter_5fdirection',['get_hunter_direction',['../hunter__ghost_8c.html#a6c61157fe09973a7e377ba603333f379',1,'get_hunter_direction():&#160;hunter_ghost.c'],['../hunter__ghost_8h.html#a6c61157fe09973a7e377ba603333f379',1,'get_hunter_direction():&#160;hunter_ghost.c']]],
+  ['get_5fscore',['get_score',['../pacman__character_8c.html#a5c9efe28fc86b449cc397fc4c3e461b6',1,'get_score(int row, int col, int map_col, char map[][map_col], struct map *my_map, int is_invul):&#160;pacman_character.c'],['../pacman__character_8h.html#a5c9efe28fc86b449cc397fc4c3e461b6',1,'get_score(int row, int col, int map_col, char map[][map_col], struct map *my_map, int is_invul):&#160;pacman_character.c']]],
+  ['gethuntercollision',['getHunterCollision',['../hunter__ghost_8c.html#a6760fd4e5e3b2e227ef370cb2879761c',1,'getHunterCollision():&#160;hunter_ghost.c'],['../hunter__ghost_8h.html#a6760fd4e5e3b2e227ef370cb2879761c',1,'getHunterCollision():&#160;hunter_ghost.c']]],
   ['gettranslatedchar',['getTranslatedChar',['../write__file_8c.html#a5d64a710372b44bfe19d80b2bfc685c7',1,'getTranslatedChar(int ch):&#160;write_file.c'],['../write__file_8h.html#a5d64a710372b44bfe19d80b2bfc685c7',1,'getTranslatedChar(int ch):&#160;write_file.c']]],
-  ['ghost',['ghost',['../constant_8h.html#ace3e3b6abb5b511205371deafbeab8b2',1,'constant.h']]]
+  ['ghost',['ghost',['../constant_8h.html#ace3e3b6abb5b511205371deafbeab8b2',1,'constant.h']]],
+  ['ghost_5f2_5fcurrent_5fcycle',['ghost_2_current_cycle',['../pacman_8c.html#a52de73dee83a5f469722511e720c3c2d',1,'pacman.c']]],
+  ['ghost_5f2_5fcycle',['ghost_2_cycle',['../pacman_8c.html#ad249f9b95878aa7acdb42dc534a37456',1,'pacman.c']]],
+  ['ghost_5fchar',['ghost_char',['../structghost__char.html',1,'']]],
+  ['ghost_5fchar_5f2',['ghost_char_2',['../structghost__char__2.html',1,'']]],
+  ['ghost_5fcharacter_2ec',['ghost_character.c',['../ghost__character_8c.html',1,'']]],
+  ['ghost_5fcharacter_2eh',['ghost_character.h',['../ghost__character_8h.html',1,'']]],
+  ['ghost_5fcol',['ghost_col',['../structghost__char__2.html#ac4e881e8acd28d1ba0157a7700a625f2',1,'ghost_char_2::ghost_col()'],['../structghost__char.html#a1959b023b6c10f239cb453c39d5cae0b',1,'ghost_char::ghost_col()']]],
+  ['ghost_5fmimic_5fpacman',['ghost_mimic_pacman',['../ghost__character_8c.html#aa44c09cf4e69ae7e6d83e254ddb5e383',1,'ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char, int map_col, char map[][map_col+1], WINDOW *game_window):&#160;ghost_character.c'],['../ghost__character_8h.html#aa44c09cf4e69ae7e6d83e254ddb5e383',1,'ghost_mimic_pacman(struct ghost_char *my_ghost_char, struct pacman_char *my_pacman_char, int map_col, char map[][map_col+1], WINDOW *game_window):&#160;ghost_character.c']]],
+  ['ghost_5fmove',['ghost_move',['../ghost__character_8c.html#afea79f6c08a98737030a5630dc0241a4',1,'ghost_move(int ghost_num, int ghost_path[], int translate_row_col[], int map_row, int map_col, char map[][map_col+1], struct ghost_char *my_ghost_char, WINDOW *game_window, WINDOW *user_window):&#160;ghost_character.c'],['../ghost__character_8h.html#afea79f6c08a98737030a5630dc0241a4',1,'ghost_move(int ghost_num, int ghost_path[], int translate_row_col[], int map_row, int map_col, char map[][map_col+1], struct ghost_char *my_ghost_char, WINDOW *game_window, WINDOW *user_window):&#160;ghost_character.c']]],
+  ['ghost_5fnum',['ghost_num',['../structghost__char.html#ad155619fd453f1363561112c4c6d07b1',1,'ghost_char']]],
+  ['ghost_5fpath_5f1',['ghost_path_1',['../pacman_8c.html#a4aad42ede81aa1c0bc0b3b9078a9afb1',1,'pacman.c']]],
+  ['ghost_5fpath_5f1_5freset',['ghost_path_1_reset',['../pacman_8c.html#aaf653acd0ec78b901bfd919d821afc9c',1,'pacman.c']]],
+  ['ghost_5fpath_5f2',['ghost_path_2',['../pacman_8c.html#ac91f5db0ca5d0bb5d136e0d3e0c1e030',1,'pacman.c']]],
+  ['ghost_5fpath_5f3',['ghost_path_3',['../pacman_8c.html#aab322e2cb1518055a5f44a540d6a9eed',1,'pacman.c']]],
+  ['ghost_5fpath_5f3_5freset',['ghost_path_3_reset',['../pacman_8c.html#af20f6a1225bb8571df1e81d77cc2b937',1,'pacman.c']]],
+  ['ghost_5frow',['ghost_row',['../structghost__char__2.html#a20d27159bd360d3caba98c961defec53',1,'ghost_char_2::ghost_row()'],['../structghost__char.html#a67b5a2bb2bc525a5365def8a6e9155c2',1,'ghost_char::ghost_row()']]],
+  ['ghost_5fscore',['GHOST_SCORE',['../constant_8h.html#a3bb24da29a2fb472ddf557df3afc3627',1,'constant.h']]]
 ];

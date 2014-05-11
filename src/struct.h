@@ -1,5 +1,8 @@
 #ifndef STRUCT_H
 #define STRUCT_H
+/*! @file struct.h 
+    @brief this is the header file of \ref struct.c. It contain all the declearation of struct 
+*/
 struct pacman_char
 {
 	int live;
@@ -32,9 +35,20 @@ struct map_status{
 	int score;
 	int live;
 };
-
+/*!
+@brief create pointer to struct of ghost pointed to 4 struct of ghost
+*/
 struct ghost_char *create_ghost_char();
+/*!
+@brief create pointer to struct of pacman
+*/
 struct pacman_char *create_pacman_char();
+/*!
+@brief create pointer to struct of map
+*/
 struct map *create_map();
+/*!
+@brief create struct of map status
+*/
 struct map_status *create_map_status();
 #endif

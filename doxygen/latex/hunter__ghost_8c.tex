@@ -1,0 +1,323 @@
+\hypertarget{hunter__ghost_8c}{\section{/home/bit/master/src/hunter\-\_\-ghost.c File Reference}
+\label{hunter__ghost_8c}\index{/home/bit/master/src/hunter\-\_\-ghost.\-c@{/home/bit/master/src/hunter\-\_\-ghost.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}hunter\-\_\-ghost.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{hunter__ghost_8c_a6760fd4e5e3b2e227ef370cb2879761c}{get\-Hunter\-Collision} ()
+\item 
+void \hyperlink{hunter__ghost_8c_a972f03987abff5ba7e859c8c25940e8e}{hunter\-\_\-reset\-\_\-colision} ()
+\item 
+void \hyperlink{hunter__ghost_8c_a14727c0b43743de7adf89598c0ac5c9c}{hunter\-\_\-set\-Direction} (enum \hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} first\-\_\-direction)
+\item 
+void \hyperlink{hunter__ghost_8c_ac979f6633c6f56c6f63129aeb87eebdb}{hunter\-\_\-set\-Item\-Struct} (struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$item)
+\item 
+void \hyperlink{hunter__ghost_8c_af914420d6e461d049fe921349b491001}{hunter\-\_\-set\-Duration\-Build\-Walls} (int new\-\_\-duration)
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_a846fbe51ad94875fffeb047e81e90857}{create\-\_\-item\-\_\-struct} ()
+\item 
+void \hyperlink{hunter__ghost_8c_aa05490555a5a6484a9cf5a1351d7e4a3}{set\-\_\-is\-First\-Time} ()
+\item 
+void \hyperlink{hunter__ghost_8c_ab9663e5bfcfa067cb8c465b0df6100a8}{hunter\-\_\-set\-Vision\-Length} (int new\-\_\-length)
+\item 
+void \hyperlink{hunter__ghost_8c_a0a52377ddf704490bca486c5f20382e1}{hunter\-\_\-set\-Defend\-Origin\-Char} (struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-upper\-\_\-right\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-upper\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-left\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-upper\-\_\-left\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-lower\-\_\-left\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-lower\-\_\-right\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-down\-\_\-struct, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$new\-\_\-right\-\_\-struct)
+\item 
+void \hyperlink{hunter__ghost_8c_ae3aaba7a3140db72a12496ed0eabc4a6}{sleep} (unsigned int mseconds)
+\item 
+enum \hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} \hyperlink{hunter__ghost_8c_a6c61157fe09973a7e377ba603333f379}{get\-\_\-hunter\-\_\-direction} ()
+\item 
+int \hyperlink{hunter__ghost_8c_ac74358589656b17138a04f60a42c0ea5}{is\-\_\-wall\-\_\-ahead} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$title, int x\-\_\-pos, int y\-\_\-pos)
+\item 
+bool \hyperlink{hunter__ghost_8c_a5833f89b5e039404cdda823298e7ec94}{is\-\_\-pacman\-\_\-near} (struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char)
+\item 
+void \hyperlink{hunter__ghost_8c_af2560e1c763f774cfb03bb0fa275cf86}{movexy} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct}, int des\-\_\-x, int des\-\_\-y)
+\item 
+void \hyperlink{hunter__ghost_8c_afe0e933ab6863ab4e13cc7f20d3ab2d1}{hunter\-\_\-defend} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char)
+\item 
+void \hyperlink{hunter__ghost_8c_ac2137a952009f8df0a906ce2b284b6cd}{restore\-\_\-after\-\_\-defend} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$info)
+\item 
+void \hyperlink{hunter__ghost_8c_af747531bca4a87a8a091d01346bc4a80}{chase\-\_\-pacman} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$title, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct})
+\item 
+void \hyperlink{hunter__ghost_8c_ad2ed5955424bc8737971d6673e1f992f}{hunter\-\_\-move} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$title, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct}, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]})
+\item 
+void \hyperlink{hunter__ghost_8c_a1f10e44e1a09e7a940205dff0c25f1ae}{update\-\_\-map\-\_\-array} (int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}+1\mbox{]}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window})
+\item 
+struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$ \hyperlink{hunter__ghost_8c_afe47c3eae2b7f3317c25dceef5463810}{create\-\_\-ghost\-\_\-char2} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{hunter__ghost_8c_abdf7d8a3496245871230cb9631147357}{H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D} =400000
+\item 
+int \hyperlink{hunter__ghost_8c_a496ca4c78d814925bb0b000fad98fdf6}{is\-First\-Time} = 1
+\item 
+int \hyperlink{hunter__ghost_8c_af2be88b6f61bd4f7518b00f2f31d97ca}{wall\-\_\-duration\-\_\-constant} = 15
+\item 
+int \hyperlink{hunter__ghost_8c_af6f06328fcfbf88725ae47394973fde8}{wall\-\_\-duration} = 0
+\item 
+int \hyperlink{hunter__ghost_8c_a545c47d20812cd52fe3db1f1190dd6e4}{recently\-\_\-defend} = 0
+\item 
+int \hyperlink{hunter__ghost_8c_ad5b25c951c038de6489598729ce35f0c}{is\-Collised} = 0
+\item 
+int \hyperlink{hunter__ghost_8c_a4cd711bbcad4e2ecc89d771f5b0ae7e4}{vision\-\_\-length} = 0
+\item 
+enum \hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} \hyperlink{hunter__ghost_8c_ada60bd39b283230511a1ffc20822249b}{hunter\-\_\-directions}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} \hyperlink{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_aa75432ead376e18a104943721176b54a}{upper\-\_\-left\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_adb2f5f53b1242522b9b334881bc6a44b}{upper\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_a332827cb7b9441a302efe5cf9838d399}{upper\-\_\-right\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_a73d9a7a08dae0ecb1fbb219b0e7a7bd7}{left\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_afb8ff7c3f7ba18e33e0fdc3dc804fc4b}{right\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_ac80fc9210fe7cd15663c8e5a014157c3}{lower\-\_\-left\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_a8f3950f20ae32ba8af7c30d0507398ce}{down\-\_\-struct}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$ \hyperlink{hunter__ghost_8c_ad46f1aea6ff744f3addabcafd9b91ea9}{lower\-\_\-right\-\_\-struct}
+\item 
+char \hyperlink{hunter__ghost_8c_a600b0d3dae578ac0475803acc5474bed}{game\-\_\-map} \mbox{[}35\mbox{]}\mbox{[}66\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{hunter__ghost_8c_af747531bca4a87a8a091d01346bc4a80}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!chase\-\_\-pacman@{chase\-\_\-pacman}}
+\index{chase\-\_\-pacman@{chase\-\_\-pacman}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{chase\-\_\-pacman}]{\setlength{\rightskip}{0pt plus 5cm}void chase\-\_\-pacman (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_af747531bca4a87a8a091d01346bc4a80}
+\hypertarget{hunter__ghost_8c_afe47c3eae2b7f3317c25dceef5463810}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!create\-\_\-ghost\-\_\-char2@{create\-\_\-ghost\-\_\-char2}}
+\index{create\-\_\-ghost\-\_\-char2@{create\-\_\-ghost\-\_\-char2}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{create\-\_\-ghost\-\_\-char2}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ghost\-\_\-char\-\_\-2}$\ast$ create\-\_\-ghost\-\_\-char2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_afe47c3eae2b7f3317c25dceef5463810}
+\hypertarget{hunter__ghost_8c_a846fbe51ad94875fffeb047e81e90857}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!create\-\_\-item\-\_\-struct@{create\-\_\-item\-\_\-struct}}
+\index{create\-\_\-item\-\_\-struct@{create\-\_\-item\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{create\-\_\-item\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ create\-\_\-item\-\_\-struct (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a846fbe51ad94875fffeb047e81e90857}
+\hypertarget{hunter__ghost_8c_a6c61157fe09973a7e377ba603333f379}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!get\-\_\-hunter\-\_\-direction@{get\-\_\-hunter\-\_\-direction}}
+\index{get\-\_\-hunter\-\_\-direction@{get\-\_\-hunter\-\_\-direction}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{get\-\_\-hunter\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hunter\-\_\-\-Directions} get\-\_\-hunter\-\_\-direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a6c61157fe09973a7e377ba603333f379}
+\&brief this is the variable which will hold the current direction of hunter \hypertarget{hunter__ghost_8c_a6760fd4e5e3b2e227ef370cb2879761c}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!get\-Hunter\-Collision@{get\-Hunter\-Collision}}
+\index{get\-Hunter\-Collision@{get\-Hunter\-Collision}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{get\-Hunter\-Collision}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Hunter\-Collision (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a6760fd4e5e3b2e227ef370cb2879761c}
+this function will responsible to inform hunter that he and pacman is collise \hypertarget{hunter__ghost_8c_afe0e933ab6863ab4e13cc7f20d3ab2d1}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-defend@{hunter\-\_\-defend}}
+\index{hunter\-\_\-defend@{hunter\-\_\-defend}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-defend}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-defend (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_afe0e933ab6863ab4e13cc7f20d3ab2d1}
+Build walls surrounds ghost \hypertarget{hunter__ghost_8c_ad2ed5955424bc8737971d6673e1f992f}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-move@{hunter\-\_\-move}}
+\index{hunter\-\_\-move@{hunter\-\_\-move}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-move (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ad2ed5955424bc8737971d6673e1f992f}
+\hypertarget{hunter__ghost_8c_a972f03987abff5ba7e859c8c25940e8e}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-reset\-\_\-colision@{hunter\-\_\-reset\-\_\-colision}}
+\index{hunter\-\_\-reset\-\_\-colision@{hunter\-\_\-reset\-\_\-colision}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-reset\-\_\-colision}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-reset\-\_\-colision (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a972f03987abff5ba7e859c8c25940e8e}
+this function will reset whatever boolean value of hunter and pacman collision \hypertarget{hunter__ghost_8c_a0a52377ddf704490bca486c5f20382e1}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-set\-Defend\-Origin\-Char@{hunter\-\_\-set\-Defend\-Origin\-Char}}
+\index{hunter\-\_\-set\-Defend\-Origin\-Char@{hunter\-\_\-set\-Defend\-Origin\-Char}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-set\-Defend\-Origin\-Char}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-set\-Defend\-Origin\-Char (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-upper\-\_\-right\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-upper\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-left\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-upper\-\_\-left\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-lower\-\_\-left\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-lower\-\_\-right\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-down\-\_\-struct, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{new\-\_\-right\-\_\-struct}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a0a52377ddf704490bca486c5f20382e1}
+\hypertarget{hunter__ghost_8c_a14727c0b43743de7adf89598c0ac5c9c}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-set\-Direction@{hunter\-\_\-set\-Direction}}
+\index{hunter\-\_\-set\-Direction@{hunter\-\_\-set\-Direction}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-set\-Direction}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-set\-Direction (
+\begin{DoxyParamCaption}
+\item[{enum {\bf Hunter\-\_\-\-Directions}}]{first\-\_\-direction}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a14727c0b43743de7adf89598c0ac5c9c}
+this function will reset whatever boolean value of hunter and pacman collision \hypertarget{hunter__ghost_8c_af914420d6e461d049fe921349b491001}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-set\-Duration\-Build\-Walls@{hunter\-\_\-set\-Duration\-Build\-Walls}}
+\index{hunter\-\_\-set\-Duration\-Build\-Walls@{hunter\-\_\-set\-Duration\-Build\-Walls}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-set\-Duration\-Build\-Walls}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-set\-Duration\-Build\-Walls (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-\_\-duration}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_af914420d6e461d049fe921349b491001}
+\hypertarget{hunter__ghost_8c_ac979f6633c6f56c6f63129aeb87eebdb}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-set\-Item\-Struct@{hunter\-\_\-set\-Item\-Struct}}
+\index{hunter\-\_\-set\-Item\-Struct@{hunter\-\_\-set\-Item\-Struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-set\-Item\-Struct}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-set\-Item\-Struct (
+\begin{DoxyParamCaption}
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{item}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ac979f6633c6f56c6f63129aeb87eebdb}
+\hypertarget{hunter__ghost_8c_ab9663e5bfcfa067cb8c465b0df6100a8}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-set\-Vision\-Length@{hunter\-\_\-set\-Vision\-Length}}
+\index{hunter\-\_\-set\-Vision\-Length@{hunter\-\_\-set\-Vision\-Length}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-set\-Vision\-Length}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-set\-Vision\-Length (
+\begin{DoxyParamCaption}
+\item[{int}]{new\-\_\-length}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ab9663e5bfcfa067cb8c465b0df6100a8}
+\hypertarget{hunter__ghost_8c_a5833f89b5e039404cdda823298e7ec94}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!is\-\_\-pacman\-\_\-near@{is\-\_\-pacman\-\_\-near}}
+\index{is\-\_\-pacman\-\_\-near@{is\-\_\-pacman\-\_\-near}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{is\-\_\-pacman\-\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-pacman\-\_\-near (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a5833f89b5e039404cdda823298e7ec94}
+\hypertarget{hunter__ghost_8c_ac74358589656b17138a04f60a42c0ea5}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!is\-\_\-wall\-\_\-ahead@{is\-\_\-wall\-\_\-ahead}}
+\index{is\-\_\-wall\-\_\-ahead@{is\-\_\-wall\-\_\-ahead}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{is\-\_\-wall\-\_\-ahead}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-wall\-\_\-ahead (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title, }
+\item[{int}]{x\-\_\-pos, }
+\item[{int}]{y\-\_\-pos}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ac74358589656b17138a04f60a42c0ea5}
+\hypertarget{hunter__ghost_8c_af2560e1c763f774cfb03bb0fa275cf86}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!movexy@{movexy}}
+\index{movexy@{movexy}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{movexy}]{\setlength{\rightskip}{0pt plus 5cm}void movexy (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct, }
+\item[{int}]{des\-\_\-x, }
+\item[{int}]{des\-\_\-y}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_af2560e1c763f774cfb03bb0fa275cf86}
+\hypertarget{hunter__ghost_8c_ac2137a952009f8df0a906ce2b284b6cd}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!restore\-\_\-after\-\_\-defend@{restore\-\_\-after\-\_\-defend}}
+\index{restore\-\_\-after\-\_\-defend@{restore\-\_\-after\-\_\-defend}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{restore\-\_\-after\-\_\-defend}]{\setlength{\rightskip}{0pt plus 5cm}void restore\-\_\-after\-\_\-defend (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{info}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ac2137a952009f8df0a906ce2b284b6cd}
+\hypertarget{hunter__ghost_8c_aa05490555a5a6484a9cf5a1351d7e4a3}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!set\-\_\-is\-First\-Time@{set\-\_\-is\-First\-Time}}
+\index{set\-\_\-is\-First\-Time@{set\-\_\-is\-First\-Time}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{set\-\_\-is\-First\-Time}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-is\-First\-Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_aa05490555a5a6484a9cf5a1351d7e4a3}
+\hypertarget{hunter__ghost_8c_ae3aaba7a3140db72a12496ed0eabc4a6}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!sleep@{sleep}}
+\index{sleep@{sleep}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{sleep}]{\setlength{\rightskip}{0pt plus 5cm}void sleep (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{mseconds}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_ae3aaba7a3140db72a12496ed0eabc4a6}
+\hypertarget{hunter__ghost_8c_a1f10e44e1a09e7a940205dff0c25f1ae}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!update\-\_\-map\-\_\-array@{update\-\_\-map\-\_\-array}}
+\index{update\-\_\-map\-\_\-array@{update\-\_\-map\-\_\-array}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{update\-\_\-map\-\_\-array}]{\setlength{\rightskip}{0pt plus 5cm}void update\-\_\-map\-\_\-array (
+\begin{DoxyParamCaption}
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col+1\mbox{]}, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{hunter__ghost_8c_a1f10e44e1a09e7a940205dff0c25f1ae}
+
+
+\subsection{Variable Documentation}
+\hypertarget{hunter__ghost_8c_a8f3950f20ae32ba8af7c30d0507398ce}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!down\-\_\-struct@{down\-\_\-struct}}
+\index{down\-\_\-struct@{down\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{down\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ down\-\_\-struct}}\label{hunter__ghost_8c_a8f3950f20ae32ba8af7c30d0507398ce}
+\hypertarget{hunter__ghost_8c_a600b0d3dae578ac0475803acc5474bed}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!game\-\_\-map@{game\-\_\-map}}
+\index{game\-\_\-map@{game\-\_\-map}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{game\-\_\-map}]{\setlength{\rightskip}{0pt plus 5cm}char game\-\_\-map\mbox{[}35\mbox{]}\mbox{[}66\mbox{]}}}\label{hunter__ghost_8c_a600b0d3dae578ac0475803acc5474bed}
+\hypertarget{hunter__ghost_8c_ada60bd39b283230511a1ffc20822249b}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!hunter\-\_\-directions@{hunter\-\_\-directions}}
+\index{hunter\-\_\-directions@{hunter\-\_\-directions}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{hunter\-\_\-directions}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hunter\-\_\-\-Directions} hunter\-\_\-directions}}\label{hunter__ghost_8c_ada60bd39b283230511a1ffc20822249b}
+\hypertarget{hunter__ghost_8c_abdf7d8a3496245871230cb9631147357}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D@{H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D}}
+\index{H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D@{H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}int H\-U\-N\-T\-E\-R\-\_\-\-S\-P\-E\-E\-D =400000}}\label{hunter__ghost_8c_abdf7d8a3496245871230cb9631147357}
+\hypertarget{hunter__ghost_8c_ad5b25c951c038de6489598729ce35f0c}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!is\-Collised@{is\-Collised}}
+\index{is\-Collised@{is\-Collised}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{is\-Collised}]{\setlength{\rightskip}{0pt plus 5cm}int is\-Collised = 0}}\label{hunter__ghost_8c_ad5b25c951c038de6489598729ce35f0c}
+\hypertarget{hunter__ghost_8c_a496ca4c78d814925bb0b000fad98fdf6}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!is\-First\-Time@{is\-First\-Time}}
+\index{is\-First\-Time@{is\-First\-Time}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{is\-First\-Time}]{\setlength{\rightskip}{0pt plus 5cm}int is\-First\-Time = 1}}\label{hunter__ghost_8c_a496ca4c78d814925bb0b000fad98fdf6}
+\hypertarget{hunter__ghost_8c_a73d9a7a08dae0ecb1fbb219b0e7a7bd7}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!left\-\_\-struct@{left\-\_\-struct}}
+\index{left\-\_\-struct@{left\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{left\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ left\-\_\-struct}}\label{hunter__ghost_8c_a73d9a7a08dae0ecb1fbb219b0e7a7bd7}
+\hypertarget{hunter__ghost_8c_ac80fc9210fe7cd15663c8e5a014157c3}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!lower\-\_\-left\-\_\-struct@{lower\-\_\-left\-\_\-struct}}
+\index{lower\-\_\-left\-\_\-struct@{lower\-\_\-left\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{lower\-\_\-left\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ lower\-\_\-left\-\_\-struct}}\label{hunter__ghost_8c_ac80fc9210fe7cd15663c8e5a014157c3}
+\hypertarget{hunter__ghost_8c_ad46f1aea6ff744f3addabcafd9b91ea9}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!lower\-\_\-right\-\_\-struct@{lower\-\_\-right\-\_\-struct}}
+\index{lower\-\_\-right\-\_\-struct@{lower\-\_\-right\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{lower\-\_\-right\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ lower\-\_\-right\-\_\-struct}}\label{hunter__ghost_8c_ad46f1aea6ff744f3addabcafd9b91ea9}
+\hypertarget{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!my\-\_\-item\-\_\-struct@{my\-\_\-item\-\_\-struct}}
+\index{my\-\_\-item\-\_\-struct@{my\-\_\-item\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{my\-\_\-item\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct} my\-\_\-item\-\_\-struct}}\label{hunter__ghost_8c_a4d91ac96463a8b9848fd0e0d7a8b4482}
+\hypertarget{hunter__ghost_8c_a545c47d20812cd52fe3db1f1190dd6e4}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!recently\-\_\-defend@{recently\-\_\-defend}}
+\index{recently\-\_\-defend@{recently\-\_\-defend}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{recently\-\_\-defend}]{\setlength{\rightskip}{0pt plus 5cm}int recently\-\_\-defend = 0}}\label{hunter__ghost_8c_a545c47d20812cd52fe3db1f1190dd6e4}
+\hypertarget{hunter__ghost_8c_afb8ff7c3f7ba18e33e0fdc3dc804fc4b}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!right\-\_\-struct@{right\-\_\-struct}}
+\index{right\-\_\-struct@{right\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{right\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ right\-\_\-struct}}\label{hunter__ghost_8c_afb8ff7c3f7ba18e33e0fdc3dc804fc4b}
+\hypertarget{hunter__ghost_8c_aa75432ead376e18a104943721176b54a}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!upper\-\_\-left\-\_\-struct@{upper\-\_\-left\-\_\-struct}}
+\index{upper\-\_\-left\-\_\-struct@{upper\-\_\-left\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{upper\-\_\-left\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ upper\-\_\-left\-\_\-struct}}\label{hunter__ghost_8c_aa75432ead376e18a104943721176b54a}
+\hypertarget{hunter__ghost_8c_a332827cb7b9441a302efe5cf9838d399}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!upper\-\_\-right\-\_\-struct@{upper\-\_\-right\-\_\-struct}}
+\index{upper\-\_\-right\-\_\-struct@{upper\-\_\-right\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{upper\-\_\-right\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ upper\-\_\-right\-\_\-struct}}\label{hunter__ghost_8c_a332827cb7b9441a302efe5cf9838d399}
+\hypertarget{hunter__ghost_8c_adb2f5f53b1242522b9b334881bc6a44b}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!upper\-\_\-struct@{upper\-\_\-struct}}
+\index{upper\-\_\-struct@{upper\-\_\-struct}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{upper\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct}$\ast$ upper\-\_\-struct}}\label{hunter__ghost_8c_adb2f5f53b1242522b9b334881bc6a44b}
+\hypertarget{hunter__ghost_8c_a4cd711bbcad4e2ecc89d771f5b0ae7e4}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!vision\-\_\-length@{vision\-\_\-length}}
+\index{vision\-\_\-length@{vision\-\_\-length}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{vision\-\_\-length}]{\setlength{\rightskip}{0pt plus 5cm}int vision\-\_\-length = 0}}\label{hunter__ghost_8c_a4cd711bbcad4e2ecc89d771f5b0ae7e4}
+\hypertarget{hunter__ghost_8c_af6f06328fcfbf88725ae47394973fde8}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!wall\-\_\-duration@{wall\-\_\-duration}}
+\index{wall\-\_\-duration@{wall\-\_\-duration}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{wall\-\_\-duration}]{\setlength{\rightskip}{0pt plus 5cm}int wall\-\_\-duration = 0}}\label{hunter__ghost_8c_af6f06328fcfbf88725ae47394973fde8}
+\hypertarget{hunter__ghost_8c_af2be88b6f61bd4f7518b00f2f31d97ca}{\index{hunter\-\_\-ghost.\-c@{hunter\-\_\-ghost.\-c}!wall\-\_\-duration\-\_\-constant@{wall\-\_\-duration\-\_\-constant}}
+\index{wall\-\_\-duration\-\_\-constant@{wall\-\_\-duration\-\_\-constant}!hunter_ghost.c@{hunter\-\_\-ghost.\-c}}
+\subsubsection[{wall\-\_\-duration\-\_\-constant}]{\setlength{\rightskip}{0pt plus 5cm}int wall\-\_\-duration\-\_\-constant = 15}}\label{hunter__ghost_8c_af2be88b6f61bd4f7518b00f2f31d97ca}

@@ -1,0 +1,90 @@
+\hypertarget{pacman__character_8c}{\section{/home/bit/master/src/pacman\-\_\-character.c File Reference}
+\label{pacman__character_8c}\index{/home/bit/master/src/pacman\-\_\-character.\-c@{/home/bit/master/src/pacman\-\_\-character.\-c}}
+}
+
+
+this file provide functions to caculate score, check\-Wall and move pacman  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}utility.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pacman\-\_\-character.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}constant.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{pacman__character_8c_a5c9efe28fc86b449cc397fc4c3e461b6}{get\-\_\-score} (int row, int col, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}\mbox{]}, struct \hyperlink{structmap}{map} $\ast$my\-\_\-map, int is\-\_\-invul)
+\begin{DoxyCompactList}\small\item\em check wall and return the score as the same time \end{DoxyCompactList}\item 
+void \hyperlink{pacman__character_8c_ae90bb1f97b5c71287b059b28e7406c93}{pacman\-\_\-char\-\_\-move} (struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}\mbox{]}, struct \hyperlink{structmap}{map} $\ast$my\-\_\-map, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window})
+\begin{DoxyCompactList}\small\item\em moving pacman 4 direction and update score, invulrable duration \end{DoxyCompactList}\item 
+int \hyperlink{pacman__character_8c_a56e31adc21d26e7af57794a837059501}{pacman\-\_\-dead} (struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structghost__char}{ghost\-\_\-char} $\ast$my\-\_\-ghost\-\_\-char)
+\begin{DoxyCompactList}\small\item\em check the ghost eat pacman by comparing the position of ghost and pacman and pacman status /return int 4 if pacman dead, 0,1,2,3 correspoding to ghost dead, 5 if nothing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct timeval pacman\-\_\-invul\-\_\-start \hyperlink{pacman__character_8c_a885ebf29afcd3aaa88ffa755607c929a}{pacman\-\_\-invul\-\_\-end}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+this file provide functions to caculate score, check\-Wall and move pacman 
+
+\subsection{Function Documentation}
+\hypertarget{pacman__character_8c_a5c9efe28fc86b449cc397fc4c3e461b6}{\index{pacman\-\_\-character.\-c@{pacman\-\_\-character.\-c}!get\-\_\-score@{get\-\_\-score}}
+\index{get\-\_\-score@{get\-\_\-score}!pacman_character.c@{pacman\-\_\-character.\-c}}
+\subsubsection[{get\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}int get\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{int}]{row, }
+\item[{int}]{col, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col\mbox{]}, }
+\item[{struct {\bf map} $\ast$}]{my\-\_\-map, }
+\item[{int}]{is\-\_\-invul}
+\end{DoxyParamCaption}
+)}}\label{pacman__character_8c_a5c9efe28fc86b449cc397fc4c3e461b6}
+
+
+check wall and return the score as the same time 
+
+\hypertarget{pacman__character_8c_ae90bb1f97b5c71287b059b28e7406c93}{\index{pacman\-\_\-character.\-c@{pacman\-\_\-character.\-c}!pacman\-\_\-char\-\_\-move@{pacman\-\_\-char\-\_\-move}}
+\index{pacman\-\_\-char\-\_\-move@{pacman\-\_\-char\-\_\-move}!pacman_character.c@{pacman\-\_\-character.\-c}}
+\subsubsection[{pacman\-\_\-char\-\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}void pacman\-\_\-char\-\_\-move (
+\begin{DoxyParamCaption}
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{int}]{map\-\_\-col, }
+\item[{char}]{map\mbox{[}$\,$\mbox{]}\mbox{[}map\-\_\-col\mbox{]}, }
+\item[{struct {\bf map} $\ast$}]{my\-\_\-map, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{pacman__character_8c_ae90bb1f97b5c71287b059b28e7406c93}
+
+
+moving pacman 4 direction and update score, invulrable duration 
+
+
+\begin{DoxyParams}{Parameters}
+{\em $\ast$my\-\_\-pacman\-\_\-char} & the pacman 's struct pointer \\
+\hline
+{\em $\ast$my\-\_\-map} & the map's struct pointer for updating the pellet count \\
+\hline
+\end{DoxyParams}
+\hypertarget{pacman__character_8c_a56e31adc21d26e7af57794a837059501}{\index{pacman\-\_\-character.\-c@{pacman\-\_\-character.\-c}!pacman\-\_\-dead@{pacman\-\_\-dead}}
+\index{pacman\-\_\-dead@{pacman\-\_\-dead}!pacman_character.c@{pacman\-\_\-character.\-c}}
+\subsubsection[{pacman\-\_\-dead}]{\setlength{\rightskip}{0pt plus 5cm}int pacman\-\_\-dead (
+\begin{DoxyParamCaption}
+\item[{struct {\bf pacman\-\_\-char} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf ghost\-\_\-char} $\ast$}]{my\-\_\-ghost\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{pacman__character_8c_a56e31adc21d26e7af57794a837059501}
+
+
+check the ghost eat pacman by comparing the position of ghost and pacman and pacman status /return int 4 if pacman dead, 0,1,2,3 correspoding to ghost dead, 5 if nothing 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{pacman__character_8c_a885ebf29afcd3aaa88ffa755607c929a}{\index{pacman\-\_\-character.\-c@{pacman\-\_\-character.\-c}!pacman\-\_\-invul\-\_\-end@{pacman\-\_\-invul\-\_\-end}}
+\index{pacman\-\_\-invul\-\_\-end@{pacman\-\_\-invul\-\_\-end}!pacman_character.c@{pacman\-\_\-character.\-c}}
+\subsubsection[{pacman\-\_\-invul\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}struct timeval pacman\-\_\-invul\-\_\-start pacman\-\_\-invul\-\_\-end}}\label{pacman__character_8c_a885ebf29afcd3aaa88ffa755607c929a}

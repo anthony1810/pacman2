@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include "struct.h"
-
+/*! @file struct.h 
+    @brief It contains the function used to create struct
+*/
 struct ghost_char *create_ghost_char(){
     struct ghost_char *my_ghost_char= malloc(4*sizeof(struct ghost_char));
     return my_ghost_char;

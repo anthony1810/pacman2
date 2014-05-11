@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>All</span></a></li>
       <li class="current"><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_vars.html"><span>Variables</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow4" class="tabs3">
+    <ul class="tablist">
+      <li><a href="#index_a"><span>a</span></a></li>
+      <li><a href="#index_c"><span>c</span></a></li>
+      <li><a href="#index_d"><span>d</span></a></li>
+      <li><a href="#index_g"><span>g</span></a></li>
+      <li><a href="#index_h"><span>h</span></a></li>
+      <li><a href="#index_i"><span>i</span></a></li>
+      <li><a href="#index_m"><span>m</span></a></li>
+      <li><a href="#index_n"><span>n</span></a></li>
+      <li><a href="#index_p"><span>p</span></a></li>
+      <li><a href="#index_r"><span>r</span></a></li>
+      <li><a href="#index_s"><span>s</span></a></li>
+      <li><a href="#index_t"><span>t</span></a></li>
+      <li><a href="#index_u"><span>u</span></a></li>
+      <li><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -77,7 +98,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -87,62 +108,324 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 
 <div class="contents">
-&#160;<ul>
+&#160;
+
+<h3><a class="anchor" id="index_a"></a>- a -</h3><ul>
+<li>avoid_path()
+: <a class="el" href="pacman_8c.html#af49f4e81589322d943dce1a1461ce541">pacman.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_c"></a>- c -</h3><ul>
+<li>chase_pacman()
+: <a class="el" href="hunter__ghost_8c.html#af747531bca4a87a8a091d01346bc4a80">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#af747531bca4a87a8a091d01346bc4a80">hunter_ghost.h</a>
+</li>
+<li>checkWall()
+: <a class="el" href="ghost__character_8h.html#a1dbd951f4c524d93869b6822925b3bde">ghost_character.h</a>
+, <a class="el" href="ghost__character_8c.html#a1dbd951f4c524d93869b6822925b3bde">ghost_character.c</a>
+</li>
+<li>convert_to_map_character()
+: <a class="el" href="ghost__character_8c.html#a41cba41769eb795e29770fa9513d9394">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#a41cba41769eb795e29770fa9513d9394">ghost_character.h</a>
+</li>
+<li>create_ghost_char()
+: <a class="el" href="struct_8h.html#afe5ee422644c3083fa31434f10970ceb">struct.h</a>
+, <a class="el" href="struct_8c.html#afe5ee422644c3083fa31434f10970ceb">struct.c</a>
+</li>
+<li>create_ghost_char2()
+: <a class="el" href="hunter__ghost_8c.html#afe47c3eae2b7f3317c25dceef5463810">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#afe47c3eae2b7f3317c25dceef5463810">hunter_ghost.h</a>
+</li>
+<li>create_item_struct()
+: <a class="el" href="hunter__ghost_8c.html#a846fbe51ad94875fffeb047e81e90857">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#a846fbe51ad94875fffeb047e81e90857">hunter_ghost.h</a>
+</li>
+<li>create_map()
+: <a class="el" href="struct_8c.html#a9ea31a9e8d2e10a58f3b759cf86eb9b2">struct.c</a>
+, <a class="el" href="struct_8h.html#a9ea31a9e8d2e10a58f3b759cf86eb9b2">struct.h</a>
+</li>
+<li>create_map_status()
+: <a class="el" href="struct_8h.html#acf62ee764168a43ea64c1ca680f9ddf7">struct.h</a>
+, <a class="el" href="struct_8c.html#acf62ee764168a43ea64c1ca680f9ddf7">struct.c</a>
+</li>
 <li>create_new_win()
-: <a class="el" href="utility_8c.html#a593aba180c6d9165dfc65cb31a561828">utility.c</a>
-, <a class="el" href="utility_8h.html#a593aba180c6d9165dfc65cb31a561828">utility.h</a>
+: <a class="el" href="utility_8h.html#a593aba180c6d9165dfc65cb31a561828">utility.h</a>
+, <a class="el" href="utility_8c.html#a593aba180c6d9165dfc65cb31a561828">utility.c</a>
+</li>
+<li>create_newwin()
+: <a class="el" href="hunter__ghost_8h.html#a0a44b6e178e2bcc56cba1ce6a2c79bfc">hunter_ghost.h</a>
+</li>
+<li>create_pacman_char()
+: <a class="el" href="struct_8c.html#a26cab3e9f1909be0e57b46dd73c45942">struct.c</a>
+, <a class="el" href="struct_8h.html#a26cab3e9f1909be0e57b46dd73c45942">struct.h</a>
 </li>
 <li>cursorMove()
 : <a class="el" href="read__file_8c.html#acbd871def0462817543a32a8e76402b3">read_file.c</a>
 , <a class="el" href="read__file_8h.html#acbd871def0462817543a32a8e76402b3">read_file.h</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
+<li>dijkstra()
+: <a class="el" href="ghost__character_8c.html#a81879348fd872769b95535bffd2e2688">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#a81879348fd872769b95535bffd2e2688">ghost_character.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_g"></a>- g -</h3><ul>
 <li>get_author_name_and_email()
 : <a class="el" href="read__file_8c.html#ae54775a075f834952c30af4905b85409">read_file.c</a>
 , <a class="el" href="read__file_8h.html#ae54775a075f834952c30af4905b85409">read_file.h</a>
+</li>
+<li>get_hunter_direction()
+: <a class="el" href="hunter__ghost_8h.html#a6c61157fe09973a7e377ba603333f379">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#a6c61157fe09973a7e377ba603333f379">hunter_ghost.c</a>
+</li>
+<li>get_score()
+: <a class="el" href="pacman__character_8c.html#a5c9efe28fc86b449cc397fc4c3e461b6">pacman_character.c</a>
+, <a class="el" href="pacman__character_8h.html#a5c9efe28fc86b449cc397fc4c3e461b6">pacman_character.h</a>
+</li>
+<li>getHunterCollision()
+: <a class="el" href="hunter__ghost_8h.html#a6760fd4e5e3b2e227ef370cb2879761c">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#a6760fd4e5e3b2e227ef370cb2879761c">hunter_ghost.c</a>
 </li>
 <li>getTranslatedChar()
 : <a class="el" href="write__file_8c.html#a5d64a710372b44bfe19d80b2bfc685c7">write_file.c</a>
 , <a class="el" href="write__file_8h.html#a5d64a710372b44bfe19d80b2bfc685c7">write_file.h</a>
 </li>
+<li>ghost_mimic_pacman()
+: <a class="el" href="ghost__character_8c.html#aa44c09cf4e69ae7e6d83e254ddb5e383">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#aa44c09cf4e69ae7e6d83e254ddb5e383">ghost_character.h</a>
+</li>
+<li>ghost_move()
+: <a class="el" href="ghost__character_8c.html#afea79f6c08a98737030a5630dc0241a4">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#afea79f6c08a98737030a5630dc0241a4">ghost_character.h</a>
+</li>
+<li>ghost_path_1_reset()
+: <a class="el" href="pacman_8c.html#aaf653acd0ec78b901bfd919d821afc9c">pacman.c</a>
+</li>
+<li>ghost_path_3_reset()
+: <a class="el" href="pacman_8c.html#af20f6a1225bb8571df1e81d77cc2b937">pacman.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_h"></a>- h -</h3><ul>
+<li>hunter_defend()
+: <a class="el" href="hunter__ghost_8c.html#afe0e933ab6863ab4e13cc7f20d3ab2d1">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#afe0e933ab6863ab4e13cc7f20d3ab2d1">hunter_ghost.h</a>
+</li>
+<li>hunter_move()
+: <a class="el" href="hunter__ghost_8h.html#ad2ed5955424bc8737971d6673e1f992f">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#ad2ed5955424bc8737971d6673e1f992f">hunter_ghost.c</a>
+</li>
+<li>hunter_reset_colision()
+: <a class="el" href="hunter__ghost_8c.html#a972f03987abff5ba7e859c8c25940e8e">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#a972f03987abff5ba7e859c8c25940e8e">hunter_ghost.h</a>
+</li>
+<li>hunter_setDefendOriginChar()
+: <a class="el" href="hunter__ghost_8h.html#a0a52377ddf704490bca486c5f20382e1">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#a0a52377ddf704490bca486c5f20382e1">hunter_ghost.c</a>
+</li>
+<li>hunter_setDirection()
+: <a class="el" href="hunter__ghost_8c.html#a14727c0b43743de7adf89598c0ac5c9c">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#a14727c0b43743de7adf89598c0ac5c9c">hunter_ghost.h</a>
+</li>
+<li>hunter_setDurationBuildWalls()
+: <a class="el" href="hunter__ghost_8c.html#af914420d6e461d049fe921349b491001">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#af914420d6e461d049fe921349b491001">hunter_ghost.h</a>
+</li>
+<li>hunter_setItemStruct()
+: <a class="el" href="hunter__ghost_8c.html#ac979f6633c6f56c6f63129aeb87eebdb">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#ac979f6633c6f56c6f63129aeb87eebdb">hunter_ghost.h</a>
+</li>
+<li>hunter_setVisionLength()
+: <a class="el" href="hunter__ghost_8c.html#ab9663e5bfcfa067cb8c465b0df6100a8">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#ab9663e5bfcfa067cb8c465b0df6100a8">hunter_ghost.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
+<li>init_editor()
+: <a class="el" href="utility_8c.html#a804994d18e5ec19e9f3def23f78c806a">utility.c</a>
+, <a class="el" href="utility_8h.html#a804994d18e5ec19e9f3def23f78c806a">utility.h</a>
+</li>
+<li>init_game()
+: <a class="el" href="utility_8h.html#a1f1be9d8efe117708009822903781996">utility.h</a>
+, <a class="el" href="utility_8c.html#a1f1be9d8efe117708009822903781996">utility.c</a>
+</li>
+<li>init_menu()
+: <a class="el" href="utility_8c.html#aa814dcc43bcf7dc00c13684827e201ba">utility.c</a>
+, <a class="el" href="utility_8h.html#aa814dcc43bcf7dc00c13684827e201ba">utility.h</a>
+</li>
 <li>init_screen()
-: <a class="el" href="utility_8c.html#acbb7a753dde41b018c71f591a68b6070">utility.c</a>
-, <a class="el" href="utility_8h.html#acbb7a753dde41b018c71f591a68b6070">utility.h</a>
+: <a class="el" href="utility_8h.html#ab2cf0767f3696cd6288aa0be901356cc">utility.h</a>
+, <a class="el" href="utility_8c.html#ab2cf0767f3696cd6288aa0be901356cc">utility.c</a>
 </li>
 <li>init_user_info()
-: <a class="el" href="utility_8h.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">utility.h</a>
-, <a class="el" href="utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">utility.c</a>
+: <a class="el" href="utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">utility.c</a>
+, <a class="el" href="utility_8h.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">utility.h</a>
+</li>
+<li>initialize_dist_array()
+: <a class="el" href="ghost__character_8c.html#a4d95bc0fab304b67092bd7ef32447589">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#a4d95bc0fab304b67092bd7ef32447589">ghost_character.h</a>
 </li>
 <li>initialize_map_array()
-: <a class="el" href="read__file_8h.html#a0efa4176c3a218ce82f98b09b7378097">read_file.h</a>
-, <a class="el" href="read__file_8c.html#a0efa4176c3a218ce82f98b09b7378097">read_file.c</a>
+: <a class="el" href="read__file_8c.html#a0efa4176c3a218ce82f98b09b7378097">read_file.c</a>
+, <a class="el" href="read__file_8h.html#a0efa4176c3a218ce82f98b09b7378097">read_file.h</a>
 </li>
+<li>is_pacman_near()
+: <a class="el" href="hunter__ghost_8h.html#a5833f89b5e039404cdda823298e7ec94">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#a5833f89b5e039404cdda823298e7ec94">hunter_ghost.c</a>
+</li>
+<li>is_wall_ahead()
+: <a class="el" href="hunter__ghost_8h.html#ac74358589656b17138a04f60a42c0ea5">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#ac74358589656b17138a04f60a42c0ea5">hunter_ghost.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_m"></a>- m -</h3><ul>
 <li>main()
 : <a class="el" href="pacman_8c.html#a0ddf1224851353fc92bfbff6f499fa97">pacman.c</a>
+</li>
+<li>movexy()
+: <a class="el" href="hunter__ghost_8h.html#af2560e1c763f774cfb03bb0fa275cf86">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#af2560e1c763f774cfb03bb0fa275cf86">hunter_ghost.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_n"></a>- n -</h3><ul>
+<li>new_game_read_file()
+: <a class="el" href="new__game__read__file_8c.html#a3871fef9713054041ab86659dd0f89ed">new_game_read_file.c</a>
+, <a class="el" href="new__game__read__file_8h.html#a3871fef9713054041ab86659dd0f89ed">new_game_read_file.h</a>
+</li>
+<li>new_game_update_map()
+: <a class="el" href="new__game__read__file_8c.html#ad3108a8a775a9ced4e89c9094f0f64ed">new_game_read_file.c</a>
+, <a class="el" href="new__game__read__file_8h.html#ad3108a8a775a9ced4e89c9094f0f64ed">new_game_read_file.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
+<li>pacman_char_move()
+: <a class="el" href="pacman__character_8c.html#ae90bb1f97b5c71287b059b28e7406c93">pacman_character.c</a>
+, <a class="el" href="pacman__character_8h.html#ae90bb1f97b5c71287b059b28e7406c93">pacman_character.h</a>
+</li>
+<li>pacman_dead()
+: <a class="el" href="pacman__character_8h.html#a56e31adc21d26e7af57794a837059501">pacman_character.h</a>
+, <a class="el" href="pacman__character_8c.html#a56e31adc21d26e7af57794a837059501">pacman_character.c</a>
+</li>
+<li>printPath()
+: <a class="el" href="ghost__character_8h.html#a5bd4853c5a5527539129c13c256db2ec">ghost_character.h</a>
+, <a class="el" href="ghost__character_8c.html#a5bd4853c5a5527539129c13c256db2ec">ghost_character.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_r"></a>- r -</h3><ul>
+<li>random_path()
+: <a class="el" href="pacman_8c.html#afff2ca0373cc4a4d85a34c8e151fdc74">pacman.c</a>
 </li>
 <li>read_command()
 : <a class="el" href="read__file_8c.html#a17fa34cfb791f24e63f929e70b7a5c46">read_file.c</a>
 , <a class="el" href="read__file_8h.html#a17fa34cfb791f24e63f929e70b7a5c46">read_file.h</a>
 </li>
 <li>readFile()
-: <a class="el" href="read__file_8h.html#a1ff8ad8b8891f05311e6fb6486e1e8ec">read_file.h</a>
-, <a class="el" href="read__file_8c.html#a1ff8ad8b8891f05311e6fb6486e1e8ec">read_file.c</a>
+: <a class="el" href="read__file_8c.html#a1ff8ad8b8891f05311e6fb6486e1e8ec">read_file.c</a>
+, <a class="el" href="read__file_8h.html#a1ff8ad8b8891f05311e6fb6486e1e8ec">read_file.h</a>
 </li>
 <li>refresh_command_window()
 : <a class="el" href="command_8h.html#a40de59bb6d29460f1045eb9cbde51671">command.h</a>
 , <a class="el" href="command_8c.html#a40de59bb6d29460f1045eb9cbde51671">command.c</a>
 </li>
+<li>restore_after_defend()
+: <a class="el" href="hunter__ghost_8h.html#ac2137a952009f8df0a906ce2b284b6cd">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#ac2137a952009f8df0a906ce2b284b6cd">hunter_ghost.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
+<li>save_high_score()
+: <a class="el" href="high__score_8c.html#a78c806ca338e0ea4553017989c37283b">high_score.c</a>
+, <a class="el" href="high__score_8h.html#a78c806ca338e0ea4553017989c37283b">high_score.h</a>
+</li>
+<li>set_isFirstTime()
+: <a class="el" href="hunter__ghost_8h.html#aa05490555a5a6484a9cf5a1351d7e4a3">hunter_ghost.h</a>
+, <a class="el" href="hunter__ghost_8c.html#aa05490555a5a6484a9cf5a1351d7e4a3">hunter_ghost.c</a>
+</li>
+<li>show_credit()
+: <a class="el" href="high__score_8c.html#a466b48b229eb98fc56776cafcec8a72f">high_score.c</a>
+, <a class="el" href="high__score_8h.html#a37fd4eb3d058965d5dc51d3323b94297">high_score.h</a>
+</li>
+<li>show_high_score()
+: <a class="el" href="high__score_8h.html#a2f71e6a4353e9adf8902700159f0ef04">high_score.h</a>
+, <a class="el" href="high__score_8c.html#a3d5c43681d83dc07637068a987613ffb">high_score.c</a>
+</li>
+<li>show_option()
+: <a class="el" href="high__score_8c.html#ad22e3481d1495ad8a1706eb01d971799">high_score.c</a>
+, <a class="el" href="high__score_8h.html#ad22e3481d1495ad8a1706eb01d971799">high_score.h</a>
+</li>
+<li>show_option_log()
+: <a class="el" href="high__score_8c.html#a96abcf5b234a33178d9abe93fad4160e">high_score.c</a>
+, <a class="el" href="high__score_8h.html#ad58574248abd382a009b96488bf31f1b">high_score.h</a>
+</li>
+<li>sleep()
+: <a class="el" href="hunter__ghost_8c.html#ae3aaba7a3140db72a12496ed0eabc4a6">hunter_ghost.c</a>
+</li>
 <li>start_command_window()
-: <a class="el" href="command_8c.html#a1b5a278b0cf5959ee18911b2676ebfb6">command.c</a>
-, <a class="el" href="command_8h.html#a1b5a278b0cf5959ee18911b2676ebfb6">command.h</a>
+: <a class="el" href="command_8h.html#a1b5a278b0cf5959ee18911b2676ebfb6">command.h</a>
+, <a class="el" href="command_8c.html#a1b5a278b0cf5959ee18911b2676ebfb6">command.c</a>
+</li>
+<li>start_hunter()
+: <a class="el" href="hunter__ghost_8h.html#a9c1035725b933af2a654b3d4494deda7">hunter_ghost.h</a>
+</li>
+<li>start_stats()
+: <a class="el" href="utility_8h.html#ae1e5a33d024a5a2e881d0e4e323d7188">utility.h</a>
+, <a class="el" href="utility_8c.html#ae1e5a33d024a5a2e881d0e4e323d7188">utility.c</a>
 </li>
 <li>stop_command_window()
-: <a class="el" href="command_8c.html#aa0d2ec2d3a40c3165543c8513f84ccf8">command.c</a>
-, <a class="el" href="command_8h.html#aa0d2ec2d3a40c3165543c8513f84ccf8">command.h</a>
+: <a class="el" href="command_8h.html#aa0d2ec2d3a40c3165543c8513f84ccf8">command.h</a>
+, <a class="el" href="command_8c.html#aa0d2ec2d3a40c3165543c8513f84ccf8">command.c</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_t"></a>- t -</h3><ul>
+<li>timeval_diff()
+: <a class="el" href="utility_8c.html#a3646b05665e5c02da627370656eab660">utility.c</a>
+</li>
+<li>translate_from_1_number()
+: <a class="el" href="ghost__character_8c.html#af247dae710b7c68caa7d748d2ddfc563">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#af247dae710b7c68caa7d748d2ddfc563">ghost_character.h</a>
+</li>
+<li>transte_from_row_col()
+: <a class="el" href="ghost__character_8c.html#a7ec9a73e9d3666def13886548b522f0a">ghost_character.c</a>
+, <a class="el" href="ghost__character_8h.html#a7ec9a73e9d3666def13886548b522f0a">ghost_character.h</a>
+</li>
+</ul>
+
+
+<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
+<li>update_map_array()
+: <a class="el" href="hunter__ghost_8c.html#a1f10e44e1a09e7a940205dff0c25f1ae">hunter_ghost.c</a>
+, <a class="el" href="hunter__ghost_8h.html#a1f10e44e1a09e7a940205dff0c25f1ae">hunter_ghost.h</a>
 </li>
 <li>updateMap()
 : <a class="el" href="read__file_8c.html#aaf85c82ac6b269a83dc4c3d31749a7ce">read_file.c</a>
 , <a class="el" href="read__file_8h.html#aaf85c82ac6b269a83dc4c3d31749a7ce">read_file.h</a>
 </li>
+</ul>
+
+
+<h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
 <li>write_to_file()
 : <a class="el" href="write__file_8c.html#a915ddd1a476c54cb20e96461ff2a97e1">write_file.c</a>
 , <a class="el" href="write__file_8h.html#a256be1b594d824d1613252a9ecd2b7ff">write_file.h</a>
@@ -151,7 +434,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 20:17:54 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 21:31:09 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

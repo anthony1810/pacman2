@@ -4,7 +4,9 @@
 #include "utility.h"
 #include "pacman_character.h"
 #include "constant.h"
-
+/*! @file pacman_character.c 
+    @brief this file provide functions to caculate score, checkWall and move pacman
+*/
 int get_score(int row,int col,int map_col,char map[][map_col],struct map *my_map,int is_invul){
     switch (map[row][col]){
         case 's':

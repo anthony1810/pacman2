@@ -13,7 +13,6 @@
 #include "pacman_character.h"
 #include "ghost_character.h"
 #include "struct.h"
-#include "Lee.h"
 #include "hunter_ghost.h"
 #include "high_score.h"
 /*!
@@ -63,8 +62,11 @@ FILE *f ;
 
 int option = 1;
 
-int ghost_path [35*65]={0};
+int ghost_path_3 [35*65]={0};
 int ghost_path_2 [35*65]={0};
+int ghost_2_cycle[]={1,1,1,63,63,63,53,1};
+int ghost_2_current_cycle=0;
+int ghost_path_1 [35*65]={0};
 
 int move_count=0;
 char phase[]="random";
@@ -76,22 +78,12 @@ char s[100];
 int n; /* The number of nodes in the graph */
 long dist[(GAME_HEIGHT+1)*(GAME_WIDTH+1)][(GAME_HEIGHT+1)*(GAME_WIDTH+1)]; /* dist[i][j] is the distance between node i and j; or 0 if there is no direct connection */
 void avoid_path(int avoid_row_col[],struct pacman_char *my_pacman_char);
-void ghost_path_2_reset();
 void ghost_path_1_reset();
+void ghost_path_3_reset(); 
 void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman_char,int random[]);
 int random_row_col[2]={0,0};
 
 int current_map=0;
- void printPath2(WINDOW *game_window){
- 	wclear(game_window);
-        for (int i = 0; i < 35*65; i++){
-            if (path[i] != 0)
-        	wprintw(game_window,"%d",path[i]);
-        }
-        printf("\n");
-    }
-
-
 int main(int argc, char * argv[]){
 	
 	//ask for username and email
@@ -156,8 +148,9 @@ int main(int argc, char * argv[]){
 			    my_ghost_char[1].current_path=0;
 			    my_ghost_char[3].item_overlap=' ';
 			    my_ghost_char[1].item_overlap=' ';
-			    ghost_path_2_reset();
 			    ghost_path_1_reset();
+			    ghost_path_3_reset();
+			    ghost_2_current_cycle=0;
 
 			    struct map *my_map=create_map();
 
@@ -268,13 +261,22 @@ int main(int argc, char * argv[]){
 			    // caculate the initial file_path
 			    random_path(map_col,map,my_pacman_char,random_row_col);
 			    dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-			    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+			    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_1,my_ghost_char);
 			    //after calculate, reset the number of current file_path to 0
 			    my_ghost_char[1].current_path=0;
 
+
+			     //caculate the initial file_path
+			    dijkstra(transte_from_row_col(my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+			    printPath(2,transte_from_row_col( ghost_2_cycle[ghost_2_current_cycle],ghost_2_cycle[ghost_2_current_cycle+1],map_col ),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+			    ghost_2_current_cycle+=2;
+			    //after calculate, reset the number of current file_path to 0
+			    my_ghost_char[2].current_path=0;
+
+
 			      //caculate the initial file_path
 			    dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-			    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
+			    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path_3,my_ghost_char);
 			    //after calculate, reset the number of current file_path to 0
 			    my_ghost_char[3].current_path=0;
 
@@ -314,17 +316,17 @@ int main(int argc, char * argv[]){
 					    my_ghost_char[1].current_path=0;
 					    my_ghost_char[3].item_overlap=' ';
 					    my_ghost_char[1].item_overlap=' ';
-					    ghost_path_2_reset();
 					    ghost_path_1_reset();
+					    ghost_path_3_reset();
 					    random_path(map_col,map,my_pacman_char,random_row_col);
 					    dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-					    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+					    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_1,my_ghost_char);
 					    //after calculate, reset the number of current file_path to 0
 					    my_ghost_char[1].current_path=0;
 
 					      //caculate the initial file_path
 					    dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-					    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path,my_ghost_char);
+					    printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,map_row*map_col,ghost_path_3,my_ghost_char);
 					    //after calculate, reset the number of current file_path to 0
 					    my_ghost_char[3].current_path=0;
 
@@ -397,12 +399,12 @@ int main(int argc, char * argv[]){
 				            	//before calculate, reset the current ghost file_path to 0
 				                my_ghost_char[3].current_path=0;
 				                dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				                printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
+				                printPath(3,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path_3,my_ghost_char);
 				                //after calculate, reset the number of current file_path to 0
 				                my_ghost_char[3].current_path=0;
-				                ghost_move(3,ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				                ghost_move(3,ghost_path_3,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				            }else{
-				           	 	ghost_move(3,ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				           	 	ghost_move(3,ghost_path_3,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				        	}
 				        	// lee(my_pacman_char->pac_col,my_pacman_char->pac_row,my_ghost_char[1].ghost_col,my_ghost_char[1].ghost_row, map,&game_window);
 				        	// ghost_move(1,path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window);
@@ -413,17 +415,30 @@ int main(int argc, char * argv[]){
 				        		avoid_path(avoid_row_col,my_pacman_char);
 				        		my_ghost_char[3].current_path=0;
 					            dijkstra(transte_from_row_col(my_ghost_char[3].ghost_row,my_ghost_char[3].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-					            printPath(3,transte_from_row_col(avoid_row_col[0],avoid_row_col[1],map_col),prev,(map_row)*(map_col),ghost_path,my_ghost_char);
+					            printPath(3,transte_from_row_col(avoid_row_col[0],avoid_row_col[1],map_col),prev,(map_row)*(map_col),ghost_path_3,my_ghost_char);
 					            my_ghost_char[3].current_path=0;
-					            ghost_move(3,ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+					            ghost_move(3,ghost_path_3,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				        	}else{
-				            	ghost_move(3,ghost_path,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				            	ghost_move(3,ghost_path_3,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				        	}
 				        	hunter_move(&game_window,&title_window, my_ghost_char_2, my_pacman_char,&my_item_struct,map_col,map);
 			        	}
-
+			        	int next_step=my_ghost_char[2].current_path;
+				        if(ghost_path_2[next_step+1]!=0){
+						 	ghost_move(2,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				        }else{
+				           	my_ghost_char[2].current_path=0;
+							dijkstra(transte_from_row_col(my_ghost_char[2].ghost_row,my_ghost_char[2].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
+			    			printPath(2,transte_from_row_col(ghost_2_cycle[ghost_2_current_cycle],ghost_2_cycle[ghost_2_current_cycle+1],map_col  ),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+			  				ghost_2_current_cycle+=2;
+							my_ghost_char[2].current_path=0;
+							if(ghost_2_current_cycle==4){
+								ghost_2_current_cycle=0;
+							}
+							ghost_move(2,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				        }
 			        	wrefresh(&game_window);
-			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, option);
+			        	// start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, option);
 					}
 					//ghost [1]
 					if(timeval_diff(NULL,&ghost_1_delay_end,&ghost_1_delay_start)>=(DELAY*my_ghost_char[1].speed_multiplier)){
@@ -432,24 +447,24 @@ int main(int argc, char * argv[]){
 
 				            if(strcmp(phase,"random")==0 && move_count<=MAX_MOVE_RANDOM){
 				            	int next_step=my_ghost_char[1].current_path;
-				            	if(ghost_path_2[next_step+1]!=0){
-						 	   		ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				            	if(ghost_path_1[next_step+1]!=0){
+						 	   		ghost_move(1,ghost_path_1,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				            	}else{
 				            		my_ghost_char[1].current_path=0;
 			            		   	random_path(map_col,map,my_pacman_char,random_row_col);
 								    dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-								    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+								    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_1,my_ghost_char);
 								    my_ghost_char[1].current_path=0;
-								    ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+								    ghost_move(1,ghost_path_1,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				            	}
 				            	move_count++;
 				            	if(move_count==MAX_MOVE_RANDOM){
 				            		move_count=0;
 				            		strcpy(phase,"chase");
-				            		ghost_path_2_reset();
+				            		ghost_path_1_reset();
 				            		my_ghost_char[1].current_path=0;
 				              		dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				             		printPath(1,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path_2,my_ghost_char);
+				             		printPath(1,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path_1,my_ghost_char);
 				               		//after calculate, reset the number of current file_path to 0
 				               		my_ghost_char[1].current_path=0;
 				            	}
@@ -458,12 +473,12 @@ int main(int argc, char * argv[]){
 				            		//before calculate, reset the current ghost file_path to 0
 				               		my_ghost_char[1].current_path=0;
 				              		dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-				             		printPath(1,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path_2,my_ghost_char);
+				             		printPath(1,transte_from_row_col(my_pacman_char->pac_row,my_pacman_char->pac_col,map_col),prev,(map_row)*(map_col),ghost_path_1,my_ghost_char);
 				               		//after calculate, reset the number of current file_path to 0
 				               		my_ghost_char[1].current_path=0;
-							   		ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+							   		ghost_move(1,ghost_path_1,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 						 		}else{
-				            		ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+				            		ghost_move(1,ghost_path_1,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 
 				            	}
 				            	move_count++;
@@ -471,13 +486,13 @@ int main(int argc, char * argv[]){
 				            	if(move_count==MAX_MOVE_CHASE){
 				            		move_count=0;
 				            		strcpy(phase,"random");
-				            		ghost_path_2_reset();
+				            		ghost_path_1_reset();
 				            		my_ghost_char[1].current_path=0;
 			            		   	random_path(map_col,map,my_pacman_char,random_row_col);
 								    dijkstra(transte_from_row_col(my_ghost_char[1].ghost_row,my_ghost_char[1].ghost_col,map_col),map_row,map_col,d,dist,n,prev); 
-								    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_2,my_ghost_char);
+								    printPath(1,transte_from_row_col(random_row_col[0],random_row_col[1],map_col),prev,map_row*map_col,ghost_path_1,my_ghost_char);
 								    my_ghost_char[1].current_path=0;
-								    ghost_move(1,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
+								    ghost_move(1,ghost_path_1,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				            	}
 
 				            }
@@ -508,8 +523,8 @@ int main(int argc, char * argv[]){
     			//reset the ghost file_path for "2nd" new game
     			for (int i = 0; i < map_row*map_col; ++i)
     			{
-    					ghost_path[i]=0;
-    					ghost_path_2[i]=0;
+    					ghost_path_3[i]=0;
+    					ghost_path_1[i]=0;
     				
     			}
 				free(my_pacman_char);
@@ -597,14 +612,14 @@ void avoid_path(int avoid_row_col[],struct pacman_char *my_pacman_char){
 	}	
 }
 
-void ghost_path_2_reset(){
-	for(int i=0;ghost_path_2[i]!=0;i++){
-		ghost_path_2[i]=0;
+void ghost_path_1_reset(){
+	for(int i=0;ghost_path_1[i]!=0;i++){
+		ghost_path_1[i]=0;
 	}
 }
-void ghost_path_1_reset(){
-	for(int i=0;ghost_path[i]!=0;i++){
-		ghost_path[i]=0;
+void ghost_path_3_reset(){
+	for(int i=0;ghost_path_3[i]!=0;i++){
+		ghost_path_3[i]=0;
 	}
 }
 void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman_char,int random[]){
@@ -616,8 +631,4 @@ void random_path(int map_col,char map[][map_col+1],struct pacman_char *my_pacman
 	}
 
 }
-
-
-
-
 

@@ -1,0 +1,196 @@
+\hypertarget{test2_8h}{\section{/home/bit/master/src/test2.h File Reference}
+\label{test2_8h}\index{/home/bit/master/src/test2.\-h@{/home/bit/master/src/test2.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct}
+\begin{DoxyCompactList}\small\item\em this struct used to save the character that hunter walk by so that hunter won't eat item such as another ghost, pellet, .. \end{DoxyCompactList}\item 
+struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2}
+\begin{DoxyCompactList}\small\item\em this is the struct of hunter ghost \end{DoxyCompactList}\item 
+struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{test2_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} \{ \\*
+\hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}{Up}, 
+\hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}{Down}, 
+\hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}{Left}, 
+\hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}{Right}, 
+\\*
+\hyperlink{test2_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}{Up}, 
+\hyperlink{test2_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}{Down}, 
+\hyperlink{test2_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}{Left}, 
+\hyperlink{test2_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}{Right}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} \hyperlink{test2_8h_a6c61157fe09973a7e377ba603333f379}{get\-\_\-hunter\-\_\-direction} ()
+\item 
+int \hyperlink{test2_8h_ac32bf8593649ecc6fb0ff65a88a6a5e4}{is\-\_\-wall\-\_\-ahead} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, int x\-\_\-pos, int y\-\_\-pos)
+\item 
+W\-I\-N\-D\-O\-W $\ast$ \hyperlink{test2_8h_a0a44b6e178e2bcc56cba1ce6a2c79bfc}{create\-\_\-newwin} (int height, int width, int starty, int startx)
+\item 
+bool \hyperlink{test2_8h_a7774f752415c6a4adb136d6ed1093cc6}{is\-\_\-pacman\-\_\-near} (struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$my\-\_\-pacman\-\_\-char)
+\item 
+void \hyperlink{test2_8h_acbfd5fa11f6b8ff2740b799a37bda167}{movexy} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct}, int des\-\_\-x, int des\-\_\-y)
+\item 
+void \hyperlink{test2_8h_a648778b4f5d5ec7cfb2cb2f7ec9d62fb}{chase\-\_\-pacman} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$info, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct})
+\item 
+void \hyperlink{test2_8h_aaddff9dc2d802b026b568f3b2f56e27a}{hunter\-\_\-move} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} $\ast$\hyperlink{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct})
+\item 
+int \hyperlink{test2_8h_a6f3b0b51a9cdc26dfe10af79207dc71c}{is\-\_\-wall\-\_\-between} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$my\-\_\-pacman\-\_\-char)
+\item 
+void \hyperlink{test2_8h_a2700ff0650860c74e20a0a4340a1e12e}{start\-\_\-hunter} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_ab7e8df5037eda813f482880cd772e95f}{game\-\_\-window}, struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$my\-\_\-ghost\-\_\-char, struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$my\-\_\-pacman\-\_\-char)
+\item 
+struct \hyperlink{structghost__char__2}{ghost\-\_\-char\-\_\-2} $\ast$ \hyperlink{test2_8h_afe47c3eae2b7f3317c25dceef5463810}{create\-\_\-ghost\-\_\-char2} ()
+\item 
+struct \hyperlink{structpacman__char__2}{pacman\-\_\-char\-\_\-2} $\ast$ \hyperlink{test2_8h_a2aea804f6dde2222b3ebf1e54bf15b18}{create\-\_\-pacman\-\_\-char2} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{hunter__ghost_8h_a4b5051370beddea523352fd4187c5745}{Hunter\-\_\-\-Directions} \hyperlink{test2_8h_ada60bd39b283230511a1ffc20822249b}{hunter\-\_\-directions}
+\item 
+struct \hyperlink{structItem__Struct}{Item\-\_\-\-Struct} \hyperlink{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}{my\-\_\-item\-\_\-struct}
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745}{\index{test2.\-h@{test2.\-h}!Hunter\-\_\-\-Directions@{Hunter\-\_\-\-Directions}}
+\index{Hunter\-\_\-\-Directions@{Hunter\-\_\-\-Directions}!test2.h@{test2.\-h}}
+\subsubsection[{Hunter\-\_\-\-Directions}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hunter\-\_\-\-Directions}}}\label{test2_8h_a4b5051370beddea523352fd4187c5745}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{Up@{Up}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Up@{Up}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}{Up}\label{test2_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}
+}]\index{Down@{Down}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Down@{Down}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}{Down}\label{test2_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}
+}]\index{Left@{Left}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Left@{Left}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}{Left}\label{test2_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}
+}]\index{Right@{Right}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Right@{Right}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}{Right}\label{test2_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}
+}]\index{Up@{Up}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Up@{Up}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}{Up}\label{test2_8h_a4b5051370beddea523352fd4187c5745a57a7edcbc04d6175683383cad5c3e0a2}
+}]\index{Down@{Down}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Down@{Down}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}{Down}\label{test2_8h_a4b5051370beddea523352fd4187c5745abcf8c79e9a5f5f9d606fb35645a0fb27}
+}]\index{Left@{Left}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Left@{Left}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}{Left}\label{test2_8h_a4b5051370beddea523352fd4187c5745a9d4d8b0b72fc2659da772d761a3c5ecb}
+}]\index{Right@{Right}!test2.\-h@{test2.\-h}}\index{test2.\-h@{test2.\-h}!Right@{Right}}\item[{\em 
+\hypertarget{test2_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}{Right}\label{test2_8h_a4b5051370beddea523352fd4187c5745ad48f7af8c070184f3774c8e85854eb66}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{test2_8h_a648778b4f5d5ec7cfb2cb2f7ec9d62fb}{\index{test2.\-h@{test2.\-h}!chase\-\_\-pacman@{chase\-\_\-pacman}}
+\index{chase\-\_\-pacman@{chase\-\_\-pacman}!test2.h@{test2.\-h}}
+\subsubsection[{chase\-\_\-pacman}]{\setlength{\rightskip}{0pt plus 5cm}void chase\-\_\-pacman (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{info, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a648778b4f5d5ec7cfb2cb2f7ec9d62fb}
+\hypertarget{test2_8h_afe47c3eae2b7f3317c25dceef5463810}{\index{test2.\-h@{test2.\-h}!create\-\_\-ghost\-\_\-char2@{create\-\_\-ghost\-\_\-char2}}
+\index{create\-\_\-ghost\-\_\-char2@{create\-\_\-ghost\-\_\-char2}!test2.h@{test2.\-h}}
+\subsubsection[{create\-\_\-ghost\-\_\-char2}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf ghost\-\_\-char\-\_\-2}$\ast$ create\-\_\-ghost\-\_\-char2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_afe47c3eae2b7f3317c25dceef5463810}
+\hypertarget{test2_8h_a0a44b6e178e2bcc56cba1ce6a2c79bfc}{\index{test2.\-h@{test2.\-h}!create\-\_\-newwin@{create\-\_\-newwin}}
+\index{create\-\_\-newwin@{create\-\_\-newwin}!test2.h@{test2.\-h}}
+\subsubsection[{create\-\_\-newwin}]{\setlength{\rightskip}{0pt plus 5cm}W\-I\-N\-D\-O\-W$\ast$ create\-\_\-newwin (
+\begin{DoxyParamCaption}
+\item[{int}]{height, }
+\item[{int}]{width, }
+\item[{int}]{starty, }
+\item[{int}]{startx}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a0a44b6e178e2bcc56cba1ce6a2c79bfc}
+\hypertarget{test2_8h_a2aea804f6dde2222b3ebf1e54bf15b18}{\index{test2.\-h@{test2.\-h}!create\-\_\-pacman\-\_\-char2@{create\-\_\-pacman\-\_\-char2}}
+\index{create\-\_\-pacman\-\_\-char2@{create\-\_\-pacman\-\_\-char2}!test2.h@{test2.\-h}}
+\subsubsection[{create\-\_\-pacman\-\_\-char2}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf pacman\-\_\-char\-\_\-2}$\ast$ create\-\_\-pacman\-\_\-char2 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a2aea804f6dde2222b3ebf1e54bf15b18}
+\hypertarget{test2_8h_a6c61157fe09973a7e377ba603333f379}{\index{test2.\-h@{test2.\-h}!get\-\_\-hunter\-\_\-direction@{get\-\_\-hunter\-\_\-direction}}
+\index{get\-\_\-hunter\-\_\-direction@{get\-\_\-hunter\-\_\-direction}!test2.h@{test2.\-h}}
+\subsubsection[{get\-\_\-hunter\-\_\-direction}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hunter\-\_\-\-Directions} get\-\_\-hunter\-\_\-direction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a6c61157fe09973a7e377ba603333f379}
+\&brief this is the variable which will hold the current direction of hunter \hypertarget{test2_8h_aaddff9dc2d802b026b568f3b2f56e27a}{\index{test2.\-h@{test2.\-h}!hunter\-\_\-move@{hunter\-\_\-move}}
+\index{hunter\-\_\-move@{hunter\-\_\-move}!test2.h@{test2.\-h}}
+\subsubsection[{hunter\-\_\-move}]{\setlength{\rightskip}{0pt plus 5cm}void hunter\-\_\-move (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-pacman\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_aaddff9dc2d802b026b568f3b2f56e27a}
+\hypertarget{test2_8h_a7774f752415c6a4adb136d6ed1093cc6}{\index{test2.\-h@{test2.\-h}!is\-\_\-pacman\-\_\-near@{is\-\_\-pacman\-\_\-near}}
+\index{is\-\_\-pacman\-\_\-near@{is\-\_\-pacman\-\_\-near}!test2.h@{test2.\-h}}
+\subsubsection[{is\-\_\-pacman\-\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}bool is\-\_\-pacman\-\_\-near (
+\begin{DoxyParamCaption}
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-pacman\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a7774f752415c6a4adb136d6ed1093cc6}
+\hypertarget{test2_8h_ac32bf8593649ecc6fb0ff65a88a6a5e4}{\index{test2.\-h@{test2.\-h}!is\-\_\-wall\-\_\-ahead@{is\-\_\-wall\-\_\-ahead}}
+\index{is\-\_\-wall\-\_\-ahead@{is\-\_\-wall\-\_\-ahead}!test2.h@{test2.\-h}}
+\subsubsection[{is\-\_\-wall\-\_\-ahead}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-wall\-\_\-ahead (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{int}]{x\-\_\-pos, }
+\item[{int}]{y\-\_\-pos}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_ac32bf8593649ecc6fb0ff65a88a6a5e4}
+\hypertarget{test2_8h_a6f3b0b51a9cdc26dfe10af79207dc71c}{\index{test2.\-h@{test2.\-h}!is\-\_\-wall\-\_\-between@{is\-\_\-wall\-\_\-between}}
+\index{is\-\_\-wall\-\_\-between@{is\-\_\-wall\-\_\-between}!test2.h@{test2.\-h}}
+\subsubsection[{is\-\_\-wall\-\_\-between}]{\setlength{\rightskip}{0pt plus 5cm}int is\-\_\-wall\-\_\-between (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-pacman\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a6f3b0b51a9cdc26dfe10af79207dc71c}
+\hypertarget{test2_8h_acbfd5fa11f6b8ff2740b799a37bda167}{\index{test2.\-h@{test2.\-h}!movexy@{movexy}}
+\index{movexy@{movexy}!test2.h@{test2.\-h}}
+\subsubsection[{movexy}]{\setlength{\rightskip}{0pt plus 5cm}void movexy (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf Item\-\_\-\-Struct} $\ast$}]{my\-\_\-item\-\_\-struct, }
+\item[{int}]{des\-\_\-x, }
+\item[{int}]{des\-\_\-y}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_acbfd5fa11f6b8ff2740b799a37bda167}
+\hypertarget{test2_8h_a2700ff0650860c74e20a0a4340a1e12e}{\index{test2.\-h@{test2.\-h}!start\-\_\-hunter@{start\-\_\-hunter}}
+\index{start\-\_\-hunter@{start\-\_\-hunter}!test2.h@{test2.\-h}}
+\subsubsection[{start\-\_\-hunter}]{\setlength{\rightskip}{0pt plus 5cm}void start\-\_\-hunter (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{game\-\_\-window, }
+\item[{struct {\bf ghost\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-ghost\-\_\-char, }
+\item[{struct {\bf pacman\-\_\-char\-\_\-2} $\ast$}]{my\-\_\-pacman\-\_\-char}
+\end{DoxyParamCaption}
+)}}\label{test2_8h_a2700ff0650860c74e20a0a4340a1e12e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{test2_8h_ada60bd39b283230511a1ffc20822249b}{\index{test2.\-h@{test2.\-h}!hunter\-\_\-directions@{hunter\-\_\-directions}}
+\index{hunter\-\_\-directions@{hunter\-\_\-directions}!test2.h@{test2.\-h}}
+\subsubsection[{hunter\-\_\-directions}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Hunter\-\_\-\-Directions} hunter\-\_\-directions}}\label{test2_8h_ada60bd39b283230511a1ffc20822249b}
+\hypertarget{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}{\index{test2.\-h@{test2.\-h}!my\-\_\-item\-\_\-struct@{my\-\_\-item\-\_\-struct}}
+\index{my\-\_\-item\-\_\-struct@{my\-\_\-item\-\_\-struct}!test2.h@{test2.\-h}}
+\subsubsection[{my\-\_\-item\-\_\-struct}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Item\-\_\-\-Struct} my\-\_\-item\-\_\-struct}}\label{test2_8h_a4d91ac96463a8b9848fd0e0d7a8b4482}

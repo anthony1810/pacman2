@@ -1,0 +1,82 @@
+\hypertarget{high__score_8c}{\section{/home/bit/master/src/high\-\_\-score.c File Reference}
+\label{high__score_8c}\index{/home/bit/master/src/high\-\_\-score.\-c@{/home/bit/master/src/high\-\_\-score.\-c}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$curses.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$assert.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}high\-\_\-score.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{high__score_8c_a78c806ca338e0ea4553017989c37283b}{save\-\_\-high\-\_\-score} (char \hyperlink{pacman_8c_ac3b1fede7dc162f1d3a6e3efd28a1b87}{user\-\_\-email}\mbox{[}$\,$\mbox{]}, int score)
+\item 
+void \hyperlink{high__score_8c_a96abcf5b234a33178d9abe93fad4160e}{show\-\_\-option\-\_\-log} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a2521ae18240b16320b0957a9425fd835}{note\-\_\-window}, int \hyperlink{high__score_8c_a13fe9210eae1784cee7b005356ff129c}{x\-\_\-cur})
+\item 
+void \hyperlink{high__score_8c_ad22e3481d1495ad8a1706eb01d971799}{show\-\_\-option} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, int $\ast$\hyperlink{pacman_8c_a96613d07df4205a377ad9cb38b3a9d27}{option})
+\item 
+void \hyperlink{high__score_8c_a466b48b229eb98fc56776cafcec8a72f}{show\-\_\-credit} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window})
+\item 
+void \hyperlink{high__score_8c_a3d5c43681d83dc07637068a987613ffb}{show\-\_\-high\-\_\-score} (W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a3a7742d2e1d3abf462930140718a3b9a}{title\-\_\-window}, W\-I\-N\-D\-O\-W $\ast$\hyperlink{pacman_8c_a30b90320ea44ddd7351658fb4c92db91}{command\-\_\-window})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{high__score_8c_a353801f530f676971e5bd797371e7164}{y\-\_\-cur} = 12
+\item 
+int \hyperlink{high__score_8c_a13fe9210eae1784cee7b005356ff129c}{x\-\_\-cur} = 23
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{high__score_8c_a78c806ca338e0ea4553017989c37283b}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!save\-\_\-high\-\_\-score@{save\-\_\-high\-\_\-score}}
+\index{save\-\_\-high\-\_\-score@{save\-\_\-high\-\_\-score}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{save\-\_\-high\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}void save\-\_\-high\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{char}]{user\-\_\-email\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{score}
+\end{DoxyParamCaption}
+)}}\label{high__score_8c_a78c806ca338e0ea4553017989c37283b}
+\hypertarget{high__score_8c_a466b48b229eb98fc56776cafcec8a72f}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!show\-\_\-credit@{show\-\_\-credit}}
+\index{show\-\_\-credit@{show\-\_\-credit}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{show\-\_\-credit}]{\setlength{\rightskip}{0pt plus 5cm}void show\-\_\-credit (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{high__score_8c_a466b48b229eb98fc56776cafcec8a72f}
+\hypertarget{high__score_8c_a3d5c43681d83dc07637068a987613ffb}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!show\-\_\-high\-\_\-score@{show\-\_\-high\-\_\-score}}
+\index{show\-\_\-high\-\_\-score@{show\-\_\-high\-\_\-score}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{show\-\_\-high\-\_\-score}]{\setlength{\rightskip}{0pt plus 5cm}void show\-\_\-high\-\_\-score (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window, }
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{command\-\_\-window}
+\end{DoxyParamCaption}
+)}}\label{high__score_8c_a3d5c43681d83dc07637068a987613ffb}
+\hypertarget{high__score_8c_ad22e3481d1495ad8a1706eb01d971799}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!show\-\_\-option@{show\-\_\-option}}
+\index{show\-\_\-option@{show\-\_\-option}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{show\-\_\-option}]{\setlength{\rightskip}{0pt plus 5cm}void show\-\_\-option (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{title\-\_\-window, }
+\item[{int $\ast$}]{option}
+\end{DoxyParamCaption}
+)}}\label{high__score_8c_ad22e3481d1495ad8a1706eb01d971799}
+\hypertarget{high__score_8c_a96abcf5b234a33178d9abe93fad4160e}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!show\-\_\-option\-\_\-log@{show\-\_\-option\-\_\-log}}
+\index{show\-\_\-option\-\_\-log@{show\-\_\-option\-\_\-log}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{show\-\_\-option\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}void show\-\_\-option\-\_\-log (
+\begin{DoxyParamCaption}
+\item[{W\-I\-N\-D\-O\-W $\ast$}]{note\-\_\-window, }
+\item[{int}]{x\-\_\-cur}
+\end{DoxyParamCaption}
+)}}\label{high__score_8c_a96abcf5b234a33178d9abe93fad4160e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{high__score_8c_a13fe9210eae1784cee7b005356ff129c}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!x\-\_\-cur@{x\-\_\-cur}}
+\index{x\-\_\-cur@{x\-\_\-cur}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{x\-\_\-cur}]{\setlength{\rightskip}{0pt plus 5cm}int x\-\_\-cur = 23}}\label{high__score_8c_a13fe9210eae1784cee7b005356ff129c}
+\hypertarget{high__score_8c_a353801f530f676971e5bd797371e7164}{\index{high\-\_\-score.\-c@{high\-\_\-score.\-c}!y\-\_\-cur@{y\-\_\-cur}}
+\index{y\-\_\-cur@{y\-\_\-cur}!high_score.c@{high\-\_\-score.\-c}}
+\subsubsection[{y\-\_\-cur}]{\setlength{\rightskip}{0pt plus 5cm}int y\-\_\-cur = 12}}\label{high__score_8c_a353801f530f676971e5bd797371e7164}

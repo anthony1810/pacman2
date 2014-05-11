@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Pacman Level Editor: /home/bit/hostshare/COSC2451_A1_s3312399/src/utility.c File Reference</title>
+<title>Pacman Level Editor: /home/bit/master/src/utility.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -96,18 +97,31 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;string.h&gt;</code><br/>
 <code>#include &quot;<a class="el" href="constant_8h_source.html">constant.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="read__file_8h_source.html">read_file.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="write__file_8h_source.html">write_file.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="command_8h_source.html">command.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a593aba180c6d9165dfc65cb31a561828"><td class="memItemLeft" align="right" valign="top">WINDOW&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#a593aba180c6d9165dfc65cb31a561828">create_new_win</a> (int height, int width, int starty, int startx)</td></tr>
 <tr class="memdesc:a593aba180c6d9165dfc65cb31a561828"><td class="mdescLeft">&#160;</td><td class="mdescRight">create a ncurse window  <a href="#a593aba180c6d9165dfc65cb31a561828">More...</a><br/></td></tr>
 <tr class="separator:a593aba180c6d9165dfc65cb31a561828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbb7a753dde41b018c71f591a68b6070"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#acbb7a753dde41b018c71f591a68b6070">init_screen</a> (WINDOW *<a class="el" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>, WINDOW *<a class="el" href="pacman_8c.html#ab7e8df5037eda813f482880cd772e95f">game_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a30b90320ea44ddd7351658fb4c92db91">command_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a2521ae18240b16320b0957a9425fd835">note_window</a>, WINDOW *<a class="el" href="pacman_8c.html#af24bae5786b2af7d7d80947be3365e54">wall</a>, WINDOW *<a class="el" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[])</td></tr>
-<tr class="memdesc:acbb7a753dde41b018c71f591a68b6070"><td class="mdescLeft">&#160;</td><td class="mdescRight">init gui for user to interact with the program  <a href="#acbb7a753dde41b018c71f591a68b6070">More...</a><br/></td></tr>
-<tr class="separator:acbb7a753dde41b018c71f591a68b6070"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2cf0767f3696cd6288aa0be901356cc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#ab2cf0767f3696cd6288aa0be901356cc">init_screen</a> (char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[])</td></tr>
+<tr class="memdesc:ab2cf0767f3696cd6288aa0be901356cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">init gui for user to interact with the program  <a href="#ab2cf0767f3696cd6288aa0be901356cc">More...</a><br/></td></tr>
+<tr class="separator:ab2cf0767f3696cd6288aa0be901356cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11b2e8780ec0b7ab2dbeb29899cc74cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">init_user_info</a> (WINDOW *<a class="el" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[], char <a class="el" href="pacman_8c.html#a072788baae5ebbbc74fec33e8eccb7e7">map_name</a>[], int <a class="el" href="pacman_8c.html#adcaac76a96bc545b114cd51df846f2c8">map_row</a>, int <a class="el" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>, char <a class="el" href="pacman_8c.html#ad3125f739f1d8f5bbe8c6f3a030b96c0">author</a>[], char <a class="el" href="pacman_8c.html#a396de8361779342a09b263537530b4c9">author_email</a>[])</td></tr>
 <tr class="memdesc:a11b2e8780ec0b7ab2dbeb29899cc74cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">display and update information of user and map  <a href="#a11b2e8780ec0b7ab2dbeb29899cc74cf">More...</a><br/></td></tr>
 <tr class="separator:a11b2e8780ec0b7ab2dbeb29899cc74cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a804994d18e5ec19e9f3def23f78c806a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#a804994d18e5ec19e9f3def23f78c806a">init_editor</a> (WINDOW *<a class="el" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>, WINDOW *<a class="el" href="pacman_8c.html#ab7e8df5037eda813f482880cd772e95f">game_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a30b90320ea44ddd7351658fb4c92db91">command_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a2521ae18240b16320b0957a9425fd835">note_window</a>, WINDOW *<a class="el" href="pacman_8c.html#af24bae5786b2af7d7d80947be3365e54">wall</a>, WINDOW *<a class="el" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[], char path[100], int <a class="el" href="pacman_8c.html#a16115f0b31db53bca020c0fe60b0633b">isEnter</a>, char <a class="el" href="pacman_8c.html#ad3125f739f1d8f5bbe8c6f3a030b96c0">author</a>[50], char <a class="el" href="pacman_8c.html#a072788baae5ebbbc74fec33e8eccb7e7">map_name</a>[50], char <a class="el" href="pacman_8c.html#a396de8361779342a09b263537530b4c9">author_email</a>[50], int <a class="el" href="pacman_8c.html#adcaac76a96bc545b114cd51df846f2c8">map_row</a>, int <a class="el" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>, int <a class="el" href="pacman_8c.html#a37e6a2d9119b69f227693217a943388f">scr_x</a>, int <a class="el" href="pacman_8c.html#a40a956d9f4e3727d27255d78068654ac">scr_y</a>, FILE *<a class="el" href="pacman_8c.html#a3efb0e1a16208deecbd84c15401f7cf8">f</a>, int argc, char *argv[])</td></tr>
+<tr class="separator:a804994d18e5ec19e9f3def23f78c806a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa814dcc43bcf7dc00c13684827e201ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#aa814dcc43bcf7dc00c13684827e201ba">init_menu</a> (WINDOW *<a class="el" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>)</td></tr>
+<tr class="separator:aa814dcc43bcf7dc00c13684827e201ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1e5a33d024a5a2e881d0e4e323d7188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#ae1e5a33d024a5a2e881d0e4e323d7188">start_stats</a> (WINDOW *<a class="el" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[], int scores, int life, int level)</td></tr>
+<tr class="separator:ae1e5a33d024a5a2e881d0e4e323d7188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f1be9d8efe117708009822903781996"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#a1f1be9d8efe117708009822903781996">init_game</a> (WINDOW *<a class="el" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>, WINDOW *<a class="el" href="pacman_8c.html#ab7e8df5037eda813f482880cd772e95f">game_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a30b90320ea44ddd7351658fb4c92db91">command_window</a>, WINDOW *<a class="el" href="pacman_8c.html#a2521ae18240b16320b0957a9425fd835">note_window</a>, WINDOW *<a class="el" href="pacman_8c.html#af24bae5786b2af7d7d80947be3365e54">wall</a>, WINDOW *<a class="el" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, char <a class="el" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>[], char <a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>[], int level)</td></tr>
+<tr class="separator:a1f1be9d8efe117708009822903781996"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3646b05665e5c02da627370656eab660"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="utility_8c.html#a3646b05665e5c02da627370656eab660">timeval_diff</a> (struct timeval *difference, struct timeval *end_time, struct timeval *start_time)</td></tr>
+<tr class="separator:a3646b05665e5c02da627370656eab660"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this file contains some useful utilities for the main program and other modules of this program </p>
@@ -161,16 +175,16 @@ Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>ncurse window</dd></dl>
 <div class="fragment"><div class="line">WINDOW <a class="code" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>;</div>
-<div class="line">*<a class="code" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a> = <a class="code" href="utility_8c.html#a593aba180c6d9165dfc65cb31a561828">create_new_win</a>(<a class="code" href="constant_8h.html#aca66aeea7d75b42b8f410023f648964c">TITLE_HEIGHT</a>, col, 0, 0);</div>
+<div class="line">*title_window = <a class="code" href="utility_8c.html#a593aba180c6d9165dfc65cb31a561828">create_new_win</a>(<a class="code" href="constant_8h.html#aca66aeea7d75b42b8f410023f648964c">TITLE_HEIGHT</a>, col, 0, 0);</div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a class="anchor" id="acbb7a753dde41b018c71f591a68b6070"></a>
+<a class="anchor" id="a804994d18e5ec19e9f3def23f78c806a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void init_screen </td>
+          <td class="memname">void init_editor </td>
           <td>(</td>
           <td class="paramtype">WINDOW *&#160;</td>
           <td class="paramname"><em>title_window</em>, </td>
@@ -215,6 +229,188 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user_email</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>path</em>[100], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>isEnter</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>author</em>[50], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>map_name</em>[50], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>author_email</em>[50], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_row</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scr_x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scr_y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">FILE *&#160;</td>
+          <td class="paramname"><em>f</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>argc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1f1be9d8efe117708009822903781996"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_game </td>
+          <td>(</td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>title_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>game_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>command_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>note_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>wall</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>user_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user_email</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aa814dcc43bcf7dc00c13684827e201ba"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_menu </td>
+          <td>(</td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>title_window</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ab2cf0767f3696cd6288aa0be901356cc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void init_screen </td>
+          <td>(</td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
           <td class="paramname"><em>user_email</em>[]&#160;</td>
         </tr>
         <tr>
@@ -245,7 +441,7 @@ Functions</h2></td></tr>
 <div class="line">WINDOW <a class="code" href="pacman_8c.html#af24bae5786b2af7d7d80947be3365e54">wall</a>;</div>
 <div class="line">WINDOW <a class="code" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>;</div>
 <div class="line"></div>
-<div class="line"><a class="code" href="utility_8c.html#acbb7a753dde41b018c71f591a68b6070">init_screen</a>(&amp;<a class="code" href="pacman_8c.html#a3a7742d2e1d3abf462930140718a3b9a">title_window</a>, &amp;<a class="code" href="pacman_8c.html#ab7e8df5037eda813f482880cd772e95f">game_window</a>, &amp;<a class="code" href="pacman_8c.html#a30b90320ea44ddd7351658fb4c92db91">command_window</a>, &amp;<a class="code" href="pacman_8c.html#a2521ae18240b16320b0957a9425fd835">note_window</a>, &amp;<a class="code" href="pacman_8c.html#af24bae5786b2af7d7d80947be3365e54">wall</a>, &amp;<a class="code" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>, <a class="code" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>, <a class="code" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>);</div>
+<div class="line"><a class="code" href="utility_8c.html#ab2cf0767f3696cd6288aa0be901356cc">init_screen</a>(&amp;title_window, &amp;game_window, &amp;command_window, &amp;note_window, &amp;wall, &amp;user_window, <a class="code" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>, <a class="code" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>);</div>
 </div><!-- fragment --> <p>&lt; Line buffering disabled </p>
 
 </div>
@@ -326,14 +522,96 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <div class="fragment"><div class="line">WINDOW <a class="code" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>;</div>
-<div class="line"><a class="code" href="utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">init_user_info</a>(&amp;<a class="code" href="pacman_8c.html#a9c62404bc89bc039be4061e6b0201fdd">user_window</a>,<a class="code" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>, <a class="code" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>, <a class="code" href="pacman_8c.html#a072788baae5ebbbc74fec33e8eccb7e7">map_name</a>,<a class="code" href="pacman_8c.html#adcaac76a96bc545b114cd51df846f2c8">map_row</a>,<a class="code" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>-1,<a class="code" href="pacman_8c.html#ad3125f739f1d8f5bbe8c6f3a030b96c0">author</a>,<a class="code" href="pacman_8c.html#a396de8361779342a09b263537530b4c9">author_email</a>);</div>
+<div class="line"><a class="code" href="utility_8c.html#a11b2e8780ec0b7ab2dbeb29899cc74cf">init_user_info</a>(&amp;user_window,<a class="code" href="pacman_8c.html#a06c2206a2e6ed014bb3205cf1b6bd0a7">user</a>, <a class="code" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a>, <a class="code" href="pacman_8c.html#a072788baae5ebbbc74fec33e8eccb7e7">map_name</a>,<a class="code" href="pacman_8c.html#adcaac76a96bc545b114cd51df846f2c8">map_row</a>,<a class="code" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>-1,<a class="code" href="pacman_8c.html#ad3125f739f1d8f5bbe8c6f3a030b96c0">author</a>,<a class="code" href="pacman_8c.html#a396de8361779342a09b263537530b4c9">author_email</a>);</div>
 </div><!-- fragment --> 
+</div>
+</div>
+<a class="anchor" id="ae1e5a33d024a5a2e881d0e4e323d7188"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void start_stats </td>
+          <td>(</td>
+          <td class="paramtype">WINDOW *&#160;</td>
+          <td class="paramname"><em>user_window</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>user_email</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>scores</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>life</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>level</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a3646b05665e5c02da627370656eab660"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long timeval_diff </td>
+          <td>(</td>
+          <td class="paramtype">struct timeval *&#160;</td>
+          <td class="paramname"><em>difference</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct timeval *&#160;</td>
+          <td class="paramname"><em>end_time</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct timeval *&#160;</td>
+          <td class="paramname"><em>start_time</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 20:17:54 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 21:31:09 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.5"/>
-<title>Pacman Level Editor: /home/bit/hostshare/COSC2451_A1_s3312399/src/pacman.c File Reference</title>
+<title>Pacman Level Editor: /home/bit/master/src/pacman.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -38,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -68,7 +69,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Pages</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -104,9 +105,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <code>#include &quot;<a class="el" href="command_8h_source.html">command.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="constant_8h_source.html">constant.h</a>&quot;</code><br/>
 <code>#include &quot;<a class="el" href="utility_8h_source.html">utility.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="new__game__read__file_8h_source.html">new_game_read_file.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="pacman__character_8h_source.html">pacman_character.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="ghost__character_8h_source.html">ghost_character.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="struct_8h_source.html">struct.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="hunter__ghost_8h_source.html">hunter_ghost.h</a>&quot;</code><br/>
+<code>#include &quot;<a class="el" href="high__score_8h_source.html">high_score.h</a>&quot;</code><br/>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:af49f4e81589322d943dce1a1461ce541"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#af49f4e81589322d943dce1a1461ce541">avoid_path</a> (int avoid_row_col[], struct <a class="el" href="structpacman__char.html">pacman_char</a> *my_pacman_char)</td></tr>
+<tr class="separator:af49f4e81589322d943dce1a1461ce541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf653acd0ec78b901bfd919d821afc9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#aaf653acd0ec78b901bfd919d821afc9c">ghost_path_1_reset</a> ()</td></tr>
+<tr class="separator:aaf653acd0ec78b901bfd919d821afc9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af20f6a1225bb8571df1e81d77cc2b937"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#af20f6a1225bb8571df1e81d77cc2b937">ghost_path_3_reset</a> ()</td></tr>
+<tr class="separator:af20f6a1225bb8571df1e81d77cc2b937"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afff2ca0373cc4a4d85a34c8e151fdc74"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#afff2ca0373cc4a4d85a34c8e151fdc74">random_path</a> (int <a class="el" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>, char <a class="el" href="structmap.html">map</a>[][<a class="el" href="pacman_8c.html#aaaf34cffec6928dcdd46898e5a413e15">map_col</a>+1], struct <a class="el" href="structpacman__char.html">pacman_char</a> *my_pacman_char, int random[])</td></tr>
+<tr class="separator:afff2ca0373cc4a4d85a34c8e151fdc74"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
 <tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -128,8 +143,8 @@ Variables</h2></td></tr>
 <tr class="separator:a06c2206a2e6ed014bb3205cf1b6bd0a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3b1fede7dc162f1d3a6e3efd28a1b87"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ac3b1fede7dc162f1d3a6e3efd28a1b87">user_email</a> [50] =&quot;&quot;</td></tr>
 <tr class="separator:ac3b1fede7dc162f1d3a6e3efd28a1b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a71c433bd5b5e4c3497f13ea76ee800e9"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a71c433bd5b5e4c3497f13ea76ee800e9">path</a> [100] = &quot;&quot;</td></tr>
-<tr class="separator:a71c433bd5b5e4c3497f13ea76ee800e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a447f5fb548a21bb30697981bede2c6bb"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a447f5fb548a21bb30697981bede2c6bb">file_path</a> [100] = &quot;&quot;</td></tr>
+<tr class="separator:a447f5fb548a21bb30697981bede2c6bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a16115f0b31db53bca020c0fe60b0633b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a16115f0b31db53bca020c0fe60b0633b">isEnter</a> =0</td></tr>
 <tr class="separator:a16115f0b31db53bca020c0fe60b0633b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3125f739f1d8f5bbe8c6f3a030b96c0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ad3125f739f1d8f5bbe8c6f3a030b96c0">author</a> [50] =&quot;&quot;</td></tr>
@@ -148,11 +163,97 @@ Variables</h2></td></tr>
 <tr class="separator:a40a956d9f4e3727d27255d78068654ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3efb0e1a16208deecbd84c15401f7cf8"><td class="memItemLeft" align="right" valign="top">FILE *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a3efb0e1a16208deecbd84c15401f7cf8">f</a></td></tr>
 <tr class="separator:a3efb0e1a16208deecbd84c15401f7cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96613d07df4205a377ad9cb38b3a9d27"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a96613d07df4205a377ad9cb38b3a9d27">option</a> = 1</td></tr>
+<tr class="separator:a96613d07df4205a377ad9cb38b3a9d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab322e2cb1518055a5f44a540d6a9eed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#aab322e2cb1518055a5f44a540d6a9eed">ghost_path_3</a> [35 *65] ={0}</td></tr>
+<tr class="separator:aab322e2cb1518055a5f44a540d6a9eed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac91f5db0ca5d0bb5d136e0d3e0c1e030"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ac91f5db0ca5d0bb5d136e0d3e0c1e030">ghost_path_2</a> [35 *65] ={0}</td></tr>
+<tr class="separator:ac91f5db0ca5d0bb5d136e0d3e0c1e030"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad249f9b95878aa7acdb42dc534a37456"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ad249f9b95878aa7acdb42dc534a37456">ghost_2_cycle</a> [] ={1,1,1,63,63,63,53,1}</td></tr>
+<tr class="separator:ad249f9b95878aa7acdb42dc534a37456"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52de73dee83a5f469722511e720c3c2d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a52de73dee83a5f469722511e720c3c2d">ghost_2_current_cycle</a> =0</td></tr>
+<tr class="separator:a52de73dee83a5f469722511e720c3c2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4aad42ede81aa1c0bc0b3b9078a9afb1"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a4aad42ede81aa1c0bc0b3b9078a9afb1">ghost_path_1</a> [35 *65] ={0}</td></tr>
+<tr class="separator:a4aad42ede81aa1c0bc0b3b9078a9afb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5677761147bba99196329cce0586254"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ae5677761147bba99196329cce0586254">move_count</a> =0</td></tr>
+<tr class="separator:ae5677761147bba99196329cce0586254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9e4496a0164d82fb61d88a4ce7563b"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#afa9e4496a0164d82fb61d88a4ce7563b">phase</a> [] =&quot;random&quot;</td></tr>
+<tr class="separator:afa9e4496a0164d82fb61d88a4ce7563b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a124dbc1ede8a17e563e2fdc73384ad74"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a124dbc1ede8a17e563e2fdc73384ad74">MAX_MOVE_RANDOM</a> =30</td></tr>
+<tr class="separator:a124dbc1ede8a17e563e2fdc73384ad74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb5d3df22a51e948cc7141a84304d75f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#acb5d3df22a51e948cc7141a84304d75f">MAX_MOVE_CHASE</a> =50</td></tr>
+<tr class="separator:acb5d3df22a51e948cc7141a84304d75f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf3a90a767bcfff19bdcbda822e6021e"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#adf3a90a767bcfff19bdcbda822e6021e">s</a> [100]</td></tr>
+<tr class="separator:adf3a90a767bcfff19bdcbda822e6021e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76f11d9a0a47b94f72c2d0e77fb32240"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a76f11d9a0a47b94f72c2d0e77fb32240">n</a></td></tr>
+<tr class="separator:a76f11d9a0a47b94f72c2d0e77fb32240"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff2bd3916b5cbd39d14383d90bf9f426"><td class="memItemLeft" align="right" valign="top">long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#aff2bd3916b5cbd39d14383d90bf9f426">dist</a> [(<a class="el" href="constant_8h.html#addffa3e327bacbc3da87278442b2b507">GAME_HEIGHT</a>+1)*(<a class="el" href="constant_8h.html#a693f306b88f7336281e4d1f07754579c">GAME_WIDTH</a>+1)][(<a class="el" href="constant_8h.html#addffa3e327bacbc3da87278442b2b507">GAME_HEIGHT</a>+1)*(<a class="el" href="constant_8h.html#a693f306b88f7336281e4d1f07754579c">GAME_WIDTH</a>+1)]</td></tr>
+<tr class="separator:aff2bd3916b5cbd39d14383d90bf9f426"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f81cf6024a78d1648d17590009dad83"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#a1f81cf6024a78d1648d17590009dad83">random_row_col</a> [2] ={0,0}</td></tr>
+<tr class="separator:a1f81cf6024a78d1648d17590009dad83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f7499c2a35eb6c078efd065b3f4697"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="pacman_8c.html#ae1f7499c2a35eb6c078efd065b3f4697">current_map</a> =0</td></tr>
+<tr class="separator:ae1f7499c2a35eb6c078efd065b3f4697"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>this file is used to run all the seperate modules of this program and handle vi-command style </p>
 <dl class="section author"><dt>Author</dt><dd>Tran Nhat Quang <a href="#" onclick="location.href='mai'+'lto:'+'s33'+'12'+'399'+'@r'+'mit'+'.e'+'du.'+'vn'; return false;">s3312<span style="display: none;">.nosp@m.</span>399@<span style="display: none;">.nosp@m.</span>rmit.<span style="display: none;">.nosp@m.</span>edu.<span style="display: none;">.nosp@m.</span>vn</a> </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a class="anchor" id="af49f4e81589322d943dce1a1461ce541"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void avoid_path </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>avoid_row_col</em>[], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structpacman__char.html">pacman_char</a> *&#160;</td>
+          <td class="paramname"><em>my_pacman_char</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aaf653acd0ec78b901bfd919d821afc9c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost_path_1_reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="af20f6a1225bb8571df1e81d77cc2b937"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ghost_path_3_reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a0ddf1224851353fc92bfbff6f499fa97"></a>
 <div class="memitem">
 <div class="memproto">
@@ -168,6 +269,44 @@ Variables</h2></td></tr>
           <td></td>
           <td class="paramtype">char *&#160;</td>
           <td class="paramname"><em>argv</em>[]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afff2ca0373cc4a4d85a34c8e151fdc74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void random_path </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>map_col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>map</em>[][map_col+1], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">struct <a class="el" href="structpacman__char.html">pacman_char</a> *&#160;</td>
+          <td class="paramname"><em>my_pacman_char</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>random</em>[]&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -216,6 +355,30 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="ae1f7499c2a35eb6c078efd065b3f4697"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int current_map =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aff2bd3916b5cbd39d14383d90bf9f426"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">long dist[(<a class="el" href="constant_8h.html#addffa3e327bacbc3da87278442b2b507">GAME_HEIGHT</a>+1)*(<a class="el" href="constant_8h.html#a693f306b88f7336281e4d1f07754579c">GAME_WIDTH</a>+1)][(<a class="el" href="constant_8h.html#addffa3e327bacbc3da87278442b2b507">GAME_HEIGHT</a>+1)*(<a class="el" href="constant_8h.html#a693f306b88f7336281e4d1f07754579c">GAME_WIDTH</a>+1)]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a3efb0e1a16208deecbd84c15401f7cf8"></a>
 <div class="memitem">
 <div class="memproto">
@@ -228,12 +391,84 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="a447f5fb548a21bb30697981bede2c6bb"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char file_path[100] = &quot;&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="ab7e8df5037eda813f482880cd772e95f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">WINDOW game_window</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a52de73dee83a5f469722511e720c3c2d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ghost_2_current_cycle =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ad249f9b95878aa7acdb42dc534a37456"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ghost_2_cycle[] ={1,1,1,63,63,63,53,1}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a4aad42ede81aa1c0bc0b3b9078a9afb1"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ghost_path_1[35 *65] ={0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ac91f5db0ca5d0bb5d136e0d3e0c1e030"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ghost_path_2[35 *65] ={0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="aab322e2cb1518055a5f44a540d6a9eed"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int ghost_path_3[35 *65] ={0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -288,6 +523,54 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a class="anchor" id="acb5d3df22a51e948cc7141a84304d75f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MAX_MOVE_CHASE =50</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a124dbc1ede8a17e563e2fdc73384ad74"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int MAX_MOVE_RANDOM =30</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="ae5677761147bba99196329cce0586254"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int move_count =0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a76f11d9a0a47b94f72c2d0e77fb32240"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int n</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a2521ae18240b16320b0957a9425fd835"></a>
 <div class="memitem">
 <div class="memproto">
@@ -300,12 +583,48 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a71c433bd5b5e4c3497f13ea76ee800e9"></a>
+<a class="anchor" id="a96613d07df4205a377ad9cb38b3a9d27"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char path[100] = &quot;&quot;</td>
+          <td class="memname">int option = 1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="afa9e4496a0164d82fb61d88a4ce7563b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char phase[] =&quot;random&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a1f81cf6024a78d1648d17590009dad83"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int random_row_col[2] ={0,0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="adf3a90a767bcfff19bdcbda822e6021e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char s[100]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -399,7 +718,7 @@ Variables</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Apr 6 2014 20:17:54 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 21:31:09 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>
