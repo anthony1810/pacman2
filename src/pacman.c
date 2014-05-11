@@ -287,7 +287,9 @@ int main(int argc, char * argv[]){
 			    gettimeofday(&ghost_3_delay_start,NULL);
 			    char ch2=0;
 			    while((ch2 = getch()) != 'q' && my_pacman_char->live!=0){ 	
-			    	
+			    	if(my_map->remain_pellet==0){
+			    		break;
+			    	}
 			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
 			    	
 			    	//reset after dead 
@@ -438,7 +440,7 @@ int main(int argc, char * argv[]){
 							ghost_move(2,ghost_path_2,translate_row_col,map_row,map_col,map,my_ghost_char,&game_window,&user_window);
 				        }
 			        	wrefresh(&game_window);
-			        	// start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, option);
+			        	start_stats(&user_window,user, user_email, my_pacman_char->score, my_pacman_char->live, option);
 					}
 					//ghost [1]
 					if(timeval_diff(NULL,&ghost_1_delay_end,&ghost_1_delay_start)>=(DELAY*my_ghost_char[1].speed_multiplier)){
