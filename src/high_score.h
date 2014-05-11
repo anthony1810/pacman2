@@ -3,7 +3,9 @@
 
 #include "utility.h"
 #include "constant.h"
-
+/*! @file high_score.h 
+    @brief this is the header file of \ref high_score.c.
+*/
 
 struct Node {
 	char user_email[100];
