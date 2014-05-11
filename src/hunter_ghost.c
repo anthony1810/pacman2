@@ -138,7 +138,7 @@ bool is_pacman_near(struct ghost_char_2 *my_ghost_char, struct pacman_char *my_p
 
 }
 
-void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_Struct *my_item_struct, int des_x, int des_y){
+void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct pacman_char *my_pacman_char,struct Item_Struct *my_item_struct, int des_x, int des_y){
 
 	my_ghost_char->ghost_col+=des_x;
 	my_ghost_char->ghost_row+=des_y;
@@ -150,7 +150,11 @@ void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_
 
 	int characters = (int)mvwinch(game_window, my_item_struct->y_pos, my_item_struct->x_pos);
 
-	my_item_struct->value = characters;
+	if(my_item_struct->x_pos == my_pacman_char->pac_row && my_item_struct->y_pos == my_pacman_char->pac_col){
+		my_item_struct->value = ' ';
+	}else{
+		my_item_struct->value = characters;
+	}
 	wattron(game_window,COLOR_PAIR(5));
 	mvwaddch(game_window, my_ghost_char->ghost_row, my_ghost_char->ghost_col, ACS_CKBOARD);
 	wattroff(game_window,COLOR_PAIR(5));
@@ -309,7 +313,7 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 	if(pac_x > ghost_x){
 			ghost_x++;
 			if(is_wall_ahead(game_window, title, ghost_y, ghost_x)==0){
-				movexy(game_window, my_ghost_char,my_item_struct, 1, 0);
+				movexy(game_window, my_ghost_char,my_pacman_char,my_item_struct, 1, 0);
 			}else{
 				ghost_x--;
 			}
@@ -321,7 +325,7 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 	if(pac_x < ghost_x){
 			ghost_x--;
 			if(is_wall_ahead(game_window,title,  ghost_y, ghost_x)==0){
-				movexy(game_window, my_ghost_char,my_item_struct, -1, 0);
+				movexy(game_window, my_ghost_char,my_pacman_char,my_item_struct, -1, 0);
 			}else{
 				ghost_x++;
 			}	
@@ -332,7 +336,7 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 		if(pac_y < ghost_y){
 				ghost_y--;
 				if(is_wall_ahead(game_window, title, ghost_y, ghost_x)==0){
-					movexy(game_window, my_ghost_char,my_item_struct, 0, -1);
+					movexy(game_window, my_ghost_char,my_pacman_char,my_item_struct, 0, -1);
 				}else{
 					ghost_y++;
 				}		
@@ -342,7 +346,7 @@ void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_gh
 		if(pac_y > ghost_y){
 				ghost_y++;
 				if(is_wall_ahead(game_window,title,  ghost_y, ghost_x)==0){
-					movexy(game_window, my_ghost_char,my_item_struct, 0, 1);
+					movexy(game_window, my_ghost_char,my_pacman_char,my_item_struct, 0, 1);
 				}else{
 					ghost_y--;
 				}		

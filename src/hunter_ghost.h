@@ -38,7 +38,7 @@ struct Item_Struct *new_right_struct);
 int is_wall_ahead(WINDOW *game_window, WINDOW *title, int x_pos, int y_pos);
 WINDOW *create_newwin(int height, int width, int starty, int startx);
 bool is_pacman_near(struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char);
-void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct Item_Struct *my_item_struct, int des_x, int des_y);
+void movexy(WINDOW *game_window, struct ghost_char_2 *my_ghost_char,struct pacman_char *my_pacman_char,struct Item_Struct *my_item_struct, int des_x, int des_y);
 void chase_pacman(WINDOW *game_window, WINDOW *title, struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char,struct Item_Struct *my_item_struct);
 void hunter_defend(WINDOW *game_window, struct ghost_char_2 *my_ghost_char, struct pacman_char *my_pacman_char);
 void restore_after_defend(WINDOW *game_window,WINDOW *info);

@@ -288,7 +288,9 @@ int main(int argc, char * argv[]){
 			    	int field_status_code=pacman_dead(my_pacman_char,my_ghost_char);
 			    	
 			    	//reset after dead 
-			    	if(field_status_code==4){
+			    	if(field_status_code==4 || 
+			    		(my_ghost_char_2->ghost_col == my_pacman_char->pac_col && my_ghost_char_2->ghost_row==my_pacman_char->pac_row && my_pacman_char->pac_state == VULRABLE)){
+						
 						my_pacman_char->live--;
 						map[my_pacman_char->pac_row][my_pacman_char->pac_col]=' ';
 						map[my_pacman_char->initial_pac_row][my_pacman_char->initial_pac_col]='P';
@@ -300,6 +302,7 @@ int main(int argc, char * argv[]){
 							my_ghost_char[i].ghost_row=my_ghost_char[i].initial_ghost_row;
 							my_ghost_char[i].ghost_col=my_ghost_char[i].initial_ghost_col;
 						}
+						set_isFirstTime();
 						my_ghost_char_2->ghost_row=my_ghost_char[0].ghost_row;
 						my_ghost_char_2->ghost_col=my_ghost_char[0].ghost_col;
 						my_pacman_char->current_direction=0;
@@ -334,16 +337,13 @@ int main(int argc, char * argv[]){
 						my_ghost_char[field_status_code].ghost_col=my_ghost_char[field_status_code].initial_ghost_col;
 						
 			    	}
-			    	// wclear(&title_window);
-			    	// wprintw(&title_window, "%i", getHunterCollision());
-			    	// wrefresh(&title_window);
+
 			    	if(my_ghost_char_2->ghost_col == my_pacman_char->pac_col && my_ghost_char_2->ghost_row==my_pacman_char->pac_row && my_pacman_char->pac_state == INVULRABLE){
 			    		hunter_reset_colision();
 			    		set_isFirstTime();
 			    		my_ghost_char_2->ghost_col = my_ghost_char[0].initial_ghost_col;
 			    		my_ghost_char_2->ghost_row = my_ghost_char[0].initial_ghost_row;
 			    		mvwaddch(&game_window,my_ghost_char_2->ghost_row, my_ghost_char_2->ghost_col, ACS_CKBOARD );
-			    		
 			    		wrefresh(&game_window);
 			    	}
 					// w
