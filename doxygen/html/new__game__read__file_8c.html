@@ -90,6 +90,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">new_game_read_file.c File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>this file provide functions to handle read, show and update screen  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br/>
 <code>#include &lt;curses.h&gt;</code><br/>
 <code>#include &lt;signal.h&gt;</code><br/>
@@ -102,12 +105,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3871fef9713054041ab86659dd0f89ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new__game__read__file_8c.html#a3871fef9713054041ab86659dd0f89ed">new_game_read_file</a> (WINDOW *map_win, int row, int col, char <a class="el" href="structmap.html">map</a>[row][col], char <a class="el" href="pacman_8c.html#adf3a90a767bcfff19bdcbda822e6021e">s</a>[], char file_name[], struct <a class="el" href="structpacman__char.html">pacman_char</a> *my_pacman_char, struct <a class="el" href="structghost__char.html">ghost_char</a> *my_ghost_char, struct <a class="el" href="structmap.html">map</a> *my_map)</td></tr>
-<tr class="memdesc:a3871fef9713054041ab86659dd0f89ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">readFile,get_author_name_and_email function will be called within.  <a href="#a3871fef9713054041ab86659dd0f89ed">More...</a><br/></td></tr>
+<tr class="memdesc:a3871fef9713054041ab86659dd0f89ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">read the file and print it on screen, this is basically same as <a class="el" href="read__file_8c.html" title="this file provide functions to handle reading from text file, modifying read text ...">read_file.c</a> but it take more parameters  <a href="#a3871fef9713054041ab86659dd0f89ed">More...</a><br/></td></tr>
 <tr class="separator:a3871fef9713054041ab86659dd0f89ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3108a8a775a9ced4e89c9094f0f64ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="new__game__read__file_8c.html#ad3108a8a775a9ced4e89c9094f0f64ed">new_game_update_map</a> (WINDOW *map_win, int row, int col, char <a class="el" href="structmap.html">map</a>[row][col])</td></tr>
+<tr class="memdesc:ad3108a8a775a9ced4e89c9094f0f64ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">re-paint the screen if the map array is updated  <a href="#ad3108a8a775a9ced4e89c9094f0f64ed">More...</a><br/></td></tr>
 <tr class="separator:ad3108a8a775a9ced4e89c9094f0f64ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>this file provide functions to handle read, show and update screen </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a class="anchor" id="a3871fef9713054041ab86659dd0f89ed"></a>
 <div class="memitem">
 <div class="memproto">
@@ -174,7 +180,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>readFile,get_author_name_and_email function will be called within. </p>
+<p>read the file and print it on screen, this is basically same as <a class="el" href="read__file_8c.html" title="this file provide functions to handle reading from text file, modifying read text ...">read_file.c</a> but it take more parameters </p>
 
 </div>
 </div>
@@ -214,12 +220,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>re-paint the screen if the map array is updated </p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 11 2014 21:31:09 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun May 11 2014 23:50:12 for Pacman Level Editor by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.5
 </small></address>

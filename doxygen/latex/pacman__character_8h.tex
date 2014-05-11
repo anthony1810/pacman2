@@ -16,7 +16,7 @@ void \hyperlink{pacman__character_8h_ae90bb1f97b5c71287b059b28e7406c93}{pacman\-
 int \hyperlink{pacman__character_8h_a5c9efe28fc86b449cc397fc4c3e461b6}{get\-\_\-score} (int row, int col, int \hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}, char \hyperlink{structmap}{map}\mbox{[}$\,$\mbox{]}\mbox{[}\hyperlink{pacman_8c_aaaf34cffec6928dcdd46898e5a413e15}{map\-\_\-col}\mbox{]}, struct \hyperlink{structmap}{map} $\ast$my\-\_\-map, int is\-\_\-invul)
 \begin{DoxyCompactList}\small\item\em check wall and return the score as the same time \end{DoxyCompactList}\item 
 int \hyperlink{pacman__character_8h_a56e31adc21d26e7af57794a837059501}{pacman\-\_\-dead} (struct \hyperlink{structpacman__char}{pacman\-\_\-char} $\ast$my\-\_\-pacman\-\_\-char, struct \hyperlink{structghost__char}{ghost\-\_\-char} $\ast$my\-\_\-ghost\-\_\-char)
-\begin{DoxyCompactList}\small\item\em check the ghost eat pacman by comparing the position of ghost and pacman and pacman status /return int 4 if pacman dead, 0,1,2,3 correspoding to ghost dead, 5 if nothing \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em check the ghost eat pacman by comparing the position of ghost and pacman and pacman status \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -71,5 +71,8 @@ moving pacman 4 direction and update score, invulrable duration
 )}}\label{pacman__character_8h_a56e31adc21d26e7af57794a837059501}
 
 
-check the ghost eat pacman by comparing the position of ghost and pacman and pacman status /return int 4 if pacman dead, 0,1,2,3 correspoding to ghost dead, 5 if nothing 
+check the ghost eat pacman by comparing the position of ghost and pacman and pacman status 
 
+\begin{DoxyReturn}{Returns}
+4 if pacman dead, 0,1,2,3 correspoding to ghost dead, 5 if nothing 
+\end{DoxyReturn}

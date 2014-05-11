@@ -6,6 +6,9 @@
 #include <assert.h>
 #include <string.h>
 #include "high_score.h"
+/*! @file high_score.c 
+    @brief this file provide functions to handle saving and display high score, as well as the difficulty option
+*/
 
 int y_cur = 12;
 int x_cur = 23;
