@@ -45,8 +45,8 @@ void hunter_reset_colision(){
 	}
 }
 
-void hunter_setDirection(enum Hunter_Directions first_direction){
-	hunter_directions = first_direction;
+void hunter_setDirection(enum Hunter_Directions new_direction){
+	hunter_directions = new_direction;
 }
 
 void hunter_setItemStruct(struct Item_Struct *item){
